@@ -1,0 +1,115 @@
+@theme {
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Colors                                  https://tailwindcss.com/docs/colors
+  |-----------------------------------------------------------------------------
+  */
+
+  /* Remove default Tailwind colors */
+  --color-*: initial;
+
+  /* Black */
+  --color-black-primary: #3d3d3b;
+  --color-black-secondary: #575754;
+  --color-black-tertiary: #70706d;
+  --color-black-quaternary: #d6d6cf;
+  --color-black-quinternary: #bdbdb7;
+  --color-black-sexternary: #a3a39e;
+
+  /* White */
+  --color-white-primary: #ffffff;
+  --color-white-secondary: #fefefe;
+  --color-white-tertiary: #fafaf8;
+  --color-white-quaternary: #f0f0e8;
+  --color-white-quinternary: #f0f0e8;
+
+  /* Yellow */
+  --color-yellow-primary: #e8dd79;
+  --color-yellow-secondary: #fcf39d;
+  --color-yellow-tertiary: #fcf8cf;
+  --color-yellow-quaternary: #827c44;
+
+  /* Pink */
+  --color-pink-primary: #f96e99;
+  --color-pink-secondary: #fca2be;
+  --color-pink-tertiary: #fcd4e1;
+  --color-pink-quaternary: #94415b;
+
+  /* Green */
+  --color-green-primary: #28be7f;
+  --color-green-secondary: #8ce5c0;
+  --color-green-tertiary: #c4f2df;
+  --color-green-quaternary: #13593c;
+
+  /* Orange */
+  --color-orange-primary: #ff9880;
+  --color-orange-secondary: #ffc1b2;
+  --color-orange-tertiary: #ffe0d9;
+  --color-orange-quaternary: #804c40;
+
+  /* Violet */
+  --color-violet-primary: #9d76e5;
+  --color-violet-secondary: #c6aef2;
+  --color-violet-tertiary: #e4d7fc;
+  --color-violet-quaternary: #9d76e5;
+
+  /* Success */
+  --color-success-primary: #22c55e;
+  --color-success-secondary: #f0fdf4;
+  --color-success-tertiary: #86efac;
+  --color-success-quaternary: #15803d;
+  --color-success-quinternary: #166534;
+  --color-success-sexternary: #052e16;
+
+  /* Warning */
+  --color-warning-primary: #f59e0b;
+  --color-warning-secondary: #fff8eb;
+  --color-warning-tertiary: #fcd34d;
+  --color-warning-quaternary: #b45309;
+  --color-warning-quinternary: #92400e;
+  --color-warning-sexternary: #451a03;
+
+  /* Error */
+  --color-error-primary: #ef4444;
+  --color-error-secondary: #fef2f2;
+  --color-error-tertiary: #fca5a5;
+  --color-error-quaternary: #dc2626;
+  --color-error-quinternary: #b91c1c;
+  --color-error-sexternary: #450a0a;
+
+  /* Message */
+  --color-message-primary: #3b82f6;
+  --color-message-secondary: #eff6ff;
+  --color-message-tertiary: #93c5fd;
+  --color-message-quaternary: #1d4ed8;
+  --color-message-quinternary: #1e40af;
+  --color-message-sexternary: #172554;
+
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Font                                 https://tailwindcss.com/docs/font-size
+  |-----------------------------------------------------------------------------
+  */
+
+  --text-xs: 0.75rem; /* 12px */
+  --text-xs--line-height: 1rem; /* 16px */
+
+  --text-sm: 0.875rem; /* 14px */
+  --text-sm--line-height: 1.25rem; /* 20px */
+
+  --text-base: 1rem; /* 16px */
+  --text-base--line-height: 1.5rem; /* 24px */
+
+  --text-lg: 1.125rem; /* 18px */
+  --text-lg--line-height: 1.75rem; /* 28px */
+
+  --text-xl: 1.25rem; /* 20px */
+  --text-xl--line-height: 1.75rem; /* 28px */
+
+  --text-2xl: 1.5rem; /* 24px */
+  --text-2xl--line-height: 2rem; /* 32px */
+
+}
