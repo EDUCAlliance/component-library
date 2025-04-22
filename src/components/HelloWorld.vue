@@ -4,4 +4,7 @@ defineProps<{
 }>()
 </script>
 
-<template><p class="text-3xl text-yellow-primary">test</p></template>
+<template>
+  <p class="text-3xl text-yellow-primary">test</p>
+  <Button />
+</template>

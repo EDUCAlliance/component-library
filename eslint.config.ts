@@ -18,9 +18,14 @@ export default defineConfigWithVueTs(
 
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
 
-  pluginVue.configs['flat/essential'],
+  ...pluginVue.configs['flat/essential'],
+  {
+    rules: {
+      'vue/multi-word-component-names': 'off',
+    },
+  },
   vueTsConfigs.recommended,
-  
+
   {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],

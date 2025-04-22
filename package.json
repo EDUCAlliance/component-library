@@ -20,7 +20,8 @@
   "dependencies": {
     "@storybook/manager-api": "^8.6.12",
     "@storybook/theming": "^8.6.12",
-    "@tailwindcss/vite": "^4.1.4",
+    "@tailwindcss/postcss": "^4.1.4",
+    "postcss": "^8.5.3",
     "tailwindcss": "^4.1.4",
     "vue": "^3.5.13"
   },
