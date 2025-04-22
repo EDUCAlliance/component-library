@@ -1,22 +1,21 @@
 import { expect, userEvent, within } from "@storybook/test"
 import type { Meta, StoryObj } from "@storybook/vue3"
 
-import PrimaryButton from "./PrimaryButton.vue"
-import { PlusIcon } from "lucide-vue-next"
+import SoftButton from "./SoftButton.vue"
 
 /**
- * Primary button used for main actions on a webpage.
+ * Soft button used in cards and other colored elements.
  */
 const meta = {
-  title: "Elements/Buttons/Primary",
-  component: PrimaryButton,
+  title: "Elements/Buttons/Soft",
+  component: SoftButton,
   render: (args) => ({
-    components: { PrimaryButton },
+    components: { SoftButton },
     setup() {
       return { args }
     },
     // The magic: drop the slot arg straight into the component
-    template: `<primary-button v-bind="args" >{{ args.default }}</Button>`,
+    template: `<soft-button v-bind="args" >{{ args.default }}</Button>`,
   }),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
@@ -29,20 +28,71 @@ const meta = {
       options: ["xs", "sm", "base", "lg", "icon"],
       description: "The size of the button.",
     },
-    icon: { control: "boolean", description: "Whether the button is an icon button." },
     disabled: { control: "boolean", description: "Whether the button is disabled." },
+    color: {
+      control: "select",
+      options: ["yellow", "pink", "green", "orange", "violet"],
+      description: "The color of the button.",
+    },
   },
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-} satisfies Meta<typeof PrimaryButton>
+} satisfies Meta<typeof SoftButton>
 
 export default meta
 type Story = StoryObj<typeof meta>
+
+export const Yellow: Story = {
+  args: {
+    size: "base",
+    default: "Click me",
+    disabled: false,
+    color: "yellow",
+  },
+}
+
+export const Pink: Story = {
+  args: {
+    size: "base",
+    default: "Click me",
+    disabled: false,
+    color: "pink",
+  },
+}
+
+export const Green: Story = {
+  args: {
+    size: "base",
+    default: "Click me",
+    disabled: false,
+    color: "green",
+  },
+}
+
+export const Orange: Story = {
+  args: {
+    size: "base",
+    default: "Click me",
+    disabled: false,
+    color: "orange",
+  },
+}
+
+export const Violet: Story = {
+  args: {
+    size: "base",
+    default: "Click me",
+    disabled: false,
+    color: "violet",
+  },
+}
 
 export const Large: Story = {
   args: {
     size: "lg",
     default: "Click me",
+    disabled: false,
+    color: "yellow",
   },
 }
 
@@ -51,6 +101,7 @@ export const Base: Story = {
     size: "base",
     default: "Click me",
     disabled: false,
+    color: "yellow",
   },
 }
 
@@ -58,6 +109,8 @@ export const Small: Story = {
   args: {
     size: "sm",
     default: "Click me",
+    disabled: false,
+    color: "yellow",
   },
 }
 
@@ -65,13 +118,7 @@ export const ExtraSmall: Story = {
   args: {
     size: "xs",
     default: "Click me",
-  },
-}
-
-export const Icon: Story = {
-  args: {
-    size: "base",
-    default: "+",
-    icon: true,
+    disabled: false,
+    color: "yellow",
   },
 }

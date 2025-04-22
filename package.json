@@ -22,6 +22,7 @@
     "@storybook/manager-api": "^8.6.12",
     "@storybook/theming": "^8.6.12",
     "@tailwindcss/postcss": "^4.1.4",
+    "lucide-vue-next": "^0.503.0",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.4",
     "vue": "^3.5.13"
