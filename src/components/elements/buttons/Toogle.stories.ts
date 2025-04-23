@@ -33,9 +33,56 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+export const Yellow: Story = {
+  args: {
+    size: "base",
+    color: "yellow",
+    disabled: false,
+  },
+}
+
+export const Pink: Story = {
+  args: {
+    size: "base",
+    color: "pink",
+    disabled: false,
+  },
+}
+
+export const Green: Story = {
+  args: {
+    size: "base",
+    color: "green",
+    disabled: false,
+  },
+}
+
+export const Orange: Story = {
+  args: {
+    size: "base",
+    color: "orange",
+    disabled: false,
+  },
+}
+
+export const Violet: Story = {
+  args: {
+    size: "base",
+    color: "violet",
+    disabled: false,
+  },
+}
+
 export const Base: Story = {
   args: {
     size: "base",
+    disabled: false,
+  },
+}
+
+export const Small: Story = {
+  args: {
+    size: "sm",
     disabled: false,
   },
 }
