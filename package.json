@@ -19,6 +19,7 @@
     "chromatic": "npx chromatic --project-token=chpt_98543f86e90ae11"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.23",
     "@storybook/manager-api": "^8.6.12",
     "@storybook/theming": "^8.6.12",
     "@tailwindcss/postcss": "^4.1.4",

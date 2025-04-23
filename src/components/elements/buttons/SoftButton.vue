@@ -29,9 +29,9 @@ const classes = computed(() => ({
 
   "disabled:bg-yellow-quinternary dark:bg-yellow-quaternary bg-yellow-primary text-black-primary":
     props.color === "yellow",
-  "disabled:bg-pink-quinternary bg-pink-primary text-white-primary": props.color === "pink",
-  "disabled:bg-green-quinternary bg-green-primary text-white-primary": props.color === "green",
-  "disabled:bg-orange-quinternary bg-orange-primary text-black-primary": props.color === "orange",
-  "disabled:bg-violet-quinternary bg-violet-primary text-white-primary": props.color === "violet",
+  "disabled:bg-pink-tertiary bg-pink-primary text-white-primary": props.color === "pink",
+  "disabled:bg-green-tertiary bg-green-primary text-white-primary": props.color === "green",
+  "disabled:bg-orange-tertiary bg-orange-primary text-black-primary": props.color === "orange",
+  "disabled:bg-violet-tertiary bg-violet-primary text-white-primary": props.color === "violet",
 }))
 </script>
