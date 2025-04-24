@@ -14,11 +14,9 @@ const meta = {
     setup() {
       return { args }
     },
-    // The magic: drop the slot arg straight into the component
     template: `<soft-button v-bind="args" >{{ args.default }}</soft-button>`,
   }),
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
   argTypes: {
@@ -35,7 +33,6 @@ const meta = {
       description: "The color of the button.",
     },
   },
-  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
 } satisfies Meta<typeof SoftButton>
 

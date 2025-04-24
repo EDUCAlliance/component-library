@@ -10,7 +10,6 @@ const meta = {
   title: "Elements/Buttons/Toggle",
   component: Toggle,
   parameters: {
-    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
   argTypes: {
@@ -26,7 +25,6 @@ const meta = {
     },
     disabled: { control: "boolean", description: "Whether the button is disabled." },
   },
-  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
 } satisfies Meta<typeof Toggle>
 
