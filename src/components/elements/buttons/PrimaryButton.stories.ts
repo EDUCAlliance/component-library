@@ -16,7 +16,7 @@ const meta = {
       return { args }
     },
     // The magic: drop the slot arg straight into the component
-    template: `<primary-button v-bind="args" >{{ args.default }}</Button>`,
+    template: `<primary-button v-bind="args" >{{ args.default }}</primary-button>`,
   }),
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
