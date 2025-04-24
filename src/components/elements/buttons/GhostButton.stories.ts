@@ -1,20 +1,17 @@
 import { expect, userEvent, within } from "@storybook/test"
 import type { Meta, StoryObj } from "@storybook/vue3"
 
-import SecondaryButton from "./SecondaryButton.vue"
+import GhostButton from "./GhostButton.vue"
 
-/**
- * Secondary button used for secondary actions (deletion, canceling an action) on a webpage.
- */
 const meta = {
-  title: "Elements/Buttons/Secondary",
-  component: SecondaryButton,
+  title: "Elements/Buttons/GhostButton",
+  component: GhostButton,
   render: (args) => ({
-    components: { SecondaryButton },
+    components: { GhostButton },
     setup() {
       return { args }
     },
-    template: `<secondary-button v-bind="args" >{{ args.default }}</secondary-button>`,
+    template: `<ghost-button v-bind="args" >{{ args.default }}</ghost-button>`,
   }),
   parameters: {
     layout: "centered",
@@ -29,7 +26,7 @@ const meta = {
     disabled: { control: "boolean", description: "Whether the button is disabled." },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof SecondaryButton>
+} satisfies Meta<typeof GhostButton>
 
 export default meta
 type Story = StoryObj<typeof meta>

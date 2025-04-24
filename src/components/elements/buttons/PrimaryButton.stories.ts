@@ -26,7 +26,7 @@ const meta = {
     default: { control: "text", description: "A slot for button children." },
     size: {
       control: "select",
-      options: ["xs", "sm", "base", "lg", "icon"],
+      options: ["xs", "sm", "base", "lg", "circle"],
       description: "The size of the button.",
     },
     icon: { control: "boolean", description: "Whether the button is an icon button." },
