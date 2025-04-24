@@ -12,21 +12,19 @@ jobs:
     steps:
       # Checkout the repository
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Set up Node.js environment
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: "22" # Specify the Node.js version
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
 
       # Install dependencies
       - name: Install dependencies
-        run: npm install --force
+        run: bun install
 
       # Build Storybook
       - name: Build Storybook
-        run: npm run build-storybook # Make sure you have the script in your package.json
+        run: bun run build-storybook # Make sure you have the script in your package.json
 
       # Deploy to GitHub Pages
       - name: Deploy Storybook to GitHub Pages
