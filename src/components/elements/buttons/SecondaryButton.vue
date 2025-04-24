@@ -17,7 +17,7 @@ const props = withDefaults(
 )
 
 const classes = computed(() => ({
-  "bg-white-tertiary text-black-primary disabled:text-black-quinternary border border-black-primary disabled:border-black-quinternary disabled:cursor-not-allowed hover:rounded-none disabled:hover:rounded-full duration-300 ease-in-out flex items-center gap-3":
+  "bg-white-tertiary text-black-primary disabled:text-black-quinternary border border-black-primary disabled:border-black-quinternary disabled:cursor-not-allowed hover:rounded-none disabled:hover:rounded-full duration-300 ease-in-out flex items-center gap-3  focus:ring-2 focus:ring-offset-2 focus:outline-hidden focus:ring-black-secondary transition-[border-radius]":
     true,
   "text-xs rounded-[12px] [&>svg]:size-3 h-6 px-3 py-1": props.size === "xs",
   "text-sm rounded-[18px] [&>svg]:size-4 h-9 px-4 py-2": props.size === "sm",
