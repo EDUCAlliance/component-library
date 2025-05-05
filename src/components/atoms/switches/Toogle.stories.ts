@@ -7,7 +7,7 @@ import Toggle from "./Toggle.vue"
  * Primary button used for main actions on a webpage.
  */
 const meta = {
-  title: "Elements/Switches/Toggle",
+  title: "Atoms/Switches/Toggle",
   component: Toggle,
   parameters: {
     layout: "centered",
@@ -23,7 +23,7 @@ const meta = {
       options: ["black", "yellow", "pink", "green", "orange", "violet"],
       description: "The color of the button.",
     },
-    disabled: { control: "boolean", description: "Whether the button is disabled." },
+    disabled: { control: "boolean", description: "Whether the toggle is disabled." },
   },
   tags: ["autodocs"],
 } satisfies Meta<typeof Toggle>
@@ -82,5 +82,11 @@ export const Small: Story = {
   args: {
     size: "sm",
     disabled: false,
+  },
+}
+
+export const WithIcons: Story = {
+  args: {
+    withIcons: true,
   },
 }

@@ -1,22 +1,25 @@
 import { expect, userEvent, within } from "@storybook/test"
 import type { Meta, StoryObj } from "@storybook/vue3"
 
-import SecondaryButton from "./SecondaryButton.vue"
+import PrimaryButton from "./PrimaryButton.vue"
+import { PlusIcon } from "lucide-vue-next"
 
 /**
- * Secondary button used for secondary actions (deletion, canceling an action) on a webpage.
+ * Primary button used for main actions on a webpage.
  */
 const meta = {
-  title: "Elements/Buttons/Secondary",
-  component: SecondaryButton,
+  title: "Atoms/Buttons/Primary",
+  component: PrimaryButton,
   render: (args) => ({
-    components: { SecondaryButton },
+    components: { PrimaryButton },
     setup() {
       return { args }
     },
-    template: `<secondary-button v-bind="args" >{{ args.default }}</secondary-button>`,
+    // The magic: drop the slot arg straight into the component
+    template: `<primary-button v-bind="args" >{{ args.default }}</primary-button>`,
   }),
   parameters: {
+    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
   },
   argTypes: {
@@ -26,10 +29,12 @@ const meta = {
       options: ["xs", "sm", "base", "lg", "circle"],
       description: "The size of the button.",
     },
+    icon: { control: "boolean", description: "Whether the button is an icon button." },
     disabled: { control: "boolean", description: "Whether the button is disabled." },
   },
+  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],
-} satisfies Meta<typeof SecondaryButton>
+} satisfies Meta<typeof PrimaryButton>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -38,7 +43,6 @@ export const Large: Story = {
   args: {
     size: "lg",
     default: "Click me",
-    disabled: false,
   },
 }
 
@@ -54,7 +58,6 @@ export const Small: Story = {
   args: {
     size: "sm",
     default: "Click me",
-    disabled: false,
   },
 }
 
@@ -62,6 +65,13 @@ export const ExtraSmall: Story = {
   args: {
     size: "xs",
     default: "Click me",
-    disabled: false,
+  },
+}
+
+export const Icon: Story = {
+  args: {
+    size: "base",
+    default: "+",
+    icon: true,
   },
 }

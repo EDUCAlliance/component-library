@@ -1,17 +1,17 @@
 import { expect, userEvent, within } from "@storybook/test"
 import type { Meta, StoryObj } from "@storybook/vue3"
 
-import GhostButton from "./GhostButton.vue"
+import LinkButton from "./LinkButton.vue"
 
 const meta = {
-  title: "Elements/Buttons/GhostButton",
-  component: GhostButton,
+  title: "Atoms/Buttons/LinkButton",
+  component: LinkButton,
   render: (args) => ({
-    components: { GhostButton },
+    components: { LinkButton },
     setup() {
       return { args }
     },
-    template: `<ghost-button v-bind="args" >{{ args.default }}</ghost-button>`,
+    template: `<link-button v-bind="args" >{{ args.default }}</link-button>`,
   }),
   parameters: {
     layout: "centered",
@@ -26,7 +26,7 @@ const meta = {
     disabled: { control: "boolean", description: "Whether the button is disabled." },
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof GhostButton>
+} satisfies Meta<typeof LinkButton>
 
 export default meta
 type Story = StoryObj<typeof meta>

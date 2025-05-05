@@ -7,7 +7,7 @@ import SoftButton from "./SoftButton.vue"
  * Soft button used in cards and other colored elements.
  */
 const meta = {
-  title: "Elements/Buttons/Soft",
+  title: "Atoms/Buttons/Soft",
   component: SoftButton,
   render: (args) => ({
     components: { SoftButton },
