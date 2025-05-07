@@ -6,10 +6,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-import { computed } from "vue"
-
-const containerClasses = computed(() => ({
-  "flex gap-0 flex-wrap": true,
-}))
-</script>
+<script setup lang="ts"></script>

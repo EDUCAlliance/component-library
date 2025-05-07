@@ -16,6 +16,7 @@
   </div>
 </template>
 
+// TODO: Fix value and onChange
 <script setup lang="ts">
 import { CheckIcon, MinusIcon } from "lucide-vue-next"
 import { computed } from "vue"
