@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-wrap gap-0 [&>*:first-child]:-mr-px [&>*:first-child]:rounded-r-none [&>*:last-child]:rounded-l-none [&>*:not(:first-child):not(:last-child)]:-mr-px [&>*:not(:first-child):not(:last-child)]:rounded-none"
+    class="flex flex-wrap gap-0 [&_*:first-child]:-mr-px [&_*:first-child]:rounded-r-none [&_*:last-child]:rounded-l-none [&_*:not(:first-child):not(:last-child)]:-mr-px [&_*:not(:first-child):not(:last-child)]:rounded-none"
   >
     <slot></slot>
   </div>

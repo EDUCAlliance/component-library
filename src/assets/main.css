@@ -1,12 +1,12 @@
-@import 'tailwindcss';
-@import './tailwind-config.css';
+@import "tailwindcss";
+@import "./tailwind-config.css";
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 @layer base {
   button:not(:disabled),
-  [role='button']:not(:disabled) {
+  [role="button"]:not(:disabled) {
     cursor: pointer;
   }
 }
@@ -39,7 +39,8 @@
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 2px);
+  --radius-2xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -127,5 +128,18 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@theme {
+  --animate-disappear: disappear 2s infinite;
+  @keyframes disappear {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
   }
 }

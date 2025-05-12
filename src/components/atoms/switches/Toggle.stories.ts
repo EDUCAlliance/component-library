@@ -7,7 +7,7 @@ import Toggle from "./Toggle.vue"
  * Primary button used for main actions on a webpage.
  */
 const meta = {
-  title: "Atoms/Switches/Toggle",
+  title: "Atoms/Toggle",
   component: Toggle,
   parameters: {
     layout: "centered",
