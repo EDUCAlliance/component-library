@@ -43,6 +43,8 @@
       </SelectContent>
     </Select>
   </div>
+
+  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -60,15 +62,9 @@ import {
   BreadcrumbsIcon,
 } from "./atoms/others/breadcrumbs"
 import { Home } from "lucide-vue-next"
-import {
-  Select,
-  SelectTrigger,
-  SelectContent,
-  SelectGroup,
-  SelectLabel,
-  SelectItem,
-  SelectValue,
-} from "./atoms/forms/select"
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "./atoms/forms/select"
+import Footer from "./Footer.vue"
+
 defineProps<{
   msg: string
 }>()

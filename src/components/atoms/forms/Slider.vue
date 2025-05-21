@@ -2,9 +2,19 @@
 import type { SliderRootEmits, SliderRootProps } from "reka-ui"
 import { cn } from "@/lib/utils"
 import { SliderRange, SliderRoot, SliderThumb, SliderTrack, useForwardPropsEmits } from "reka-ui"
-import { computed, type HTMLAttributes } from "vue"
+import { computed, type HTMLAttributes, withDefaults } from "vue"
 
-const props = defineProps<SliderRootProps & { class?: HTMLAttributes["class"] }>()
+const props = withDefaults(
+  defineProps<
+    SliderRootProps & {
+      class?: HTMLAttributes["class"]
+      color?: "yellow" | "pink" | "green" | "orange" | "violet" | "black"
+    }
+  >(),
+  {
+    color: "black",
+  },
+)
 const emits = defineEmits<SliderRootEmits>()
 
 const delegatedProps = computed(() => {
@@ -14,6 +24,31 @@ const delegatedProps = computed(() => {
 })
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
+
+const colorClasses = computed(() => {
+  return {
+    // Track background is always the same
+    range: {
+      yellow: "bg-yellow-primary",
+      pink: "bg-pink-primary",
+      green: "bg-green-primary",
+      orange: "bg-orange-primary",
+      violet: "bg-violet-primary",
+      black: "bg-black-primary",
+    }[props.color],
+    thumb: {
+      yellow:
+        "focus-visible:ring-yellow-secondary hover:ring-yellow-secondary border-yellow-primary",
+      pink: "focus-visible:ring-pink-secondary hover:ring-pink-secondary border-pink-primary",
+      green: "focus-visible:ring-green-secondary hover:ring-green-secondary border-green-primary",
+      orange:
+        "focus-visible:ring-orange-secondary hover:ring-orange-secondary border-orange-primary",
+      violet:
+        "focus-visible:ring-violet-secondary hover:ring-violet-secondary border-violet-primary",
+      black: "focus-visible:ring-black-secondary hover:ring-black-secondary border-black-primary",
+    }[props.color],
+  }
+})
 </script>
 
 <template>
@@ -34,7 +69,12 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     >
       <SliderRange
         data-slot="slider-range"
-        class="bg-black-primary absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full"
+        :class="
+          cn(
+            colorClasses.range,
+            'absolute data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full',
+          )
+        "
       />
     </SliderTrack>
 
@@ -42,7 +82,12 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       v-for="(_, key) in modelValue"
       :key="key"
       data-slot="slider-thumb"
-      class="border-black-primary bg-white-primary focus-visible:ring-black-secondary hover:ring-black-secondary block size-7 shrink-0 cursor-pointer rounded-full border-2 shadow-sm transition-[color] hover:ring-2 hover:ring-offset-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden data-[disabled]:pointer-events-none"
+      :class="
+        cn(
+          colorClasses.thumb,
+          'bg-white-primary block size-7 shrink-0 cursor-pointer rounded-full border-2 shadow-sm transition-[color] hover:ring-2 hover:ring-offset-2 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden data-[disabled]:pointer-events-none',
+        )
+      "
     />
   </SliderRoot>
 </template>

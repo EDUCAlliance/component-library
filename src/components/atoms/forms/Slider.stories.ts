@@ -32,6 +32,9 @@ Component is based on Reka UI.
 </div>
       `,
       },
+      /* source: {
+        code: `<Slider :default-value="[33]" :max="100" :step="1" class="w-[300px]" />`,
+      }, */
     },
   },
   argTypes: {
@@ -64,6 +67,11 @@ Component is based on Reka UI.
       control: { type: "text" },
       description: "Custom classes for the slider.",
     },
+    color: {
+      control: { type: "select" },
+      options: ["yellow", "pink", "green", "orange", "violet", "black"],
+      description: "Color of the slider.",
+    },
   },
 } satisfies Meta<typeof Slider>
 
@@ -85,6 +93,13 @@ export const Default: Story = {
     },
     template: `<Slider v-bind="args" />`,
   }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Slider :default-value="[33]" :max="100" :step="1" class="w-[300px]" />`,
+      },
+    },
+  },
 }
 
 export const Vertical: Story = {
@@ -102,6 +117,13 @@ export const Vertical: Story = {
     },
     template: `<Slider v-bind="args" />`,
   }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Slider :default-value="[50]" :max="100" :step="1" orientation="vertical" class="h-[200px]" />`,
+      },
+    },
+  },
 }
 
 export const Disabled: Story = {
@@ -119,4 +141,36 @@ export const Disabled: Story = {
     },
     template: `<Slider v-bind="args" />`,
   }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Slider disabled :min="0" :max="100" :step="1" defaultValue="[70]" />`,
+      },
+    },
+  },
+}
+
+export const Colors: Story = {
+  render: () => ({
+    components: { Slider },
+    setup() {
+      const colors = ["yellow", "pink", "green", "orange", "violet", "black"]
+      return { colors }
+    },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px; width: 300px;">
+        <div v-for="color in colors" :key="color">
+          <div style="margin-bottom: 8px; font-weight: bold; text-transform: capitalize;">{{ color }}</div>
+          <Slider :default-value="[50]" :max="100" :step="1" :color="color" />
+        </div>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Slider :default-value="[50]" :max="100" :step="1" color="yellow" />`,
+      },
+    },
+  },
 }
