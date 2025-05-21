@@ -1,0 +1,5 @@
+export { default as FooterLinks } from "./FooterLinks.vue"
+export { default as FooterCol } from "./FooterCol.vue"
+export { default as FooterLink } from "./FooterLink.vue"
+export { default as FooterBottom } from "./FooterBottom.vue"
+export { default as FooterCopyright } from "./FooterCopyright.vue"

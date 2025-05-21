@@ -41,10 +41,12 @@
 </template>
 
 <script setup lang="ts">
-import FooterLinks from "./organisms/footer/FooterLinks.vue"
-import FooterCol from "./organisms/footer/FooterCol.vue"
-import FooterLink from "./organisms/footer/FooterLink.vue"
-import FooterBottom from "./organisms/footer/FooterBottom.vue"
-import FooterCopyright from "./organisms/footer/FooterCopyright.vue"
+import {
+  FooterLinks,
+  FooterCol,
+  FooterLink,
+  FooterBottom,
+  FooterCopyright,
+} from "./organisms/footer"
 import { Book, Cookie, Newspaper } from "lucide-vue-next"
 </script>

@@ -1,5 +1,19 @@
 <template>
+  <NotificationBar
+    headline="Staff Week · Digital Course Development and Virtual Mobility"
+    text="University od Pécs · Hungary"
+    color="pattern"
+  >
+    <p class="text-sm font-bold">Staff Week · Digital Course Development and Virtual Mobility</p>
+    <p class="text-sm opacity-70">University od Pécs · Hungary</p>
+    <GhostButton class="text-white-primary" size="sm"
+      >See what’s coming next <ArrowRight class="size-4"
+    /></GhostButton>
+  </NotificationBar>
   <div class="mx-auto max-w-2xl">
+    <!-- NotificationBar Demo -->
+
+    <!-- End NotificationBar Demo -->
     <p class="text-yellow-primary text-3xl">test</p>
     <Toggle />
     <ButtonGroup>
@@ -43,8 +57,6 @@
       </SelectContent>
     </Select>
   </div>
-
-  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -61,9 +73,10 @@ import {
   BreadcrumbsArrow,
   BreadcrumbsIcon,
 } from "./atoms/others/breadcrumbs"
-import { Home } from "lucide-vue-next"
+import { Home, ArrowRight } from "lucide-vue-next"
 import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "./atoms/forms/select"
-import Footer from "./Footer.vue"
+import NotificationBar from "./atoms/others/NotificationBar.vue"
+import GhostButton from "./atoms/buttons/GhostButton.vue"
 
 defineProps<{
   msg: string

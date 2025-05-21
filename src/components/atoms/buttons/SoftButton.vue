@@ -19,7 +19,7 @@ const props = withDefaults(
 )
 
 const classes = computed(() => ({
-  "disabled:cursor-not-allowed hover:rounded-none disabled:hover:rounded-full duration-300 ease-in-out text-white flex items-center gap-3 focus:ring-2 focus:ring-offset-2 focus:outline-hidden transition-[border-radius]":
+  "disabled:cursor-not-allowed hover:rounded-none disabled:hover:rounded-full duration-300 ease-in-out text-white flex items-center gap-2 focus:ring-2 focus:ring-offset-2 focus:outline-hidden transition-[border-radius]":
     true,
 
   "text-xs rounded-[12px] [&>svg]:size-3 h-6 px-3 py-1": props.size === "xs",
