@@ -15,6 +15,20 @@ const meta = {
   }),
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+  **LinkButton** visually resembles a hyperlink but behaves as a button. Can be used for navigation or actions.
+
+  Custom made for this library.
+
+  - Used for actions that look like links.
+  - Supports different sizes.
+  - Fully accessible and keyboard-navigable.
+  - Is a flex by default, so icons can be placed inside it.
+        `,
+      },
+    },
   },
   argTypes: {
     default: { control: "text", description: "A slot for button children." },

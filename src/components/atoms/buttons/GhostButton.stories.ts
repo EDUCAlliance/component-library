@@ -15,6 +15,20 @@ const meta = {
   }),
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+  **GhostButton** is a minimal button with no background, used for subtle actions. It shares the same styles as [LinkButton](/docs/atoms-buttons-linkbutton--docs), but is used only for actions and not navigation.
+
+  Custom made for this library.
+
+  - Minimal styling, often used for secondary or tertiary actions.
+  - Supports different sizes.
+  - Fully accessible and keyboard-navigable.
+  - Is a flex by default, so icons can be placed inside it.
+        `,
+      },
+    },
   },
   argTypes: {
     default: { control: "text", description: "A slot for button children." },

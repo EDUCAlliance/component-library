@@ -11,11 +11,37 @@ const meta = {
   component: Toggle,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+**Toggle** is a switch component for binary on/off states, such as enabling or disabling a setting.
+
+Based on Headless UI and custom styles.
+
+- Fully accessible and keyboard-navigable.
+- Supports custom colors and small size.
+- Optional icons for on/off states.
+- Controlled or uncontrolled mode.
+
+<div style="display: flex; gap: 8px;">
+
+<a href="https://headlessui.com/v1/vue/switch" target="_blank">
+  <img src="http://localhost:5173/buttons/full-documentation.png" alt="Full docs" />
+</a>
+
+<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=131-699&t=Mkp3c5SrIIlNDlq2-4" target="_blank">
+  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+</a>
+
+</div>
+        `,
+      },
+    },
   },
   argTypes: {
     size: {
       control: "select",
-      options: ["sm", , "base"],
+      options: ["sm", "base"],
       description: "The size of the toggle.",
     },
     color: {

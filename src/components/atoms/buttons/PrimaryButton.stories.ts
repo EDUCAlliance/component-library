@@ -4,9 +4,6 @@ import type { Meta, StoryObj } from "@storybook/vue3"
 import PrimaryButton from "./PrimaryButton.vue"
 import { PlusIcon } from "lucide-vue-next"
 
-/**
- * Primary button used for main actions on a webpage.
- */
 const meta = {
   title: "Atoms/Buttons/Primary",
   component: PrimaryButton,
@@ -21,6 +18,26 @@ const meta = {
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+**PrimaryButton** is used for main actions on a page, drawing the most attention.
+
+Custom made for this library.
+
+- Prominent styling for primary actions.
+- Supports different sizes and icon-only mode.
+- Fully accessible and keyboard-navigable.
+
+<div style="display: flex; gap: 8px;">
+
+[![Figma reference](http://localhost:5173/buttons/figma-reference.png)](https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=88-252&t=R3Tvkfrb8NeJ4SG6-4)
+
+</div>
+
+        `,
+      },
+    },
   },
   argTypes: {
     default: { control: "text", description: "A slot for button children." },

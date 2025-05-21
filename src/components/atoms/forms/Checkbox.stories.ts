@@ -11,6 +11,27 @@ const meta = {
   component: Checkbox,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+**Checkbox** allows users to select one or more options from a list.
+
+Custom made for this library.
+
+- Fully accessible and keyboard-navigable.
+- Controlled or uncontrolled mode.
+- Supports colors.
+
+<div style="display: flex; gap: 8px;">
+
+<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=131-699&t=Mkp3c5SrIIlNDlq2-4" target="_blank">
+  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+</a>
+
+</div>
+        `,
+      },
+    },
   },
   argTypes: {
     color: {

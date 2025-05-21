@@ -11,6 +11,26 @@ const meta = {
   component: Radio,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+**Radio** allows users to select one option from a list. The difference between this and a checkbox is that a radio button is used to select one option from a list, while a checkbox is used to select multiple options.
+
+Component is based on Reka UI.
+
+- Fully accessible and keyboard-navigable.
+- Controlled or uncontrolled mode.
+
+<div style="display: flex; gap: 8px;">
+
+<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=131-699&t=Mkp3c5SrIIlNDlq2-4" target="_blank">
+  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+</a>
+
+</div>
+      `,
+      },
+    },
   },
   argTypes: {
     color: {

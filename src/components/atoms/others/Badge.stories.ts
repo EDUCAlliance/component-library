@@ -11,6 +11,27 @@ const meta = {
   component: Badge,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+  **Badge** is a small status indicator or label, often used to highlight new or unread items, statuses, or categories.
+
+  Custom made for this library.
+
+  - Supports multiple colors and variants (primary, secondary).
+  - Can be used for notifications, tags, or status indicators.
+  - Flex by default, so icons can be placed at the beginning of the badge.
+
+<div style="display: flex; gap: 8px;">
+
+<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=65-480&t=Mkp3c5SrIIlNDlq2-4" target="_blank">
+  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+</a>
+
+</div>
+        `,
+      },
+    },
   },
   argTypes: {
     default: { control: "text", description: "A slot for badge content." },
