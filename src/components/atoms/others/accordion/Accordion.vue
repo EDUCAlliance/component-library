@@ -4,12 +4,16 @@ import {
   type AccordionRootEmits,
   type AccordionRootProps,
   useForwardPropsEmits,
-} from 'reka-ui'
+} from "reka-ui"
+import { provide, computed } from "vue"
 
-const props = defineProps<AccordionRootProps>()
+const props = defineProps<AccordionRootProps & { size?: "md" | "lg" }>()
 const emits = defineEmits<AccordionRootEmits>()
 
 const forwarded = useForwardPropsEmits(props, emits)
+
+const sizeRef = computed(() => props.size ?? "md")
+provide("accordionSize", sizeRef)
 </script>
 
 <template>
