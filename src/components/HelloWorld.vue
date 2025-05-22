@@ -87,7 +87,28 @@
       <AlertTitle>Heads up!</AlertTitle>
       <AlertDescription> You can add components to your app using the cli. </AlertDescription>
     </Alert>
+    <HoverCard>
+      <HoverCardTrigger>Hover</HoverCardTrigger>
+      <HoverCardContent> The Vue Framework – created and maintained by @vuejs. </HoverCardContent>
+    </HoverCard>
+    <Accordion type="single" collapsible>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>Is it accessible?</AccordionTrigger>
+        <AccordionContent> Yes. It adheres to the WAI-ARIA design pattern. </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>Does it support long content?</AccordionTrigger>
+        <AccordionContent>
+          At EDUC European Digital UniverCity Alliance, we are driven by a shared commitment to a
+          brighter future through collaborative education. Our journey is guided by the EDUC Charter
+          of Common Values and Good Collaboration, which embodies the principles steering our
+          actions over the next decade. This charter serves as our compass, ensuring all partner
+          institutions are aligned to achieve common goals.</AccordionContent
+        >
+      </AccordionItem>
+    </Accordion>
   </div>
+  <Footer class="mt-32" />
 </template>
 
 <script setup lang="ts">
@@ -111,6 +132,14 @@ import { Alert, AlertTitle, AlertDescription } from "./atoms/others/alert"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import Checkbox from "./atoms/forms/Checkbox.vue"
 import Input from "./atoms/forms/input/Input.vue"
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "./atoms/others/hover-card"
+import Footer from "./Footer.vue"
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./atoms/others/accordion"
 defineProps<{
   msg: string
 }>()
