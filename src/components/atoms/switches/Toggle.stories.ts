@@ -26,11 +26,11 @@ Based on Headless UI and custom styles.
 <div style="display: flex; gap: 8px;">
 
 <a href="https://headlessui.com/v1/vue/switch" target="_blank">
-  <img src="http://localhost:5173/buttons/full-documentation.png" alt="Full docs" />
+  <img src="http://localhost:6006/src/stories/assets/buttons/full-documentation.png" alt="Full docs" />
 </a>
 
 <a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=131-699&t=Mkp3c5SrIIlNDlq2-4" target="_blank">
-  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />
 </a>
 
 </div>

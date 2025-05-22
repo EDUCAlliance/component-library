@@ -2,7 +2,6 @@ import { expect, userEvent, within } from "@storybook/test"
 import type { Meta, StoryObj } from "@storybook/vue3"
 
 import PrimaryButton from "./PrimaryButton.vue"
-import { PlusIcon } from "lucide-vue-next"
 
 const meta = {
   title: "Atoms/Buttons/Primary",
@@ -31,7 +30,7 @@ Custom made for this library.
 
 <div style="display: flex; gap: 8px;">
 
-[![Figma reference](http://localhost:5173/buttons/figma-reference.png)](https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=88-252&t=R3Tvkfrb8NeJ4SG6-4)
+[![Figma reference](http://localhost:6006/src/stories/assets/buttons/figma-reference.png)](https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=88-252&t=R3Tvkfrb8NeJ4SG6-4)
 
 </div>
 

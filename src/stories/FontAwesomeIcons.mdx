@@ -1,0 +1,47 @@
+import { Meta } from "@storybook/addon-docs"
+
+<Meta title="How to use FontAwesome Icons" />
+
+# FontAwesome Icons Usage
+
+This project uses [FontAwesome](https://fontawesome.com/) for icons. You can use **solid**, **regular**, and **brands** icons with the `<font-awesome-icon />` component.
+
+## Importing font-awesome-icon
+
+Make sure `font-awesome-icon` is registered globally or imported in your component:
+
+```js
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
+app.component("font-awesome-icon", FontAwesomeIcon)
+```
+
+## Usage Examples
+
+### Solid Icon
+
+Preview (icon will render in your app):
+
+```html
+<font-awesome-icon :icon="['fas', 'user']" />
+```
+
+### Regular Icon
+
+Preview (icon will render in your app):
+
+```html
+<font-awesome-icon :icon="['far', 'star']" />
+```
+
+### Brands Icon
+
+Preview (icon will render in your app):
+
+```html
+<font-awesome-icon :icon="['fab', 'github']" />
+```
+
+## Notes
+
+- Make sure the icon you want to use is imported and available in your FontAwesome library setup.
+- You can style icons with Tailwind classes or inline styles, e.g. `<font-awesome-icon :icon="['fas', 'user']" class="text-black-primary text-xl" />`.

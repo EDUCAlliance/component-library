@@ -33,9 +33,14 @@
     </FooterLinks>
     <FooterCopyright />
     <FooterBottom>
-      <a href="#"><Cookie class="size-4" />Cookies Note</a>
-      <a href="#"><Newspaper class="size-4" />Subscribe to newsletter</a>
-      <a href="#"><Book class="size-4" />Imprint</a>
+      <a href="#"
+        ><font-awesome-icon :icon="['fas', 'cookie']" class="text-[16px]" />Cookies Note</a
+      >
+      <a href="#"
+        ><font-awesome-icon :icon="['fas', 'newspaper']" class="text-[16px]" />Subscribe to
+        newsletter</a
+      >
+      <a href="#"><font-awesome-icon :icon="['fas', 'book']" class="text-[16px]" />Imprint</a>
     </FooterBottom>
   </footer>
 </template>
@@ -48,5 +53,4 @@ import {
   FooterBottom,
   FooterCopyright,
 } from "./organisms/footer"
-import { Book, Cookie, Newspaper } from "lucide-vue-next"
 </script>

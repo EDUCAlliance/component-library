@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3"
 import { Breadcrumbs, BreadcrumbsArrow, BreadcrumbsLink, BreadcrumbsIcon } from "."
-import { Home } from "lucide-vue-next"
 
 const meta = {
   title: "Atoms/Others/Breadcrumbs",
@@ -12,7 +11,7 @@ const meta = {
     },
   },
   render: (args) => ({
-    components: { Breadcrumbs, BreadcrumbsArrow, BreadcrumbsLink, BreadcrumbsIcon, Home },
+    components: { Breadcrumbs, BreadcrumbsArrow, BreadcrumbsLink, BreadcrumbsIcon },
     setup() {
       return { args }
     },
@@ -20,7 +19,7 @@ const meta = {
       <Breadcrumbs :class="args.class">
         <BreadcrumbsLink href="#">
           <BreadcrumbsIcon>
-            <Home :size="20" />
+            <font-awesome-icon :icon="['fas', 'house']" class="text-[16px]" />
           </BreadcrumbsIcon>
         </BreadcrumbsLink>
         <BreadcrumbsArrow />
@@ -45,7 +44,7 @@ Custom made for this library.
 <div style="display: flex; gap: 8px;">
 
 <a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=194-1464&t=Mkp3c5SrIIlNDlq2-4" target="_blank">
-  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />
 </a>
 
 </div>

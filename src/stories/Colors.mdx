@@ -1,0 +1,146 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks"
+import { Description } from "@storybook/blocks"
+
+<Meta title="Colors" />
+
+# Colors
+
+This page documents all the color variables defined in the Tailwind CSS theme. These colors are
+available as CSS custom properties (variables) and can be used throughout your project for
+consistent theming.
+
+## How to use these colors
+
+Every color is available in classic Tailwind classes. So you can use them like this:
+
+```html
+<div class="bg-black-primary">
+  <p>Hello</p>
+</div>
+```
+
+You can also use these variables directly in inline styles or CSS-in-JS solutions.
+
+<ColorPalette>
+  <ColorItem
+    title="Black"
+    subtitle="Black color variants"
+    colors={{
+      Primary: "var(--color-black-primary)",
+      Secondary: "var(--color-black-secondary)",
+      Tertiary: "var(--color-black-tertiary)",
+      Quaternary: "var(--color-black-quaternary)",
+      Quinternary: "var(--color-black-quinternary)",
+      Sexternary: "var(--color-black-sexternary)",
+    }}
+  />
+  <ColorItem
+    title="White"
+    subtitle="White color variants"
+    colors={{
+      Primary: "var(--color-white-primary)",
+      Secondary: "var(--color-white-secondary)",
+      Tertiary: "var(--color-white-tertiary)",
+      Quaternary: "var(--color-white-quaternary)",
+      Quinternary: "var(--color-white-quinternary)",
+    }}
+  />
+  <ColorItem
+    title="Yellow"
+    subtitle="Yellow color variants"
+    colors={{
+      Primary: "var(--color-yellow-primary)",
+      Secondary: "var(--color-yellow-secondary)",
+      Tertiary: "var(--color-yellow-tertiary)",
+      Quaternary: "var(--color-yellow-quaternary)",
+    }}
+  />
+  <ColorItem
+    title="Pink"
+    subtitle="Pink color variants"
+    colors={{
+      Primary: "var(--color-pink-primary)",
+      Secondary: "var(--color-pink-secondary)",
+      Tertiary: "var(--color-pink-tertiary)",
+      Quaternary: "var(--color-pink-quaternary)",
+    }}
+  />
+  <ColorItem
+    title="Green"
+    subtitle="Green color variants"
+    colors={{
+      Primary: "var(--color-green-primary)",
+      Secondary: "var(--color-green-secondary)",
+      Tertiary: "var(--color-green-tertiary)",
+      Quaternary: "var(--color-green-quaternary)",
+    }}
+  />
+  <ColorItem
+    title="Orange"
+    subtitle="Orange color variants"
+    colors={{
+      Primary: "var(--color-orange-primary)",
+      Secondary: "var(--color-orange-secondary)",
+      Tertiary: "var(--color-orange-tertiary)",
+      Quaternary: "var(--color-orange-quaternary)",
+    }}
+  />
+  <ColorItem
+    title="Violet"
+    subtitle="Violet color variants"
+    colors={{
+      Primary: "var(--color-violet-primary)",
+      Secondary: "var(--color-violet-secondary)",
+      Tertiary: "var(--color-violet-tertiary)",
+      Quaternary: "var(--color-violet-quaternary)",
+    }}
+  />
+  <ColorItem
+    title="Success"
+    subtitle="Success color variants"
+    colors={{
+      Primary: "#22c55e",
+      Secondary: "var(--color-success-secondary)",
+      Tertiary: "var(--color-success-tertiary)",
+      Quaternary: "var(--color-success-quaternary)",
+      Quinternary: "var(--color-success-quinternary)",
+      Sexternary: "var(--color-success-sexternary)",
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="Warning color variants"
+    colors={{
+      Primary: "var(--color-warning-primary)",
+      Secondary: "var(--color-warning-secondary)",
+      Tertiary: "var(--color-warning-tertiary)",
+      Quaternary: "var(--color-warning-quaternary)",
+      Quinternary: "var(--color-warning-quinternary)",
+      Sexternary: "var(--color-warning-sexternary)",
+    }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="Error color variants"
+    colors={{
+      Primary: "#ef4444",
+      Secondary: "var(--color-error-secondary)",
+      Tertiary: "var(--color-error-tertiary)",
+      Quaternary: "var(--color-error-quaternary)",
+      Quinternary: "var(--color-error-quinternary)",
+      Sexternary: "var(--color-error-sexternary)",
+    }}
+  />
+  <ColorItem
+    title="Message"
+    subtitle="Message color variants"
+    colors={{
+      Primary: "var(--color-message-primary)",
+      Secondary: "var(--color-message-secondary)",
+      Tertiary: "var(--color-message-tertiary)",
+      Quaternary: "var(--color-message-quaternary)",
+      Quinternary: "var(--color-message-quinternary)",
+      Sexternary: "var(--color-message-sexternary)",
+    }}
+  />
+</ColorPalette>

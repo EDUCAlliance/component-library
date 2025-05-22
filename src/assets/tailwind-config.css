@@ -1,6 +1,4 @@
 @theme {
-
-
   /*
   |-----------------------------------------------------------------------------
   | Colors                                  https://tailwindcss.com/docs/colors
@@ -87,7 +85,6 @@
   --color-message-quinternary: #1e40af;
   --color-message-sexternary: #172554;
 
-
   /*
   |-----------------------------------------------------------------------------
   | Font                                 https://tailwindcss.com/docs/font-size
@@ -112,4 +109,15 @@
   --text-2xl: 1.5rem; /* 24px */
   --text-2xl--line-height: 2rem; /* 32px */
 
+  --text-7xl: 4.5rem; /* 72px */
+  --text-7xl--line-height: 5.375rem; /* 86px */
+
+  --text-5xl: 3rem; /* 48px */
+  --text-5xl--line-height: 3.75rem; /* 60px */
+
+  --text-4xl: 2.25rem; /* 36px */
+  --text-4xl--line-height: 3rem; /* 48px */
+
+  --text-3xl: 1.875rem; /* 30px */
+  --text-3xl--line-height: 2.5rem; /* 40px */
 }

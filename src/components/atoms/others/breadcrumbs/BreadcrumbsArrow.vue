@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ChevronRight } from "lucide-vue-next"
 import { type HTMLAttributes } from "vue"
 import { cn } from "@/lib/utils"
 
@@ -14,6 +13,6 @@ const props = withDefaults(defineProps<{ class?: HTMLAttributes["class"] }>(), {
     :class="cn('text-black-tertiary flex items-center', props.class)"
     v-bind="$attrs"
   >
-    <ChevronRight :size="20" />
+    <font-awesome-icon :icon="['fas', 'chevron-right']" class="text-[12px]" />
   </span>
 </template>

@@ -14,14 +14,14 @@
       aria-label="Close notification"
       type="button"
     >
-      <X class="size-5" />
+      <font-awesome-icon :icon="['fas', 'xmark']" class="size-5" />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, computed } from "vue"
-import { X } from "lucide-vue-next"
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import { cn } from "@/lib/utils"
 
 const visible = ref(true)

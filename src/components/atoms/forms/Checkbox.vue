@@ -1,15 +1,17 @@
 <template>
   <div class="group grid size-5 grid-cols-1">
     <input id="comments" :name="props.name" type="checkbox" checked="true" :class="classes" />
-    <CheckIcon
+    <font-awesome-icon
+      :icon="['fas', 'check']"
       :class="[
-        'pointer-events-none col-start-1 row-start-1 size-3 self-center justify-self-center stroke-3 opacity-0 duration-200 group-has-checked:opacity-100',
+        'pointer-events-none col-start-1 row-start-1 size-3 self-center justify-self-center stroke-3 text-[12px] opacity-0 duration-200 group-has-checked:opacity-100',
         iconColorClass,
       ]"
     />
-    <MinusIcon
+    <font-awesome-icon
+      :icon="['fas', 'minus']"
       :class="[
-        'pointer-events-none col-start-1 row-start-1 size-3 self-center justify-self-center stroke-3 opacity-0 duration-200 group-indeterminate:opacity-100',
+        'pointer-events-none col-start-1 row-start-1 self-center justify-self-center stroke-3 text-[12px] opacity-0 duration-200 group-indeterminate:opacity-100',
         iconColorClass,
       ]"
     />
@@ -18,13 +20,11 @@
 
 // TODO: Fix value and onChange
 <script setup lang="ts">
-import { CheckIcon, MinusIcon } from "lucide-vue-next"
 import { computed } from "vue"
 
 // import { ref } from "vue"
 // import { Switch } from "@headlessui/vue"
 // import { computed } from "vue"
-// import { CheckIcon, XIcon } from "lucide-vue-next"
 
 // const internalValueRef = ref(false)
 

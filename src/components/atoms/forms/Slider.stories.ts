@@ -22,11 +22,11 @@ Component is based on Reka UI.
 <div style="display: flex; gap: 8px;">
 
 <a href="https://reka-ui.com/docs/components/slider" target="_blank">
-  <img src="http://localhost:5173/buttons/full-documentation.png" alt="Full docs" />
+  <img src="http://localhost:6006/src/stories/assets/buttons/full-documentation.png" alt="Full docs" />
 </a>
 
 <a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=187-1964&t=R3Tvkfrb8NeJ4SG6-4" target="_blank">
-  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />
 </a>
 
 </div>

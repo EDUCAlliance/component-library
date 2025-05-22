@@ -42,7 +42,7 @@ const meta = {
     docs: {
       description: {
         component: `
-**Select** is a dropdown component for choosing a single option from a list.\n\nCustom made for this library.\n\n- Fully accessible and keyboard-navigable.\n- Custom content and option rendering.\n\n<div style="display: flex; gap: 8px;">\n\n<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=180-3086&t=Mkp3c5SrIIlNDlq2-4" target="_blank">\n  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />\n</a>\n\n</div>\n        `,
+**Select** is a dropdown component for choosing a single option from a list.\n\nCustom made for this library.\n\n- Fully accessible and keyboard-navigable.\n- Custom content and option rendering.\n\n<div style="display: flex; gap: 8px;">\n\n<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=180-3086&t=Mkp3c5SrIIlNDlq2-4" target="_blank">\n  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />\n</a>\n\n</div>\n        `,
       },
     },
   },

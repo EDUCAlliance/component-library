@@ -4,7 +4,6 @@ import FooterCol from "./FooterCol.vue"
 import FooterLink from "./FooterLink.vue"
 import FooterBottom from "./FooterBottom.vue"
 import FooterCopyright from "./FooterCopyright.vue"
-import { Book, Cookie, Newspaper, Mail, Phone } from "lucide-vue-next"
 
 const meta = {
   title: "Organisms/Footer",
@@ -27,7 +26,7 @@ The Composed story showcases an example of how to compose the footer from the bu
 <div style="display: flex; gap: 8px;">
 
 <a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=615-5008&t=GbiXcEPnZCpQT5fm-4" target="_blank">
-  <img src="http://localhost:5173/buttons/figma-reference.png" alt="Figma reference" />
+  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />
 </a>
 
 </div>
@@ -49,9 +48,6 @@ export const Composed: Story = {
       FooterLink,
       FooterBottom,
       FooterCopyright,
-      Book,
-      Cookie,
-      Newspaper,
     },
     template: `
       <footer>
@@ -88,9 +84,12 @@ export const Composed: Story = {
         </FooterLinks>
         <FooterCopyright />
         <FooterBottom>
-          <a href="#"><Cookie class="size-4" />Cookies Note</a>
-          <a href="#"><Newspaper class="size-4" />Subscribe to newsletter</a>
-          <a href="#"><Book class="size-4" />Imprint</a>
+          <a href="#"><font-awesome-icon :icon="['fas', 'cookie']" class="text-[12px]" />Cookies Note</a>
+      <a href="#"
+        ><font-awesome-icon :icon="['fas', 'newspaper']" class="text-[12px]" />Subscribe to
+        newsletter</a
+      >
+      <a href="#"><font-awesome-icon :icon="['fas', 'shield-halved']" class="text-[12px]" />Imprint</a>
         </FooterBottom>
       </footer>
     `,

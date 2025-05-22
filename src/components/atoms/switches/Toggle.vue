@@ -15,10 +15,10 @@
         ]"
       >
         <div class="flex h-full w-1/2 items-center justify-center">
-          <XIcon class="size-4" />
+          <font-awesome-icon :icon="['fas', 'xmark']" class="text-[8px]" />
         </div>
         <div class="flex h-full w-1/2 items-center justify-center">
-          <CheckIcon class="size-4" />
+          <font-awesome-icon :icon="['fas', 'check']" class="text-[8px]" />
         </div>
       </div>
     </span>
@@ -29,7 +29,6 @@
 import { ref } from "vue"
 import { Switch } from "@headlessui/vue"
 import { computed } from "vue"
-import { CheckIcon, XIcon } from "lucide-vue-next"
 
 const internalValueRef = ref(false)
 
