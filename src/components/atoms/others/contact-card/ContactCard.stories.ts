@@ -18,9 +18,6 @@ interface StoryProps {
   email?: string
 }
 
-/**
- * Contact card component used to display user information with customizable styling and layout.
- */
 const meta = {
   title: "Atoms/Others/ContactCard",
   component: ContactCard,
@@ -59,6 +56,24 @@ const meta = {
   }),
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component: `
+**ContactCard** is a component used to display user information with customizable styling and layout.
+
+Component is custom made for this library.
+
+- Customizable avatar, header and contact
+- Supports colors
+
+<div style="display: flex; gap: 8px;">
+<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=486-2380&t=WyOxhfBthfxdEtLs-4" target="_blank">
+  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />
+</a>
+</div>
+        `,
+      },
+    },
   },
   argTypes: {
     color: {
@@ -211,7 +226,7 @@ export const CustomContent: Story = {
           <div class="flex flex-col items-center">
             <h3 class="text-xl font-bold">Custom Content</h3>
             <p class="mt-3 text-black-sexternary">With Custom Layout</p>
-            <div class="mt-2 flex items-center gap-2">
+            <div class="mt-4 flex items-center gap-2">
               <span class="h-2 w-2 rounded-full bg-green-primary"></span>
               <span class="text-sm">Available</span>
             </div>
