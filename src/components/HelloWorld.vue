@@ -97,7 +97,7 @@
         <AccordionTrigger>Does it support long content?</AccordionTrigger>
         <AccordionContent>
           At EDUC European Digital UniverCity Alliance, we are driven by a shared commitment to a
-          brighter future through collaborative education. Our journey is guided by the EDUC Charter
+          brighter future through collaborative education. Our journey is guided by the EDUC Charter
           of Common Values and Good Collaboration, which embodies the principles steering our
           actions over the next decade. This charter serves as our compass, ensuring all partner
           institutions are aligned to achieve common goals.</AccordionContent
@@ -143,6 +143,15 @@
       <PodcastCard />
     </div>
   </div>
+
+  <!-- Features Sections Container -->
+  <div class="bg-white-tertiary">
+    <Features1 />
+    <Features2 />
+    <Features3 />
+    <Features4 />
+  </div>
+
   <ContactCard color="violet">
     <template #avatar>
       <Avatar class="h-48 w-48">
@@ -211,7 +220,6 @@ import EDUCPortalLogo from "./atoms/logos/EDUCPortalLogo.vue"
 import EDUCCatalogueLogo from "./atoms/logos/EDUCCatalogueLogo.vue"
 import EDUCLearningLogo from "./atoms/logos/EDUCLearningLogo.vue"
 import EDUCOpenupLogo from "./atoms/logos/EDUCOpenupLogo.vue"
-import Hero2 from "./organisms/hero/Hero2.vue"
 import Hero3 from "./organisms/hero/Hero3.vue"
 import Cta from "./organisms/cta/Cta3.vue"
 import {
@@ -234,6 +242,12 @@ import Card2 from "./Card2.vue"
 import Card3 from "./Card3.vue"
 import Card4 from "./Card4.vue"
 import PodcastCard from "./PodcastCard.vue"
+// Features components
+import Features1 from "./organisms/features/Features1.vue"
+import Features2 from "./organisms/features/Features2.vue"
+import Features3 from "./organisms/features/Features3.vue"
+import Features4 from "./organisms/features/Features4.vue"
+
 defineProps<{
   msg: string
 }>()
