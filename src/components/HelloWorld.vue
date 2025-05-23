@@ -34,7 +34,6 @@
     <Loading />
 
     <Table :columns="columns" :rows="rows" color="green">
-      <!-- Volitelně můžeš použít sloty pro vlastní obsah hlavičky nebo buňky -->
       <template #header-name>
         <span>Jméno</span>
       </template>
@@ -107,6 +106,8 @@
         >
       </AccordionItem>
     </Accordion>
+    <Calendar :weekday-format="'narrow'" class="w-fit" />
+    <RangeCalendar class="w-fit" />
   </div>
   <Footer class="mt-32" />
 </template>
@@ -140,6 +141,8 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "./atoms/others/accordion"
+import RangeCalendar from "./atoms/others/range-calendar/RangeCalendar.vue"
+import Calendar from "./atoms/others/calendar/Calendar.vue"
 defineProps<{
   msg: string
 }>()
