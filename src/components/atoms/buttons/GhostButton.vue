@@ -7,7 +7,7 @@ import { computed } from "vue"
 
 const props = withDefaults(
   defineProps<{
-    size?: "xs" | "sm" | "base" | "lg"
+    size?: "xs" | "sm" | "base" | "lg" | "auto"
     disabled?: boolean
   }>(),
   {
@@ -23,5 +23,6 @@ const classes = computed(() => ({
   "text-sm [&>svg]:size-4 h-9 py-2": props.size === "sm",
   "text-base [&>svg]:size-4 h-12 py-3": props.size === "base",
   "text-lg  [&>svg]:size-5 h-13 py-3": props.size === "lg",
+  "h-auto py-0 px-0": props.size === "auto",
 }))
 </script>

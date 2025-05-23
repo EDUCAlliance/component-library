@@ -11,12 +11,12 @@ import { computed } from "vue"
 const props = withDefaults(
   defineProps<{
     disabled?: boolean
-    color?: "black" | "yellow" | "pink" | "green" | "orange" | "violet" | "black"
+    color?: "gray" | "yellow" | "pink" | "green" | "orange" | "violet" | "black" | "white"
     variant?: "primary" | "secondary"
     size?: "xs" | "sm" | "base"
   }>(),
   {
-    color: "black",
+    color: "white",
     size: "base",
     variant: "primary",
   },
@@ -25,6 +25,8 @@ const props = withDefaults(
 const badgeClasses = computed(() => ({
   "text-black-primary flex w-fit items-center gap-1 rounded-full border": true,
   "bg-white-quinternary border-black-quinternary":
+    props.color === "gray" && props.variant === "primary",
+  "bg-black-primary border-black-tertiary text-white-primary":
     props.color === "black" && props.variant === "primary",
   "bg-yellow-tertiary border-yellow-primary":
     props.color === "yellow" && props.variant === "primary",
@@ -34,7 +36,8 @@ const badgeClasses = computed(() => ({
     props.color === "orange" && props.variant === "primary",
   "bg-violet-tertiary border-violet-primary":
     props.color === "violet" && props.variant === "primary",
-  "bg-white-primary border-black-quaternary": props.variant === "secondary",
+  "bg-white-primary border-black-quaternary":
+    props.variant === "secondary" || props.color === "white",
   "px-2 py-1 text-sm": props.size === "base",
   "px-2 py-1 text-xs": props.size === "sm",
   "px-[6px] py-2px text-xs": props.size === "xs",

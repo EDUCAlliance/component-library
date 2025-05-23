@@ -127,6 +127,21 @@
         </DialogFooter>
       </DialogContent>
     </Dialog>
+    <div class="my-12">
+      <Card1 />
+    </div>
+    <div class="my-12">
+      <Card2 />
+    </div>
+    <div class="my-12">
+      <Card3 />
+    </div>
+    <div class="my-12">
+      <Card4 />
+    </div>
+    <div class="my-12">
+      <PodcastCard />
+    </div>
   </div>
   <ContactCard color="violet">
     <template #avatar>
@@ -155,6 +170,7 @@
     </template>
     <p>Hello world!</p>
   </ItemCard>
+
   <Cta />
   <Footer class="mt-32" />
 </template>
@@ -213,6 +229,11 @@ import { Avatar, AvatarImage, AvatarFallback } from "./atoms/others/avatar"
 import ItemCard from "./atoms/ItemCard.vue"
 import Actions1 from "./atoms/others/actions/Actions1.vue"
 import Actions2 from "./atoms/others/actions/Actions2.vue"
+import Card1 from "./Card1.vue"
+import Card2 from "./Card2.vue"
+import Card3 from "./Card3.vue"
+import Card4 from "./Card4.vue"
+import PodcastCard from "./PodcastCard.vue"
 defineProps<{
   msg: string
 }>()
