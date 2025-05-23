@@ -146,6 +146,15 @@
       <!-- Custom contact content -->
     </template>
   </ContactCard>
+  <div class="my-12"><Actions1 /></div>
+  <div class="my-12"><Actions2 /></div>
+
+  <ItemCard>
+    <template #icon>
+      <font-awesome-icon :icon="['fas', 'user']" />
+    </template>
+    <p>Hello world!</p>
+  </ItemCard>
   <Cta />
   <Footer class="mt-32" />
 </template>
@@ -201,6 +210,9 @@ import {
 import PrimaryButton from "./atoms/buttons/PrimaryButton.vue"
 import { ContactCard, ContactCardHeader } from "./atoms/others/contact-card"
 import { Avatar, AvatarImage, AvatarFallback } from "./atoms/others/avatar"
+import ItemCard from "./atoms/ItemCard.vue"
+import Actions1 from "./atoms/others/actions/Actions1.vue"
+import Actions2 from "./atoms/others/actions/Actions2.vue"
 defineProps<{
   msg: string
 }>()
