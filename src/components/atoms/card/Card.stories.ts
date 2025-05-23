@@ -468,17 +468,19 @@ export const PodcastCard: Story = {
 
 export const BasicCard: Story = {
   render: () => ({
-    components: { Card, CardHeader, CardBody, CardFooter },
+    components: { Card, CardHeader, CardBody, CardFooter, GhostButton },
     template: `
       <Card class="max-w-md">
         <CardHeader>
-          <h3 class="text-lg font-semibold">Card Title</h3>
+          <h3 class="text-lg font-semibold text-black-primary">Card Title</h3>
         </CardHeader>
         <CardBody>
           <p>This is a basic card with minimal content to showcase the basic structure.</p>
         </CardBody>
         <CardFooter>
-          <button class="px-4 py-2 bg-blue-500 text-white rounded">Action</button>
+          <GhostButton class="text-pink-primary" size="auto">
+            View detail <font-awesome-icon :icon="['fas', 'arrow-right']" class="size-3" />
+          </GhostButton>
         </CardFooter>
       </Card>
     `,
