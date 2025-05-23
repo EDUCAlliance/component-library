@@ -10,11 +10,8 @@
       See what's coming next <font-awesome-icon :icon="['fas', 'arrow-right']" class="size-4" />
     </GhostButton>
   </NotificationBar>
-  <Navigation />
+  <Hero3 />
   <div class="mx-auto max-w-2xl">
-    <!-- NotificationBar Demo -->
-
-    <!-- End NotificationBar Demo -->
     <p class="text-yellow-primary text-3xl">test</p>
     <Toggle />
     <ButtonGroup>
@@ -114,7 +111,42 @@
     <EDUCCatalogueLogo />
     <EDUCLearningLogo />
     <EDUCOpenupLogo />
+    <Dialog>
+      <DialogTrigger> Edit Profile </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+
+        <DialogFooter>
+          <PrimaryButton size="sm">Save changes</PrimaryButton>
+          <SecondaryButton size="sm">Cancel</SecondaryButton>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   </div>
+  <ContactCard color="violet">
+    <template #avatar>
+      <Avatar class="h-48 w-48">
+        <AvatarImage src="https://cataas.com/cat?type=square&width=64" />
+        <AvatarFallback>JS</AvatarFallback>
+      </Avatar>
+    </template>
+    <template #header>
+      <ContactCardHeader
+        name="John Doe"
+        organization="University of Potsdam"
+        role="Project Manager"
+      />
+    </template>
+    <template #contact>
+      <!-- Custom contact content -->
+    </template>
+  </ContactCard>
+  <Cta />
   <Footer class="mt-32" />
 </template>
 
@@ -154,7 +186,21 @@ import EDUCPortalLogo from "./atoms/logos/EDUCPortalLogo.vue"
 import EDUCCatalogueLogo from "./atoms/logos/EDUCCatalogueLogo.vue"
 import EDUCLearningLogo from "./atoms/logos/EDUCLearningLogo.vue"
 import EDUCOpenupLogo from "./atoms/logos/EDUCOpenupLogo.vue"
-import Navigation from "./Navigation.vue"
+import Hero2 from "./organisms/hero/Hero2.vue"
+import Hero3 from "./organisms/hero/Hero3.vue"
+import Cta from "./organisms/cta/Cta3.vue"
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "./atoms/others/dialog"
+import PrimaryButton from "./atoms/buttons/PrimaryButton.vue"
+import { ContactCard, ContactCardHeader } from "./atoms/others/contact-card"
+import { Avatar, AvatarImage, AvatarFallback } from "./atoms/others/avatar"
 defineProps<{
   msg: string
 }>()

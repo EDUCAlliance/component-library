@@ -10,16 +10,20 @@ const props = withDefaults(
     size?: "xs" | "sm" | "base" | "lg"
     icon?: boolean
     disabled?: boolean
+    dark?: boolean
   }>(),
   {
     size: "base",
     disabled: false,
+    dark: false,
   },
 )
 
 const classes = computed(() => ({
   "disabled:bg-black-quinternary bg-black-primary disabled:cursor-not-allowed text-white-primary hover:rounded-none disabled:hover:rounded-full duration-150 ease-in-out flex items-center gap-2 focus:ring-2 focus:ring-offset-2 focus:outline-hidden focus:ring-black-secondary transition-[border-radius]":
-    true,
+    !props.dark,
+  "disabled:bg-white-primary bg-white-primary disabled:cursor-not-allowed text-black-primary hover:rounded-none disabled:hover:rounded-full duration-150 ease-in-out flex items-center gap-2 focus:ring-2 focus:ring-offset-2 focus:outline-hidden focus:ring-black-secondary transition-[border-radius]":
+    props.dark,
   "text-xs rounded-[12px] [&>svg]:size-3 h-6 px-3 py-1": props.size === "xs",
   "text-sm rounded-[18px] [&>svg]:size-4 h-9 px-4 py-2": props.size === "sm",
   "text-base rounded-[24px] [&>svg]:size-4 h-12 px-6 py-3": props.size === "base",

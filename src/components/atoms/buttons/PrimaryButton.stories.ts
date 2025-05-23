@@ -47,6 +47,7 @@ Custom made for this library.
     },
     icon: { control: "boolean", description: "Whether the button is an icon button." },
     disabled: { control: "boolean", description: "Whether the button is disabled." },
+    dark: { control: "boolean", description: "Whether the button is used on a dark background." },
   },
   // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],

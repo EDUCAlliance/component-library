@@ -1,11 +1,11 @@
 <template>
-  <div v-if="visible" :class="cn(colorClasses, 'relative flex h-12 items-center')">
+  <div v-if="visible" :class="cn(colorClasses, 'relative flex min-h-12 items-center py-1')">
     <img
       v-if="props.color === 'pattern'"
       src="/assets/notification-bar/pattern.svg"
       class="absolute top-0 left-0 size-full object-cover"
     />
-    <div class="z-10 flex w-full min-w-0 items-center justify-center gap-4">
+    <div class="z-10 flex w-full min-w-0 flex-wrap items-center justify-center gap-4 gap-y-0">
       <slot />
     </div>
     <button
