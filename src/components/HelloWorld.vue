@@ -10,6 +10,7 @@
       See what's coming next <font-awesome-icon :icon="['fas', 'arrow-right']" class="size-4" />
     </GhostButton>
   </NotificationBar>
+  <Navigation />
   <div class="mx-auto max-w-2xl">
     <!-- NotificationBar Demo -->
 
@@ -108,6 +109,11 @@
     </Accordion>
     <Calendar :weekday-format="'narrow'" class="w-fit" />
     <RangeCalendar class="w-fit" />
+    <EDUCLogo />
+    <EDUCPortalLogo class="text-orange-primary" />
+    <EDUCCatalogueLogo />
+    <EDUCLearningLogo />
+    <EDUCOpenupLogo />
   </div>
   <Footer class="mt-32" />
 </template>
@@ -143,6 +149,12 @@ import {
 } from "./atoms/others/accordion"
 import RangeCalendar from "./atoms/others/range-calendar/RangeCalendar.vue"
 import Calendar from "./atoms/others/calendar/Calendar.vue"
+import EDUCLogo from "./atoms/logos/EDUCLogo.vue"
+import EDUCPortalLogo from "./atoms/logos/EDUCPortalLogo.vue"
+import EDUCCatalogueLogo from "./atoms/logos/EDUCCatalogueLogo.vue"
+import EDUCLearningLogo from "./atoms/logos/EDUCLearningLogo.vue"
+import EDUCOpenupLogo from "./atoms/logos/EDUCOpenupLogo.vue"
+import Navigation from "./Navigation.vue"
 defineProps<{
   msg: string
 }>()

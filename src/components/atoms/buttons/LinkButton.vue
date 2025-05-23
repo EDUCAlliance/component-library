@@ -1,5 +1,5 @@
 <template>
-  <button type="button" :class="classes" :disabled="disabled"><slot></slot></button>
+  <a :class="classes" :disabled="disabled" :href="href"><slot></slot></a>
 </template>
 
 <script setup lang="ts">
@@ -9,10 +9,12 @@ const props = withDefaults(
   defineProps<{
     size?: "xs" | "sm" | "base" | "lg"
     disabled?: boolean
+    href?: string
   }>(),
   {
     size: "base",
     disabled: false,
+    href: "",
   },
 )
 

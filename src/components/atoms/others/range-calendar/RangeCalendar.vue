@@ -35,10 +35,9 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   <RangeCalendarRoot
     v-slot="{ grid, weekDays }"
     data-slot="range-calendar"
-    :class="cn('border-black-quaternary rounded-lg border p-2', props.class)"
+    :class="cn('border-black-quaternary w-fit rounded-lg border p-2', props.class)"
     v-bind="forwarded"
     :week-starts-on="1"
-    :number-of-months="2"
   >
     <RangeCalendarHeader>
       <RangeCalendarHeading />

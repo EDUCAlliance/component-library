@@ -33,6 +33,8 @@ const forwardedProps = useForwardProps(delegatedProps)
         'data-[selection-start]:bg-black-primary data-[selection-start]:text-primary-foreground data-[selection-start]:hover:bg-black-secondary data-[selection-start]:hover:text-primary-foreground data-[selection-start]:focus:bg-black-primary data-[selection-start]:focus:text-primary-foreground [&[data-selection-start]]:rounded-r-none',
         // Selection End
         'data-[selection-end]:bg-black-primary data-[selection-end]:text-primary-foreground data-[selection-end]:hover:bg-black-secondary data-[selection-end]:hover:text-primary-foreground data-[selection-end]:focus:bg-black-primary data-[selection-end]:focus:text-primary-foreground [&[data-selection-end]]:rounded-l-none',
+        // Highlight
+        'data-[highlighted]:bg-black-quaternary data-[highlighted]:text-black-secondary',
         // Outside months
         'data-[outside-view]:text-black-quinternary',
         // Disabled
