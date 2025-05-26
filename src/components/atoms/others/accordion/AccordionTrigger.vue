@@ -9,7 +9,7 @@ const props = defineProps<AccordionTriggerProps & { class?: HTMLAttributes["clas
 
 const delegatedProps = reactiveOmit(props, "class")
 
-const size = inject<"md" | "lg">("accordionSize", "md")
+const size = inject<"sm" | "md" | "lg">("accordionSize", "md")
 </script>
 
 <template>
@@ -19,8 +19,9 @@ const size = inject<"md" | "lg">("accordionSize", "md")
       v-bind="delegatedProps"
       :class="
         cn(
-          size === 'lg' ? 'text-3xl' : 'text-lg',
-          'focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-center justify-between gap-4 rounded-md py-6 text-left font-bold transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>div>svg]:rotate-180 [&[data-state=open]>div>svg[data-icon=plus]]:opacity-0',
+          size === 'lg' ? 'text-3xl' : size === 'md' ? 'text-lg' : 'text-base',
+          'focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-center justify-between gap-4 rounded-md text-left font-bold transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>div>svg]:rotate-180 [&[data-state=open]>div>svg[data-icon=plus]]:opacity-0',
+          size === 'sm' ? 'py-4' : 'py-6',
           props.class,
         )
       "
@@ -32,7 +33,7 @@ const size = inject<"md" | "lg">("accordionSize", "md")
             :icon="['fas', 'plus']"
             :class="
               cn(
-                size === 'lg' ? 'text-2xl' : 'text-lg',
+                size === 'lg' ? 'text-2xl' : size === 'md' ? 'text-lg' : 'text-base',
                 'text-black-primary pointer-events-none absolute top-1/2 right-0 shrink-0 -translate-y-1/2 duration-200',
               )
             "
@@ -41,7 +42,7 @@ const size = inject<"md" | "lg">("accordionSize", "md")
             :icon="['fas', 'minus']"
             :class="
               cn(
-                size === 'lg' ? 'text-2xl' : 'text-lg',
+                size === 'lg' ? 'text-2xl' : size === 'md' ? 'text-lg' : 'text-base',
                 'text-black-primary pointer-events-none absolute top-1/2 right-0 shrink-0 -translate-y-1/2 duration-200',
               )
             "

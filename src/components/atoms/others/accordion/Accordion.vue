@@ -7,7 +7,7 @@ import {
 } from "reka-ui"
 import { provide, computed } from "vue"
 
-const props = defineProps<AccordionRootProps & { size?: "md" | "lg" }>()
+const props = defineProps<AccordionRootProps & { size?: "sm" | "md" | "lg" }>()
 const emits = defineEmits<AccordionRootEmits>()
 
 const forwarded = useForwardPropsEmits(props, emits)

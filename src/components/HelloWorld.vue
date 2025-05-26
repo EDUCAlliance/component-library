@@ -144,6 +144,7 @@
     <div class="my-12">
       <PodcastCard />
     </div>
+    <DescriptionList1 />
   </div>
 
   <!-- Features Sections Container -->
@@ -261,6 +262,7 @@ import Features4 from "./organisms/features/Features4.vue"
 import { Toaster } from "./atoms/others/sonner"
 import "./atoms/others/sonner/sonner.css"
 import { toast } from "vue-sonner"
+import DescriptionList1 from "./organisms/description-list/DescriptionList1.vue"
 
 defineProps<{
   msg: string

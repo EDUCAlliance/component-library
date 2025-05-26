@@ -7,8 +7,8 @@ const meta = {
   argTypes: {
     size: {
       control: "select",
-      options: ["md", "lg"],
-      description: "Accordion size (md: default, lg: large trigger font and content padding)",
+      options: ["sm", "md", "lg"],
+      description: "Accordion size (sm: small, md: default, lg: large)",
     },
     type: {
       control: "select",
