@@ -1,4 +1,5 @@
 <template>
+  <Toaster />
   <NotificationBar
     headline="Staff Week · Digital Course Development and Virtual Mobility"
     text="University od Pécs · Hungary"
@@ -13,6 +14,7 @@
   <Hero3 />
   <div class="mx-auto max-w-2xl">
     <p class="text-yellow-primary text-3xl">test</p>
+
     <Toggle />
     <ButtonGroup>
       <SecondaryButton>First Button</SecondaryButton
@@ -172,6 +174,19 @@
   </ContactCard>
   <div class="my-12"><Actions1 /></div>
   <div class="my-12"><Actions2 /></div>
+  <PrimaryButton
+    @click="
+      () => {
+        toast('Event has been created', {
+          description: 'Sunday, December 03, 2023 at 9:00 AM',
+          action: {
+            label: 'Undo',
+            onClick: () => console.log('Undo'),
+          },
+        })
+      }
+    "
+  ></PrimaryButton>
 
   <ItemCard>
     <template #icon>
@@ -247,8 +262,23 @@ import Features1 from "./organisms/features/Features1.vue"
 import Features2 from "./organisms/features/Features2.vue"
 import Features3 from "./organisms/features/Features3.vue"
 import Features4 from "./organisms/features/Features4.vue"
+import Toaster from "./atoms/others/sonner/Sonner.vue"
+import { toast } from "vue-sonner"
 
 defineProps<{
   msg: string
 }>()
+
+// Table data
+const columns = [
+  { key: "name", label: "Name" },
+  { key: "age", label: "Age" },
+  { key: "city", label: "City" },
+]
+
+const rows = [
+  { name: "John Doe", age: 30, city: "New York" },
+  { name: "Jane Smith", age: 25, city: "London" },
+  { name: "Bob Johnson", age: 35, city: "Paris" },
+]
 </script>

@@ -1,11 +1,11 @@
 <template>
-  <table :class="['w-full border-separate border-spacing-0', colorBorderClass]">
+  <table :class="['w-full border-separate border-spacing-0']">
     <thead>
       <tr>
         <th
           v-for="(col, idx) in columns"
           :key="idx"
-          class="border-b px-4 py-2 text-left font-semibold"
+          class="border-b px-4 py-2 text-left font-bold"
         >
           <slot :name="`header-${col.key}`">{{ col.label }}</slot>
         </th>
@@ -58,7 +58,6 @@ table {
   border-collapse: separate;
   border-spacing: 0;
   background: white;
-  border-radius: 12px;
   overflow: hidden;
 }
 thead th {
