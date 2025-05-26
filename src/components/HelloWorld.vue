@@ -177,12 +177,8 @@
   <PrimaryButton
     @click="
       () => {
-        toast('Event has been created', {
+        toast.success('Event has been created', {
           description: 'Sunday, December 03, 2023 at 9:00 AM',
-          action: {
-            label: 'Undo',
-            onClick: () => console.log('Undo'),
-          },
         })
       }
     "
@@ -262,7 +258,8 @@ import Features1 from "./organisms/features/Features1.vue"
 import Features2 from "./organisms/features/Features2.vue"
 import Features3 from "./organisms/features/Features3.vue"
 import Features4 from "./organisms/features/Features4.vue"
-import Toaster from "./atoms/others/sonner/Sonner.vue"
+import { Toaster } from "./atoms/others/sonner"
+import "./atoms/others/sonner/sonner.css"
 import { toast } from "vue-sonner"
 
 defineProps<{

@@ -5,13 +5,5 @@ const props = defineProps<ToasterProps>()
 </script>
 
 <template>
-  <Sonner
-    class="toaster group"
-    v-bind="props"
-    :style="{
-      '--normal-bg': 'var(--color-yellow-primary)',
-      '--normal-text': 'var(--popover-foreground)',
-      '--normal-border': 'var(--border)',
-    }"
-  />
+  <Sonner class="toaster group" v-bind="props" rich-colors :duration="1000000" close-button />
 </template>
