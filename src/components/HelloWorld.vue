@@ -147,6 +147,54 @@
     <DescriptionList1 />
     <DescriptionList2 />
     <DescriptionList3 />
+
+    <!-- RichTable Example -->
+    <div class="my-12">
+      <RichTable columns="381px 213px 1fr 213px fit-content">
+        <RichTableHeader
+          title="Our staff"
+          description="A list of all the staff in your alliance, including their names, titles, emails, and universities."
+        >
+          <template #actions>
+            <PrimaryButton size="sm">Add staff</PrimaryButton>
+            <SecondaryButton size="sm">Select</SecondaryButton>
+          </template>
+        </RichTableHeader>
+
+        <RichTableContent>
+          <RichTableHead>
+            <RichTableColumn key="name" label="Name" :sortable="true" />
+            <RichTableColumn key="title" label="Title" />
+            <RichTableColumn key="email" label="Email" />
+            <RichTableColumn key="status" label="Status" />
+            <RichTableColumn key="actions" label="" />
+          </RichTableHead>
+
+          <RichTableRow
+            v-for="(person, index) in staffData"
+            :key="index"
+            :class="index % 2 === 1 ? 'bg-white-tertiary' : 'bg-white-primary'"
+          >
+            <RichTableCell class="text-black-primary font-medium">
+              {{ person.name }}
+            </RichTableCell>
+            <RichTableCell>
+              {{ person.title }}
+            </RichTableCell>
+            <RichTableCell>
+              {{ person.email }}
+            </RichTableCell>
+            <RichTableCell>
+              <Badge color="green" size="sm">{{ person.status }}</Badge>
+            </RichTableCell>
+            <RichTableCell width="fit-content">
+              <RichTableActions />
+            </RichTableCell>
+          </RichTableRow>
+        </RichTableContent>
+      </RichTable>
+      <FileUpload />
+    </div>
   </div>
 
   <!-- Features Sections Container -->
@@ -267,6 +315,18 @@ import { toast } from "vue-sonner"
 import DescriptionList1 from "./organisms/description-list/DescriptionList1.vue"
 import DescriptionList2 from "./organisms/description-list/DescriptionList2.vue"
 import DescriptionList3 from "./organisms/description-list/DescriptionList3.vue"
+import {
+  RichTable,
+  RichTableHeader,
+  RichTableContent,
+  RichTableHead,
+  RichTableColumn,
+  RichTableRow,
+  RichTableCell,
+  RichTableActions,
+} from "./organisms/rich-table"
+import Badge from "./atoms/others/Badge.vue"
+import FileUpload from "./atoms/FileUpload.vue"
 
 defineProps<{
   msg: string
@@ -283,5 +343,39 @@ const rows = [
   { name: "John Doe", age: 30, city: "New York" },
   { name: "Jane Smith", age: 25, city: "London" },
   { name: "Bob Johnson", age: 35, city: "Paris" },
+]
+
+// Staff data for RichTable
+const staffData = [
+  {
+    name: "Ulrike Schmidt",
+    title: "Project Manager",
+    email: "ulrike.schmidt@uni-potsdam.de",
+    status: "Active",
+  },
+  {
+    name: "Imke Henningsen",
+    title: "Project Manager",
+    email: "imke.henningsen@uni-potsdam.de",
+    status: "Active",
+  },
+  {
+    name: "Heidi Tovsrud Knutsen",
+    title: "Project Manager",
+    email: "heiditk@usn.no",
+    status: "Active",
+  },
+  {
+    name: "Fermín Mallén",
+    title: "Project Manager",
+    email: "fmallen@uji.es",
+    status: "Active",
+  },
+  {
+    name: "Dr. Bandiné dr. Temesi Ágnes",
+    title: "Project Manager",
+    email: "temesi.agnes@pte.hu",
+    status: "Active",
+  },
 ]
 </script>
