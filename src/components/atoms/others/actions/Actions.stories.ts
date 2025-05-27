@@ -3,7 +3,7 @@ import Actions1 from "./Actions1.vue"
 import Actions2 from "./Actions2.vue"
 
 const meta = {
-  title: "Atoms/Others/Actions",
+  title: "Elements/Actions",
   component: Actions1,
   tags: ["autodocs"],
 } satisfies Meta<typeof Actions1>

@@ -15,7 +15,7 @@ import PrimaryButton from "@/components/atoms/buttons/PrimaryButton.vue"
 import Input from "@/components/atoms/forms/input/Input.vue"
 
 const meta = {
-  title: "Atoms/Others/Dialog",
+  title: "Atoms/Dialog",
   component: Dialog,
   argTypes: {
     class: {

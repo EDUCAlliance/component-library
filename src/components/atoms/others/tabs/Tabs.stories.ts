@@ -5,7 +5,7 @@ import TabsList from "./TabsList.vue"
 import TabsTrigger from "./TabsTrigger.vue"
 
 const meta = {
-  title: "Atoms/Others/Tabs",
+  title: "Atoms/Tabs",
   component: Tabs,
   tags: ["autodocs"],
   argTypes: {

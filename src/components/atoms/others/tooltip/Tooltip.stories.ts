@@ -3,7 +3,7 @@ import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "."
 import PrimaryButton from "../../buttons/PrimaryButton.vue"
 
 const meta = {
-  title: "Atoms/Others/Tooltip",
+  title: "Atoms/Tooltip",
   component: Tooltip,
   render: (args) => ({
     components: { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent, PrimaryButton },

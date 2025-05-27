@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/vue3"
 import { Breadcrumbs, BreadcrumbsArrow, BreadcrumbsLink, BreadcrumbsIcon } from "."
 
 const meta = {
-  title: "Atoms/Others/Breadcrumbs",
+  title: "Atoms/Breadcrumbs",
   component: Breadcrumbs,
   argTypes: {
     class: {

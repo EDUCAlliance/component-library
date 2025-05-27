@@ -3,7 +3,7 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from "."
 import PrimaryButton from "../../buttons/PrimaryButton.vue"
 
 const meta = {
-  title: "Atoms/Others/HoverCard",
+  title: "Atoms/HoverCard",
   component: HoverCard,
   render: (args) => ({
     components: { HoverCard, HoverCardTrigger, HoverCardContent, PrimaryButton },

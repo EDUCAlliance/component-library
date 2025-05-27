@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/vue3"
 import Calendar from "./Calendar.vue"
 
 const meta = {
-  title: "Atoms/Others/Calendar",
+  title: "Atoms/Calendar",
   component: Calendar,
   argTypes: {
     class: {

@@ -7,7 +7,7 @@ import Badge from "./Badge.vue"
  * Primary button used for main actions on a webpage.
  */
 const meta = {
-  title: "Atoms/Others/Badge",
+  title: "Atoms/Badge",
   component: Badge,
   parameters: {
     layout: "centered",

@@ -6,7 +6,7 @@ import "./sonner.css"
 import PrimaryButton from "../../buttons/PrimaryButton.vue"
 
 const meta = {
-  title: "Atoms/Others/Sonner",
+  title: "Atoms/Sonner",
   component: Toaster,
   tags: ["autodocs"],
   parameters: {

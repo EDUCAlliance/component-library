@@ -19,7 +19,7 @@ interface StoryProps {
 }
 
 const meta = {
-  title: "Atoms/Others/ContactCard",
+  title: "Atoms/ContactCard",
   component: ContactCard,
   render: (args: StoryProps) => ({
     components: {

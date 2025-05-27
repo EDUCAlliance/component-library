@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/vue3"
 import Loading from "./Loading.vue"
 
 const meta = {
-  title: "Atoms/Others/Loading",
+  title: "Atoms/Loading",
   component: Loading,
   tags: ["autodocs"],
   parameters: {
