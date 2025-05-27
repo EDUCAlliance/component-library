@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardHeader, CardBody, CardFooter, CardDivider } from "./atoms/card"
-import BackgroundImage from "./atoms/BackgroundImage.vue"
-import Badge from "./atoms/others/Badge.vue"
-import GhostButton from "./atoms/buttons/GhostButton.vue"
+import { Card, CardHeader, CardBody, CardFooter, CardDivider } from "./atoms/data-display/card"
+import BackgroundImage from "./atoms/content/BackgroundImage.vue"
+import { Badge } from "./atoms/feedback"
+import { GhostButton } from "./atoms/buttons"
 </script>

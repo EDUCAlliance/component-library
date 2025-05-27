@@ -247,43 +247,38 @@
 </template>
 
 <script setup lang="ts">
-import SecondaryButton from "./atoms/buttons/SecondaryButton.vue"
-import Radio from "./atoms/forms/Radio.vue"
-import Toggle from "./atoms/switches/Toggle.vue"
-import ButtonGroup from "./molecules/ButtonGroup.vue"
-import Slider from "./atoms/forms/Slider.vue"
-import Loading from "./atoms/feedback/Loading.vue"
-import { TooltipTrigger, TooltipContent, TooltipProvider, Tooltip } from "./atoms/overlay/tooltip"
+import { SecondaryButton, GhostButton, PrimaryButton } from "./atoms/buttons"
+import { Radio, Toggle, Slider, Checkbox, Input, FileUpload } from "./atoms/forms"
+import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "./atoms/forms/select"
+import { ButtonGroup } from "./molecules/navigation"
+import { Loading, NotificationBar, Badge } from "./atoms/feedback"
+import { Alert, AlertTitle, AlertDescription } from "./atoms/others/alert"
+import { TooltipTrigger, TooltipContent, TooltipProvider, Tooltip } from "./atoms/overlays/tooltip"
 import {
   Breadcrumbs,
   BreadcrumbsLink,
   BreadcrumbsArrow,
   BreadcrumbsIcon,
-} from "./atoms/navigation/breadcrumbs"
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "./atoms/forms/select"
-import NotificationBar from "./atoms/feedback/NotificationBar.vue"
-import GhostButton from "./atoms/buttons/GhostButton.vue"
-import { Alert, AlertTitle, AlertDescription } from "./atoms/feedback/alert"
+} from "./atoms/navigation/breadcrumbs/breadcrumbs"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
-import Checkbox from "./atoms/forms/Checkbox.vue"
-import Input from "./atoms/forms/input/Input.vue"
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "./atoms/overlay/hover-card"
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "./atoms/overlays/hover-card"
 import Footer from "./Footer.vue"
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "./atoms/data-display/accordion"
-import RangeCalendar from "./atoms/others/range-calendar/RangeCalendar.vue"
-import Calendar from "./atoms/others/calendar/Calendar.vue"
-import EDUCLogo from "./atoms/logos/EDUCLogo.vue"
-import EDUCPortalLogo from "./atoms/logos/EDUCPortalLogo.vue"
-import EDUCCatalogueLogo from "./atoms/logos/EDUCCatalogueLogo.vue"
-import EDUCLearningLogo from "./atoms/logos/EDUCLearningLogo.vue"
-import EDUCOpenupLogo from "./atoms/logos/EDUCOpenupLogo.vue"
-import Hero3 from "./organisms/hero/Hero3.vue"
-import Cta from "./organisms/cta/Cta3.vue"
+} from "./atoms/others/accordion"
+import { RangeCalendar, Calendar } from "./atoms/date-time"
+import {
+  EDUCLogo,
+  EDUCPortalLogo,
+  EDUCCatalogueLogo,
+  EDUCLearningLogo,
+  EDUCOpenupLogo,
+} from "./atoms/content"
+import { Hero3 } from "./organisms/content/hero"
+import { Cta3 as Cta } from "./organisms/content/cta"
 import {
   Dialog,
   DialogTrigger,
@@ -292,29 +287,25 @@ import {
   DialogTitle,
   DialogDescription,
   DialogFooter,
-} from "./atoms/overlay/dialog"
-import PrimaryButton from "./atoms/buttons/PrimaryButton.vue"
-import { ContactCard, ContactCardHeader } from "./atoms/media/contact-card"
-import { Avatar, AvatarImage, AvatarFallback } from "./atoms/media/avatar"
-import ItemCard from "./atoms/ItemCard.vue"
-import Actions1 from "./atoms/feedback/actions/Actions1.vue"
-import Actions2 from "./atoms/feedback/actions/Actions2.vue"
+} from "./atoms/overlays/dialog"
+import { ContactCard, ContactCardHeader } from "./atoms/content/contact-card"
+import { Avatar, AvatarImage, AvatarFallback } from "./atoms/data-display/avatar"
+import { ItemCard } from "./atoms/data-display"
+import { Actions1, Actions2 } from "./atoms/actions/actions"
 import Card1 from "./Card1.vue"
 import Card2 from "./Card2.vue"
 import Card3 from "./Card3.vue"
 import Card4 from "./Card4.vue"
 import PodcastCard from "./PodcastCard.vue"
-// Features components
-import Features1 from "./organisms/features/Features1.vue"
-import Features2 from "./organisms/features/Features2.vue"
-import Features3 from "./organisms/features/Features3.vue"
-import Features4 from "./organisms/features/Features4.vue"
+import { Features1, Features2, Features3, Features4 } from "./organisms/content/features"
 import { Toaster } from "./atoms/feedback/sonner"
 import "./atoms/feedback/sonner/sonner.css"
 import { toast } from "vue-sonner"
-import DescriptionList1 from "./organisms/description-list/DescriptionList1.vue"
-import DescriptionList2 from "./organisms/description-list/DescriptionList2.vue"
-import DescriptionList3 from "./organisms/description-list/DescriptionList3.vue"
+import {
+  DescriptionList1,
+  DescriptionList2,
+  DescriptionList3,
+} from "./organisms/data/description-list"
 import {
   RichTable,
   RichTableHeader,
@@ -324,9 +315,7 @@ import {
   RichTableRow,
   RichTableCell,
   RichTableActions,
-} from "./organisms/rich-table"
-import Badge from "./atoms/data-display/Badge.vue"
-import FileUpload from "./atoms/FileUpload.vue"
+} from "./organisms/data/rich-table"
 
 defineProps<{
   msg: string

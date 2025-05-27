@@ -52,5 +52,5 @@ import {
   FooterLink,
   FooterBottom,
   FooterCopyright,
-} from "./organisms/footer"
+} from "./organisms/navigation/footer"
 </script>

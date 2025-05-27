@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/vue3"
 import LinkButton from "./LinkButton.vue"
 
 const meta = {
-  title: "Atoms/Buttons/LinkButton",
+  title: "Atoms/Buttons/Link",
   component: LinkButton,
   render: (args) => ({
     components: { LinkButton },

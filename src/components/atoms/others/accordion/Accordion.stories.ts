@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/vue3"
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "."
 
 const meta = {
-  title: "Atoms/Accordion",
+  title: "Atoms/DataDisplay/Accordion",
   component: Accordion,
   argTypes: {
     size: {

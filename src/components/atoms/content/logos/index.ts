@@ -1,0 +1,5 @@
+export { default as EDUCLogo } from "./EDUCLogo.vue"
+export { default as EDUCLearningLogo } from "./EDUCLearningLogo.vue"
+export { default as EDUCCatalogueLogo } from "./EDUCCatalogueLogo.vue"
+export { default as EDUCOpenupLogo } from "./EDUCOpenupLogo.vue"
+export { default as EDUCPortalLogo } from "./EDUCPortalLogo.vue"

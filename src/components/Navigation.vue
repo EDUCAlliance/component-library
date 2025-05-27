@@ -7,7 +7,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/molecules/navigation-menu"
+} from "@/components/molecules/navigation/navigation-menu"
 </script>
 
 <template>

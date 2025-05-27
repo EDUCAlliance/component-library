@@ -8,7 +8,7 @@ import {
   SelectGroup,
   SelectLabel,
 } from "."
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/atoms/others/avatar"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/atoms/data-display/avatar"
 
 const meta = {
   title: "Atoms/Forms/Select",

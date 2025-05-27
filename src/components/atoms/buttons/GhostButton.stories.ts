@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from "@storybook/vue3"
 import GhostButton from "./GhostButton.vue"
 
 const meta = {
-  title: "Atoms/Buttons/GhostButton",
+  title: "Atoms/Buttons/Ghost",
   component: GhostButton,
   render: (args) => ({
     components: { GhostButton },
