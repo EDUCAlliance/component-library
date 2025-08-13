@@ -42,30 +42,28 @@ export const AllLogos: Story = {
       EDUCPortalLogo,
     },
     template: `
-      <div class="flex flex-col gap-8 p-4">
-        <div class="flex flex-col gap-2">
-          <h3 class="text-lg font-semibold">EDUC Main Logo</h3>
-          <EDUCLogo class="w-48" />
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h3 class="text-lg font-semibold">EDUC Learning Logo</h3>
-          <EDUCLearningLogo class="w-48" />
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h3 class="text-lg font-semibold">EDUC Catalogue Logo</h3>
-          <EDUCCatalogueLogo class="w-48" />
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h3 class="text-lg font-semibold">EDUC Openup Logo</h3>
-          <EDUCOpenupLogo class="w-48" />
-        </div>
-
-        <div class="flex flex-col gap-2">
-          <h3 class="text-lg font-semibold">EDUC Portal Logo</h3>
-          <EDUCPortalLogo class="w-48" />
+      <div class="p-4">
+        <div class="grid grid-cols-2 gap-8 place-items-start">
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-muted-foreground">EDUC</span>
+            <EDUCLogo class="w-48" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-muted-foreground">Learning</span>
+            <EDUCLearningLogo class="w-48" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-muted-foreground">Catalogue</span>
+            <EDUCCatalogueLogo class="w-48" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-muted-foreground">Openup</span>
+            <EDUCOpenupLogo class="w-48" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-muted-foreground">Portal</span>
+            <EDUCPortalLogo class="w-48" />
+          </div>
         </div>
       </div>
     `,
@@ -75,30 +73,28 @@ export const AllLogos: Story = {
       source: {
         code: `
 <template>
-  <div class="flex flex-col gap-8 p-4">
-    <div class="flex flex-col gap-2">
-      <h3 class="text-lg font-semibold">EDUC Main Logo</h3>
-      <EDUCLogo class="w-48" />
-    </div>
-
-    <div class="flex flex-col gap-2">
-      <h3 class="text-lg font-semibold">EDUC Learning Logo</h3>
-      <EDUCLearningLogo class="w-48" />
-    </div>
-
-    <div class="flex flex-col gap-2">
-      <h3 class="text-lg font-semibold">EDUC Catalogue Logo</h3>
-      <EDUCCatalogueLogo class="w-48" />
-    </div>
-
-    <div class="flex flex-col gap-2">
-      <h3 class="text-lg font-semibold">EDUC Openup Logo</h3>
-      <EDUCOpenupLogo class="w-48" />
-    </div>
-
-    <div class="flex flex-col gap-2">
-      <h3 class="text-lg font-semibold">EDUC Portal Logo</h3>
-      <EDUCPortalLogo class="w-48" />
+  <div class="p-4">
+    <div class="grid grid-cols-2 gap-8 place-items-start">
+      <div class="flex flex-col gap-2">
+        <span class="text-xs text-muted-foreground">EDUC</span>
+        <EDUCLogo class="w-48" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-xs text-muted-foreground">Learning</span>
+        <EDUCLearningLogo class="w-48" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-xs text-muted-foreground">Catalogue</span>
+        <EDUCCatalogueLogo class="w-48" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-xs text-muted-foreground">Openup</span>
+        <EDUCOpenupLogo class="w-48" />
+      </div>
+      <div class="flex flex-col gap-2">
+        <span class="text-xs text-muted-foreground">Portal</span>
+        <EDUCPortalLogo class="w-48" />
+      </div>
     </div>
   </div>
 </template>
@@ -142,4 +138,101 @@ export const PortalLogo: Story = {
     components: { EDUCPortalLogo },
     template: '<EDUCPortalLogo class="w-48" />',
   }),
+}
+
+export const MarkOnly: Story = {
+  name: "Mark only (no text)",
+  render: () => ({
+    components: { EDUCLogo, EDUCPortalLogo },
+    template: `
+      <div class="flex flex-col gap-6 p-4">
+        <div class="flex items-center gap-6">
+          <EDUCLogo :fullLogo="false" class="w-20" />
+          <span class="text-sm text-muted-foreground">EDUC mark</span>
+        </div>
+        <div class="flex items-center gap-6">
+          <EDUCPortalLogo :fullLogo="false" class="w-20" />
+          <span class="text-sm text-muted-foreground">Application logos</span>
+        </div>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Set `fullLogo=false` to hide the wordmark and render only the mark. Supported by `EDUCLogo` and `EDUCPortalLogo`.",
+      },
+      source: {
+        code: `
+<template>
+  <div class="flex items-center gap-6">
+    <EDUCLogo :fullLogo="false" />
+    <EDUCPortalLogo :fullLogo="false" />
+  </div>
+</template>
+        `,
+      },
+    },
+  },
+}
+
+export const WhiteVariant: Story = {
+  name: "White variant (color prop)",
+  render: () => ({
+    components: {
+      EDUCLogo,
+      EDUCLearningLogo,
+      EDUCCatalogueLogo,
+      EDUCOpenupLogo,
+      EDUCPortalLogo,
+    },
+    template: `
+      <div class="p-6 rounded-md" style="background:#0b0b0b">
+        <div class="grid grid-cols-2 gap-8 place-items-start">
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-white-primary/70">EDUC</span>
+            <EDUCLogo class="w-44" :color="'#ffffff'" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-white-primary/70">Learning</span>
+            <EDUCLearningLogo class="w-44" color="#ffffff" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-white-primary/70">Catalogue</span>
+            <EDUCCatalogueLogo class="w-44" color="#ffffff" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-white-primary/70">Openup</span>
+            <EDUCOpenupLogo class="w-44" color="#ffffff" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-white-primary/70">Portal</span>
+            <EDUCPortalLogo class="w-44" color="#ffffff" />
+          </div>
+        </div>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use the `color` prop to set a CSS color (e.g., `#fff`) for a white logo on dark backgrounds.",
+      },
+      source: {
+        code: `
+<template>
+  <div style="background:#0b0b0b" class="p-6">
+    <EDUCLogo color="#ffffff" />
+    <EDUCLearningLogo color="#ffffff" />
+    <EDUCCatalogueLogo color="#ffffff" />
+    <EDUCOpenupLogo color="#ffffff" />
+    <EDUCPortalLogo color="#ffffff" />
+  </div>
+</template>
+        `,
+      },
+    },
+  },
 }

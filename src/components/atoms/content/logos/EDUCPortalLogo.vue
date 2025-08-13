@@ -1,26 +1,30 @@
 <script setup lang="ts">
 import { withDefaults, defineProps } from "vue"
-// height and fullLogo props
-withDefaults(
+// height, class, color and fullLogo props
+const props = withDefaults(
   defineProps<{
     height?: number
     class?: string
+    color?: string
+    fullLogo?: boolean
   }>(),
   {
     height: 80,
     class: "fill-current",
+    fullLogo: true,
   },
 )
 </script>
 
 <template>
   <svg
-    :width="height * (168 / 80)"
-    :height="height"
-    viewBox="0 0 168 80"
+    :width="props.fullLogo ? props.height * (168 / 80) : props.height * (65 / 80)"
+    :height="props.height"
+    :viewBox="props.fullLogo ? '0 0 168 80' : '0 0 65 80'"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    :class="class"
+    :class="props.class"
+    :style="props.color ? { color: props.color } : undefined"
   >
     <path d="M129.024 34V46.2193H126.488V34H129.024Z" class="fill-current" />
     <path
