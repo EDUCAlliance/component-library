@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import Cta1 from "./Cta1.vue"
 import Cta2 from "./Cta2.vue"
 import Cta3 from "./Cta3.vue"

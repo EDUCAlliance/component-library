@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import FooterLinks from "./FooterLinks.vue"
 import FooterCol from "./FooterCol.vue"
 import FooterLink from "./FooterLink.vue"

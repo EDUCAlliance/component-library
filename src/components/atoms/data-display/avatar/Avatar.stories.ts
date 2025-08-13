@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import type { DefineComponent } from "vue"
 import Avatar from "./Avatar.vue"
 import AvatarImage from "./AvatarImage.vue"

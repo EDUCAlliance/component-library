@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import { TooltipProvider, Tooltip, TooltipTrigger, TooltipContent } from "."
 import { PrimaryButton } from "../../../atoms/buttons"
 

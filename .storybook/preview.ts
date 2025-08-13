@@ -1,8 +1,8 @@
-import type { Preview } from "@storybook/vue3"
+import type { Preview } from "@storybook/vue3-vite"
 import "../src/assets/main.css"
 
 // FontAwesome global registration for Storybook
-import { setup } from "@storybook/vue3"
+import { setup } from "@storybook/vue3-vite"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
 import { fas } from "@fortawesome/free-solid-svg-icons"

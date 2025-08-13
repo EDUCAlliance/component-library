@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import { ContactCard, ContactCardHeader, ContactCardContact } from "."
 import { Avatar, AvatarImage, AvatarFallback } from "../../data-display/avatar"
 

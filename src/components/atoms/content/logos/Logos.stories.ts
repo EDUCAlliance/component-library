@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import EDUCLogo from "./EDUCLogo.vue"
 import EDUCLearningLogo from "./EDUCLearningLogo.vue"
 import EDUCCatalogueLogo from "./EDUCCatalogueLogo.vue"

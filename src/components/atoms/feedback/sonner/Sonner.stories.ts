@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import { Toaster } from "./index"
 import { toast } from "vue-sonner"
 import { ref } from "vue"

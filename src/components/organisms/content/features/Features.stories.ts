@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import Features1 from "./Features1.vue"
 import Features2 from "./Features2.vue"
 import Features3 from "./Features3.vue"

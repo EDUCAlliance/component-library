@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import Hero1 from "./Hero1.vue"
 import Hero2 from "./Hero2.vue"
 import Hero3 from "./Hero3.vue"

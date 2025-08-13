@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url'
 import path from 'node:path'
 import { mergeConfig, defineConfig, configDefaults } from 'vitest/config'
 import viteConfig from './vite.config'
-import { storybookTest } from '@storybook/experimental-addon-test/vitest-plugin'
+import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 
 const dirname =
   typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
