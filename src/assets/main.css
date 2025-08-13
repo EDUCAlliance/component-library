@@ -134,7 +134,7 @@
 }
 
 @theme {
-  --animate-disappear: disappear 2s infinite;
+  --animate-disappear: disappear 2s infinite both;
   @keyframes disappear {
     0%,
     100% {
