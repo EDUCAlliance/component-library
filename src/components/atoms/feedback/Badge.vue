@@ -40,7 +40,7 @@ const badgeClasses = computed(() => ({
     props.variant === "secondary" || props.color === "white",
   "px-2 py-1 text-sm": props.size === "base",
   "px-2 py-1 text-xs": props.size === "sm",
-  "px-[6px] py-2px text-xs": props.size === "xs",
+  "px-[6px] py-px text-xs": props.size === "xs",
 }))
 
 const dotClasses = computed(() => ({
