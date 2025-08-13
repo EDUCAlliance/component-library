@@ -393,6 +393,117 @@ export const JobCard: Story = {
   },
 }
 
+export const CourseCard: Story = {
+  render: () => ({
+    components: {
+      Card,
+      CardBody,
+      CardFooter,
+      CardDivider,
+      Badge,
+      GhostButton,
+    },
+    template: `
+      <Card class="border-pink-primary max-w-[420px] border-2">
+        <CardBody>
+          <div class="flex flex-wrap items-center gap-2">
+            <Badge color="pink" size="xs">Bachelors</Badge>
+            <Badge color="pink" size="xs">Masters</Badge>
+            <Badge color="pink" size="xs">PhD</Badge>
+          </div>
+          <CardDivider class="my-3" />
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium tracking-wider uppercase">Course</p>
+            <font-awesome-icon :icon="['far', 'heart']" class="size-5 text-black-tertiary" />
+          </div>
+          <h4 class="mt-2 text-2xl font-bold leading-tight">
+            Linguistic Landscapes: languages in the public space
+          </h4>
+          <div class="mt-6 mb-2 flex flex-wrap items-center gap-2">
+            <Badge color="gray" size="xs">University of Potsdam</Badge>
+            <Badge color="gray" size="xs">Sociology</Badge>
+            <Badge color="gray" size="xs">English</Badge>
+            <Badge color="gray" size="xs">3 months</Badge>
+          </div>
+          <CardDivider class="my-3" />
+          <p>
+            The public space of metropolises as well as medium and small-sized towns is profoundly
+            marked by the historic and contemporary traces of linguistic...
+          </p>
+          <CardDivider class="my-3" />
+          <div class="grid gap-2 md:grid-cols-2">
+            <div class="flex items-center gap-2">
+              <font-awesome-icon :icon="['fas', 'stopwatch']" class="size-4" />
+              <p class="font-semibold text-pink-primary">Until 25th Nov 2025</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <font-awesome-icon :icon="['fas', 'flag']" class="size-4" />
+              <p>Virtual</p>
+            </div>
+          </div>
+          <CardDivider class="mt-3" />
+        </CardBody>
+        <CardFooter class="px-4 pb-6">
+          <GhostButton class="text-pink-primary" size="auto">
+            View detail <font-awesome-icon :icon="['fas', 'arrow-right']" class="size-4" />
+          </GhostButton>
+        </CardFooter>
+      </Card>
+    `,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Card class="border-pink-primary max-w-[628px] border-2">
+  <CardBody class="p-6">
+    <div class="mb-3 flex flex-wrap items-center gap-2">
+      <Badge color="pink" size="sm">Bachelors</Badge>
+      <Badge color="pink" size="sm">Masters</Badge>
+      <Badge color="pink" size="sm">PhD</Badge>
+    </div>
+    <CardDivider class="mb-4" />
+    <div class="flex items-center justify-between">
+      <p class="text-sm font-medium tracking-wider uppercase">Course</p>
+      <Heart class="size-5" />
+    </div>
+    <h4 class="mt-4 text-3xl font-bold leading-tight">
+      Linguistic Landscapes: languages in the public space
+    </h4>
+    <div class="mt-4 mb-2 flex flex-wrap items-center gap-2">
+      <Badge color="gray" size="sm">University of Potsdam</Badge>
+      <Badge color="gray" size="sm">Sociology</Badge>
+      <Badge color="gray" size="sm">English</Badge>
+      <Badge color="gray" size="sm">3 months</Badge>
+    </div>
+    <CardDivider class="my-4" />
+    <p>
+      The public space of metropolises as well as medium and small-sized towns is profoundly
+      marked by the historic and contemporary traces of linguistic...
+    </p>
+    <CardDivider class="my-4" />
+    <div class="grid gap-2 md:grid-cols-2">
+      <div class="flex items-center gap-2">
+        <Stopwatch class="size-4" />
+        <p class="font-semibold text-pink-primary">Until 25th Nov 2025</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <Flag class="size-4" />
+        <p>Virtual</p>
+      </div>
+    </div>
+    <CardDivider class="mt-4" />
+  </CardBody>
+  <CardFooter class="px-6 pb-6">
+    <GhostButton class="text-pink-primary" size="auto">
+      View detail <ArrowRight class="size-4" />
+    </GhostButton>
+  </CardFooter>
+</Card>`,
+      },
+    },
+  },
+}
+
 export const GradientCard: Story = {
   render: () => ({
     components: { Card, CardHeader, CardBody },
