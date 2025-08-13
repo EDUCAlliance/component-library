@@ -72,7 +72,7 @@ const iconMap = {
 
       <!-- Textarea -->
       <textarea
-        v-model="modelValue as any"
+        v-model="modelValue"
         :disabled="props.disabled"
         :readonly="props.readonly"
         :placeholder="props.placeholder"
