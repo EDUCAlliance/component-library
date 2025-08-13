@@ -1,6 +1,13 @@
 <template>
   <div class="group grid size-5 grid-cols-1">
-    <input id="comments" :name="props.name" type="checkbox" checked="true" :class="classes" />
+    <input
+      id="comments"
+      :name="props.name"
+      type="checkbox"
+      :checked="isChecked"
+      :class="classes"
+      @change="onInputChange"
+    />
     <font-awesome-icon
       :icon="['fas', 'check']"
       :class="[
@@ -18,9 +25,8 @@
   </div>
 </template>
 
-// TODO: Fix value and onChange
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed, ref } from "vue"
 
 // import { ref } from "vue"
 // import { Switch } from "@headlessui/vue"
@@ -48,6 +54,8 @@ const props = withDefaults(
   defineProps<{
     disabled?: boolean
     value?: boolean
+    modelValue?: boolean
+    checked?: boolean
     color?: "black" | "yellow" | "pink" | "green" | "orange" | "violet"
     onChange?: (value: boolean) => void
     name?: string
@@ -58,6 +66,30 @@ const props = withDefaults(
     color: "black",
   },
 )
+
+const emit = defineEmits<{
+  (e: "update:modelValue", value: boolean): void
+  (e: "update:checked", value: boolean): void
+}>()
+
+const uncontrolled = ref<boolean>(!!props.value)
+
+const isControlled = computed(() => props.modelValue !== undefined || props.checked !== undefined)
+
+const isChecked = computed<boolean>(() => {
+  if (props.checked !== undefined) return props.checked
+  if (props.modelValue !== undefined) return props.modelValue
+  return uncontrolled.value
+})
+
+function onInputChange(event: Event) {
+  const target = event.target as HTMLInputElement
+  const next = target.checked
+  if (!isControlled.value) uncontrolled.value = next
+  emit("update:modelValue", next)
+  emit("update:checked", next)
+  props.onChange?.(next)
+}
 
 const iconColorClass = computed(() => {
   switch (props.color) {

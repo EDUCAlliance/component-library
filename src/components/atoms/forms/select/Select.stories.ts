@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite"
+import { ref } from "vue"
 import {
   Select,
   SelectTrigger,
@@ -135,4 +136,58 @@ export const WithAvatars: Story = {
       </Select>
     `,
   }),
+}
+
+export const Multiple: Story = {
+  render: (args) => ({
+    components: {
+      Select,
+      SelectTrigger,
+      SelectContent,
+      SelectItem,
+      SelectValue,
+    },
+    setup() {
+      const value = ref<string[]>([])
+      const options = [
+        { value: "apple", label: "Apple" },
+        { value: "banana", label: "Banana" },
+        { value: "cherry", label: "Cherry" },
+        { value: "date", label: "Date" },
+      ]
+      const labels: Record<string, string> = options.reduce(
+        (acc, o) => {
+          acc[o.value] = o.label
+          return acc
+        },
+        {} as Record<string, string>,
+      )
+
+      return { args, value, options, labels }
+    },
+    template: `
+      <Select v-model="value" multiple :class="args.class">
+        <SelectTrigger class="w-[300px]">
+          <SelectValue :aria-label="value.join(', ')" placeholder="Select fruits">
+            <template v-if="value.length">
+              {{ value.map(v => labels[v]).join(', ') }}
+            </template>
+          </SelectValue>
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem v-for="opt in options" :key="opt.value" :value="opt.value">
+            {{ opt.label }}
+          </SelectItem>
+        </SelectContent>
+      </Select>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Demonstrates multi-select using the `multiple` prop and `v-model` as an array, per Reka UI's Select API.",
+      },
+    },
+  },
 }

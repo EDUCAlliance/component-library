@@ -25,7 +25,7 @@ const forwardedProps = useForwardProps(delegatedProps)
     <SelectIcon as-child>
       <font-awesome-icon
         :icon="['fas', 'chevron-down']"
-        class="text-black-tertiary text-[12px] duration-200 ease-in-out group-data-[state=open]:rotate-180"
+        class="text-black-tertiary ml-auto text-[12px] duration-200 ease-in-out group-data-[state=open]:rotate-180"
       />
     </SelectIcon>
   </SelectTrigger>
