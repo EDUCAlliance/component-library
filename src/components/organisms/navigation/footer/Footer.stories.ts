@@ -4,6 +4,7 @@ import FooterCol from "./FooterCol.vue"
 import FooterLink from "./FooterLink.vue"
 import FooterBottom from "./FooterBottom.vue"
 import FooterCopyright from "./FooterCopyright.vue"
+import FooterSocials from "./FooterSocials.vue"
 
 const meta = {
   title: "Organisms/Navigation/Footer",
@@ -48,10 +49,27 @@ export const Composed: Story = {
       FooterLink,
       FooterBottom,
       FooterCopyright,
+      FooterSocials,
     },
     template: `
       <footer>
         <FooterLinks>
+          <template #logo>
+            <FooterCol title="Contact us">
+              <FooterLink href="#">Our staff</FooterLink>
+              <FooterLink href="tel:+49456789123">
+                <font-awesome-icon :icon="['fas', 'phone']" class="text-[12px]" /> +49 456 789 123
+              </FooterLink>
+              <FooterLink href="tel:+49456789123">
+                <font-awesome-icon :icon="['fas', 'phone']" class="text-[12px]" /> +49 456 789 123
+              </FooterLink>
+              <FooterLink href="mailto:info@example.com">
+                <font-awesome-icon :icon="['fas', 'envelope']" class="text-[12px]" />
+                info@example.com
+              </FooterLink>
+            </FooterCol>
+            <FooterSocials class="mt-5" />
+          </template>
           <FooterCol title="About us">
             <FooterLink href="#">Vision & Mission</FooterLink>
             <FooterLink href="#">EDUC Values & Goals</FooterLink>
@@ -147,10 +165,13 @@ export const FooterLinksComponent: Story = {
     components: { FooterLinks, FooterCol, FooterLink },
     template: `
       <FooterLinks>
+        <template #logo>
+
+        </template>
         <FooterCol title="Contact us">
           <FooterLink href="#">Our staff</FooterLink>
-          <FooterLink href="tel:+49456789123"><Phone class="size-4" /> +49 456 789 123</FooterLink>
-          <FooterLink href="mailto:info@example.com"><Mail class="size-4" /> info@example.com</FooterLink>
+          <FooterLink href="tel:+49456789123"><font-awesome-icon :icon="['fas', 'phone']" class="text-[16px]" /> +49 456 789 123</FooterLink>
+          <FooterLink href="mailto:info@example.com"><font-awesome-icon :icon="['fas', 'envelope']" class="text-[16px]" /> info@example.com</FooterLink>
         </FooterCol>
         <FooterCol title="Quick links">
           <FooterLink href="#">Home</FooterLink>
