@@ -222,23 +222,29 @@ export const FooterLinkComponent: Story = {
 
 export const FooterBottomComponent: Story = {
   render: () => ({
-    components: { FooterBottom, Book, Cookie, Newspaper },
+    components: { FooterBottom },
     template: `
       <FooterBottom>
-        <a href="#"><Cookie class="size-4" />Cookies Note</a>
-        <a href="#"><Newspaper class="size-4" />Subscribe to newsletter</a>
-        <a href="#"><Book class="size-4" />Imprint</a>
-      </FooterBottom>
+          <a href="#"><font-awesome-icon :icon="['fas', 'cookie']" class="text-[12px]" />Cookies Note</a>
+      <a href="#"
+        ><font-awesome-icon :icon="['fas', 'newspaper']" class="text-[12px]" />Subscribe to
+        newsletter</a
+      >
+      <a href="#"><font-awesome-icon :icon="['fas', 'shield-halved']" class="text-[12px]" />Imprint</a>
+        </FooterBottom>
     `,
   }),
   parameters: {
     docs: {
       source: {
         code: `<FooterBottom>
-  <a href="#"><Cookie class="size-4" />Cookies Note</a>
-  <a href="#"><Newspaper class="size-4" />Subscribe to newsletter</a>
-  <a href="#"><Book class="size-4" />Imprint</a>
-</FooterBottom>`,
+          <a href="#"><font-awesome-icon :icon="['fas', 'cookie']" class="text-[12px]" />Cookies Note</a>
+      <a href="#"
+        ><font-awesome-icon :icon="['fas', 'newspaper']" class="text-[12px]" />Subscribe to
+        newsletter</a
+      >
+      <a href="#"><font-awesome-icon :icon="['fas', 'shield-halved']" class="text-[12px]" />Imprint</a>
+        </FooterBottom>`,
       },
     },
   },
