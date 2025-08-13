@@ -393,6 +393,55 @@ export const JobCard: Story = {
   },
 }
 
+export const GradientCard: Story = {
+  render: () => ({
+    components: { Card, CardHeader, CardBody },
+    template: `
+      <div class="grid gap-6 md:grid-cols-3">
+        <Card variant="gradient" gradient="pinkOrange" class="rounded-lg text-black-primary">
+          <CardHeader class="px-6 pt-6 pb-4 text-pink-primary">
+            <h4 class="text-2xl font-bold">Course</h4>
+          </CardHeader>
+          <CardBody class="p-6 pt-0">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Mauris dictum facilisis augue. Fusce tellus. Integer pellentesque quam vel velit. Mauris dictum facilisis augue.</p>
+          </CardBody>
+        </Card>
+        <Card variant="gradient" gradient="greenYellow" class="rounded-lg text-black-primary">
+          <CardHeader class="px-6 pt-6 pb-4 text-green-primary">
+            <h4 class="text-2xl font-bold">Course</h4>
+          </CardHeader>
+          <CardBody class="p-6 pt-0">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Mauris dictum facilisis augue. Fusce tellus. Integer pellentesque quam vel velit. Mauris dictum facilisis augue.</p>
+          </CardBody>
+        </Card>
+        <Card variant="gradient" gradient="purplePink" class="rounded-lg text-black-primary">
+          <CardHeader class="px-6 pt-6 pb-4 text-violet-primary">
+            <h4 class="text-2xl font-bold">Course</h4>
+          </CardHeader>
+          <CardBody class="p-6 pt-0">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Mauris dictum facilisis augue. Fusce tellus. Integer pellentesque quam vel velit. Mauris dictum facilisis augue.</p>
+          </CardBody>
+        </Card>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `
+        <Card variant="gradient" gradient="pinkOrange" class="rounded-lg text-black-primary">
+          <CardHeader class="px-6 pt-6 pb-4 text-pink-primary">
+            <h4 class="text-2xl font-bold">Course</h4>
+          </CardHeader>
+          <CardBody class="p-6 pt-0">
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam commodo dui eget wisi. Mauris dictum facilisis augue. Fusce tellus. Integer pellentesque quam vel velit. Mauris dictum facilisis augue.</p>
+          </CardBody>
+        </Card>`,
+      },
+    },
+  },
+}
+
 export const PodcastCard: Story = {
   render: () => ({
     components: {
