@@ -5,7 +5,7 @@
         <th
           v-for="(col, idx) in columns"
           :key="idx"
-          class="border-b px-4 py-2 text-left font-bold"
+          :class="['px-4 py-2 text-left font-bold', colorBorderClass]"
         >
           <slot :name="`header-${col.key}`">{{ col.label }}</slot>
         </th>
@@ -63,7 +63,6 @@ table {
 thead th {
   background: white;
   font-weight: 600;
-  border-bottom: 1px solid #e5e5e5;
 }
 tbody td {
   background: white;
