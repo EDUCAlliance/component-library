@@ -14,9 +14,6 @@ dist-ssr
 coverage
 *.local
 
-/cypress/videos/
-/cypress/screenshots/
-
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -29,6 +26,11 @@ coverage
 
 *.tsbuildinfo
 
-*storybook.log
+# Storybook
+storybook-static
 
-/storybook-static
+# npm pack
+*.tgz
+
+dist-types/
+dist/
