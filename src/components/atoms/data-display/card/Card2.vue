@@ -34,10 +34,10 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardHeader, CardBody, CardFooter } from "./atoms/card"
-import BackgroundImage from "./atoms/BackgroundImage.vue"
-import Badge from "./atoms/others/Badge.vue"
-import CardDivider from "./atoms/card/CardDivider.vue"
-import { Avatar, AvatarImage, AvatarFallback } from "./atoms/others/avatar"
-import GhostButton from "./atoms/buttons/GhostButton.vue"
+import { Card, CardHeader, CardBody, CardFooter } from "."
+import BackgroundImage from "../../content/BackgroundImage.vue"
+import Badge from "../../../atoms/feedback/Badge.vue"
+import CardDivider from "./CardDivider.vue"
+import { Avatar, AvatarImage, AvatarFallback } from "../avatar"
+import GhostButton from "../../../atoms/buttons/GhostButton.vue"
 </script>

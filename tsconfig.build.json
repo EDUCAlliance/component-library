@@ -1,0 +1,42 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "outDir": "./dist-types",
+    "composite": false,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/index.ts",
+    "src/components/**/*.ts",
+    "src/components/**/*.vue",
+    "src/lib/**/*.ts"
+  ],
+  "exclude": [
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "src/**/__tests__/**",
+    "src/**/*.stories.ts",
+    "src/stories/**/*",
+    "src/main.ts",
+    "src/App.vue",
+    "src/components/Navigation.vue",
+    "src/components/Card1.vue",
+    "src/components/Card2.vue",
+    "src/components/Card3.vue",
+    "src/components/Card4.vue",
+    "src/components/HelloWorld.vue",
+    "src/components/Footer.vue",
+    "src/components/PodcastCard.vue",
+    "node_modules",
+    "dist"
+  ]
+}
