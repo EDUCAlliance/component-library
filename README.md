@@ -14,26 +14,82 @@ A comprehensive Vue 3 component library built with TypeScript, Tailwind CSS, and
 
 ## Installation
 
-```sh
-# Using npm
-npm install @educ/component-library
+This package is published to GitHub Packages. Follow these steps to install it in your project:
 
-# Using bun
-bun add @educ/component-library
+### 1. Generate a GitHub Personal Access Token
 
-# Using yarn
-yarn add @educ/component-library
+You need a GitHub Personal Access Token (PAT) with `read:packages` permission to install packages from GitHub Packages.
 
-# Using pnpm
-pnpm add @educ/component-library
+1. Go to [GitHub Settings > Developer settings > Personal access tokens > Tokens (classic)](https://github.com/settings/tokens)
+2. Click **Generate new token** → **Generate new token (classic)**
+3. Give your token a descriptive name (e.g., "NPM Package Access")
+4. Select the following scope:
+   - ✅ `read:packages` - Download packages from GitHub Package Registry
+5. Click **Generate token**
+6. **Important:** Copy the token immediately - you won't be able to see it again!
+
+### 2. Configure NPM Registry
+
+Create or update the `.npmrc` file in your project root (or in your home directory `~/.npmrc` for global configuration):
+
+```
+@educalliance:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+always-auth=true
 ```
 
-### Peer Dependencies
+### 3. Set the GITHUB_TOKEN Environment Variable
 
-Make sure you have Vue 3 installed:
+Add your GitHub token to your environment:
+
+**On macOS/Linux:**
 
 ```sh
-bun add vue@^3.5.0
+# Add to ~/.zshrc or ~/.bashrc for persistence
+export GITHUB_TOKEN=your_github_token_here
+```
+
+**On Windows (PowerShell):**
+
+```powershell
+# Add to your PowerShell profile for persistence
+$env:GITHUB_TOKEN="your_github_token_here"
+```
+
+**On Windows (Command Prompt):**
+
+```cmd
+set GITHUB_TOKEN=your_github_token_here
+```
+
+**Alternative: Direct Token in .npmrc (Less Secure)**
+
+If you prefer not to use environment variables, you can replace `${GITHUB_TOKEN}` directly in `.npmrc`:
+
+```
+@educalliance:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=your_github_token_here
+always-auth=true
+```
+
+⚠️ **Warning:** If you use this method, make sure to add `.npmrc` to your `.gitignore` to avoid committing your token!
+
+### 4. Install the Package
+
+Once configured, install the package using your preferred package manager:
+
+```sh
+# Using bun (recommended)
+bun add @educalliance/component-library
+
+# Using npm
+npm install @educalliance/component-library
+
+# Using yarn
+yarn add @educalliance/component-library
+
+# Using pnpm
+pnpm add @educalliance/component-library
 ```
 
 ## Usage
@@ -44,7 +100,7 @@ Import the component styles in your main entry file:
 
 ```js
 // main.ts or main.js
-import "@educ/component-library/dist/style.css"
+import "@educalliance/component-library/dist/style.css"
 ```
 
 ### Using Components
@@ -53,7 +109,7 @@ You can import components individually for better tree-shaking:
 
 ```vue
 <script setup lang="ts">
-import { PrimaryButton, Card, CardHeader, CardBody } from "@educ/component-library"
+import { PrimaryButton, Card, CardHeader, CardBody } from "@educalliance/component-library" // use the names of the components from Storybook
 </script>
 
 <template>
@@ -72,27 +128,12 @@ import { PrimaryButton, Card, CardHeader, CardBody } from "@educ/component-libra
 Or import everything (not recommended for production):
 
 ```js
-import * as EducComponents from "@educ/component-library"
+import * as EducComponents from "@educalliance/component-library"
 ```
 
-### Tailwind CSS Setup
+### Tailwind CSS
 
-This library uses Tailwind CSS. If your project also uses Tailwind, add the library path to your `tailwind.config.js`:
-
-```js
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-    "./node_modules/@educ/component-library/**/*.{vue,js,ts,jsx,tsx}",
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-```
+This library uses Tailwind CSS for styling. You can customize every component's styles with providing a class name to the component.
 
 ## Available Components
 
@@ -180,21 +221,13 @@ npm publish
 This library is written in TypeScript and includes type definitions. TypeScript will automatically pick up the types when you import components.
 
 ```typescript
-import type { ButtonProps } from "@educ/component-library"
+import type { ButtonProps } from "@educalliance/component-library"
 ```
 
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-## License
-
-MIT License - see [LICENSE](LICENSE) file for details.
-
-## Contributing
-
-Contributions are welcome! Please read our contributing guidelines before submitting a pull request.
-
 ## Support
 
-For issues and feature requests, please use the [GitHub issue tracker](https://github.com/yourusername/educ-component-library/issues).
+For issues and feature requests, please use the [GitHub issue tracker](https://github.com/educalliance/component-library/issues).
