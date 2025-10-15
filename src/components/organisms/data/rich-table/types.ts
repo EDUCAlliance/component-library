@@ -10,10 +10,9 @@ export interface RichTableHeaderProps {
 }
 
 export interface RichTableColumnProps {
-  key: string
+  columnKey: string
   label: string
   sortable?: boolean
-  width?: string
   class?: string
 }
 
@@ -22,14 +21,9 @@ export interface RichTableRowProps {
 }
 
 export interface RichTableCellProps {
-  width?: string | "fit-content"
   class?: string
 }
 
 export interface RichTableActionsProps {
   class?: string
-}
-
-export interface RichTableData {
-  [key: string]: string | number | boolean | null | undefined
 }

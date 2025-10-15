@@ -150,7 +150,7 @@
 
     <!-- RichTable Example -->
     <div class="my-12">
-      <RichTable columns="381px 213px 1fr 213px fit-content">
+      <RichTable columns="381px 213px 1fr 213px 40px">
         <RichTableHeader
           title="Our staff"
           description="A list of all the staff in your alliance, including their names, titles, emails, and universities."
@@ -161,37 +161,35 @@
           </template>
         </RichTableHeader>
 
-        <RichTableContent>
-          <RichTableHead>
-            <RichTableColumn key="name" label="Name" :sortable="true" />
-            <RichTableColumn key="title" label="Title" />
-            <RichTableColumn key="email" label="Email" />
-            <RichTableColumn key="status" label="Status" />
-            <RichTableColumn key="actions" label="" />
-          </RichTableHead>
+        <RichTableHead>
+          <RichTableColumn column-key="name" label="Name" :sortable="true" />
+          <RichTableColumn column-key="title" label="Title" />
+          <RichTableColumn column-key="email" label="Email" />
+          <RichTableColumn column-key="status" label="Status" />
+          <RichTableColumn column-key="actions" label="" />
+        </RichTableHead>
 
-          <RichTableRow
-            v-for="(person, index) in staffData"
-            :key="index"
-            :class="index % 2 === 1 ? 'bg-white-tertiary' : 'bg-white-primary'"
-          >
-            <RichTableCell class="text-black-primary font-medium">
-              {{ person.name }}
-            </RichTableCell>
-            <RichTableCell>
-              {{ person.title }}
-            </RichTableCell>
-            <RichTableCell>
-              {{ person.email }}
-            </RichTableCell>
-            <RichTableCell>
-              <Badge color="green" size="sm">{{ person.status }}</Badge>
-            </RichTableCell>
-            <RichTableCell width="fit-content">
-              <RichTableActions />
-            </RichTableCell>
-          </RichTableRow>
-        </RichTableContent>
+        <RichTableRow
+          v-for="(person, index) in staffData"
+          :key="index"
+          :class="index % 2 === 1 ? 'bg-white-tertiary' : 'bg-white-primary'"
+        >
+          <RichTableCell class="text-black-primary font-medium">
+            {{ person.name }}
+          </RichTableCell>
+          <RichTableCell>
+            {{ person.title }}
+          </RichTableCell>
+          <RichTableCell>
+            {{ person.email }}
+          </RichTableCell>
+          <RichTableCell>
+            <Badge color="green" size="sm">{{ person.status }}</Badge>
+          </RichTableCell>
+          <RichTableCell>
+            <RichTableActions />
+          </RichTableCell>
+        </RichTableRow>
       </RichTable>
       <FileUpload />
     </div>
@@ -309,7 +307,6 @@ import {
 import {
   RichTable,
   RichTableHeader,
-  RichTableContent,
   RichTableHead,
   RichTableColumn,
   RichTableRow,

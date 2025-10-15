@@ -10,20 +10,18 @@ import type { RichTableProps } from "./types"
 import { cn } from "@/lib/utils"
 
 const props = withDefaults(defineProps<RichTableProps>(), {
-  columns: "",
+  columns: "1fr",
   class: "",
 })
 
 const tableClasses = cn("bg-white-primary", props.class)
 
 const tableStyle = computed(() => {
-  if (props.columns) {
-    return {
-      display: "grid",
-      gridTemplateColumns: props.columns,
-    }
+  return {
+    display: "grid",
+    gridTemplateColumns: props.columns,
+    gridAutoRows: "auto",
   }
-  return {}
 })
 
 provide("richTableContext", props)

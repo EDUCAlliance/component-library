@@ -32,5 +32,5 @@ const props = withDefaults(defineProps<RichTableHeaderProps>(), {
   class: "",
 })
 
-const headerClasses = cn("flex items-start justify-between gap-4 pb-8", props.class)
+const headerClasses = cn("col-span-full flex items-start justify-between gap-4 pb-8", props.class)
 </script>

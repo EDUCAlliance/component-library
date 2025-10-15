@@ -1,6 +1,5 @@
 export { default as RichTable } from "./RichTable.vue"
 export { default as RichTableHeader } from "./RichTableHeader.vue"
-export { default as RichTableContent } from "./RichTableContent.vue"
 export { default as RichTableHead } from "./RichTableHead.vue"
 export { default as RichTableColumn } from "./RichTableColumn.vue"
 export { default as RichTableRow } from "./RichTableRow.vue"
