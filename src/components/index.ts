@@ -8,6 +8,7 @@ export * from "./atoms/overlays"
 export * from "./atoms/date-time"
 export * from "./atoms/content"
 export * from "./atoms/actions"
+export * from "./atoms/others"
 
 // Molecules
 export * from "./molecules/navigation"
