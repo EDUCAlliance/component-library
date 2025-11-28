@@ -50,6 +50,14 @@ const meta = {
       options: ["xs", "sm", "base"],
       description: "The size of the badge.",
     },
+    closable: {
+      control: "boolean",
+      description: "Whether the badge can be closed with a close button.",
+    },
+    onClose: {
+      action: "close",
+      description: "Event emitted when the close button is clicked.",
+    },
   },
   render: (args) => ({
     components: { Badge },
@@ -118,5 +126,21 @@ export const Secondary: Story = {
     color: "black",
     size: "base",
     default: "Badge",
+  },
+}
+
+export const Closable: Story = {
+  args: {
+    color: "green",
+    size: "base",
+    default: "Closable Badge",
+    closable: true,
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Badge color="green" size="base" closable @close="handleClose">Closable Badge</Badge>`,
+      },
+    },
   },
 }
