@@ -79,6 +79,18 @@ Component is based on Reka UI.
 </div>
         `,
       },
+      source: {
+        code: `<Accordion size="md" type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Section 1</AccordionTrigger>
+    <AccordionContent>Content for section 1. You can put any content here.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>Section 2</AccordionTrigger>
+    <AccordionContent>Content for section 2. You can put any content here.</AccordionContent>
+  </AccordionItem>
+</Accordion>`,
+      },
     },
   },
 } satisfies Meta<typeof Accordion>
