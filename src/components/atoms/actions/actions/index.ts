@@ -1,2 +1,6 @@
-export { default as Actions1 } from "./Actions1.vue"
-export { default as Actions2 } from "./Actions2.vue"
+export { default as Actions } from "./Actions.vue"
+export { default as ActionCard } from "./ActionCard.vue"
+export { default as ActionCardIcon } from "./ActionCardIcon.vue"
+export { default as ActionCardTitle } from "./ActionCardTitle.vue"
+export { default as ActionCardDescription } from "./ActionCardDescription.vue"
+export * from "./types"

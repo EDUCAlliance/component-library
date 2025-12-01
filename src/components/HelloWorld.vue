@@ -225,8 +225,78 @@
       <!-- Custom contact content -->
     </template>
   </ContactCard>
-  <div class="my-12"><Actions1 /></div>
-  <div class="my-12"><Actions2 /></div>
+  <div class="my-12">
+    <Actions>
+      <ActionCard color="violet" variant="outlined">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+      <ActionCard color="orange" variant="outlined">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+      <ActionCard color="pink" variant="outlined">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+      <ActionCard color="green" variant="outlined">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+    </Actions>
+  </div>
+  <div class="my-12">
+    <Actions>
+      <ActionCard color="violet" variant="filled">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+      <ActionCard color="orange" variant="filled">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+      <ActionCard color="pink" variant="filled">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+      <ActionCard color="green" variant="filled">
+        <ActionCardIcon :icon="['fas', 'handshake']" />
+        <ActionCardTitle>EDUC-SHARE</ActionCardTitle>
+        <ActionCardDescription>
+          Aims at introducing pilot tools to enhance multidisciplinary collaborative research,
+          addressing key global challenges.
+        </ActionCardDescription>
+      </ActionCard>
+    </Actions>
+  </div>
   <PrimaryButton
     @click="
       () => {
@@ -293,7 +363,13 @@ import {
 import { ContactCard, ContactCardHeader } from "./atoms/content/contact-card"
 import { Avatar, AvatarImage, AvatarFallback } from "./atoms/data-display/avatar"
 import { ItemCard } from "./atoms/data-display"
-import { Actions1, Actions2 } from "./atoms/actions/actions"
+import {
+  Actions,
+  ActionCard,
+  ActionCardIcon,
+  ActionCardTitle,
+  ActionCardDescription,
+} from "./atoms/actions/actions"
 import Card1 from "./Card1.vue"
 import Card2 from "./Card2.vue"
 import Card3 from "./Card3.vue"
