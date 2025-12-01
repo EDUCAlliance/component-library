@@ -15,6 +15,10 @@
   <div class="mx-auto max-w-2xl">
     <p class="text-yellow-primary text-3xl">test</p>
 
+    <div className="bg-black-secondary p-8">
+      <SoftButton color="white" disabled>Test</SoftButton>
+    </div>
+
     <Toggle />
     <ButtonGroup>
       <SecondaryButton>First Button</SecondaryButton
@@ -313,6 +317,7 @@ import {
   RichTableCell,
   RichTableActions,
 } from "./organisms/data/rich-table"
+import { SoftButton } from "./atoms/buttons"
 
 defineProps<{
   msg: string

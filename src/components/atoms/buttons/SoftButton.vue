@@ -8,7 +8,7 @@ import { computed } from "vue"
 const props = withDefaults(
   defineProps<{
     size?: "xs" | "sm" | "base" | "lg" | "icon"
-    color: "yellow" | "pink" | "green" | "orange" | "violet"
+    color: "yellow" | "pink" | "green" | "orange" | "violet" | "white"
     disabled?: boolean
   }>(),
   {
@@ -36,5 +36,6 @@ const classes = computed(() => ({
   "disabled:bg-orange-tertiary bg-orange-primary text-black-primary focus:ring-orange-secondary":
     props.color === "orange",
   "disabled:bg-violet-tertiary bg-violet-primary text-white-primary": props.color === "violet",
+  "disabled:bg-white-quaternary bg-white-primary text-black-primary": props.color === "white",
 }))
 </script>
