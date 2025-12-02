@@ -1,5 +1,8 @@
 <template>
-  <div v-if="visible" :class="cn(colorClasses, 'relative flex min-h-12 items-center py-1')">
+  <div
+    v-if="visible"
+    :class="cn(colorClasses, 'relative flex min-h-12 items-center px-2 py-1 text-center')"
+  >
     <img
       v-if="props.color === 'pattern'"
       src="/assets/notification-bar/pattern.svg"
