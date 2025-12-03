@@ -55,7 +55,7 @@ function removeTag(value: string) {
 <template>
   <SelectRoot v-model="selected" multiple :disabled="disabled" :name="name" :class="props.class">
     <SelectTrigger
-      class="flex min-h-11 w-[420px] items-center justify-between gap-2 py-2 pr-3 pl-2"
+      class="flex h-auto min-h-11 w-full items-center justify-between gap-2 py-2 pr-3 pl-2"
     >
       <div class="flex min-w-0 grow flex-wrap items-center gap-2">
         <template v-if="selected.length">

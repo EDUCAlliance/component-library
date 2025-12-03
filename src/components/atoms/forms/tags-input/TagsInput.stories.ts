@@ -12,6 +12,8 @@ const meta = {
       { value: "item-1", label: "Item 1" },
       { value: "item-2", label: "Item 2" },
       { value: "item-3", label: "Item 3" },
+      { value: "item-4", label: "Item 4" },
+      { value: "item-long-label", label: "Item with a long label that should wrap" },
     ],
   },
   parameters: {
