@@ -12,6 +12,28 @@
     </GhostButton>
   </NotificationBar>
   <Hero3 />
+  <Accordion size="md" type="single" collapsible>
+    <AccordionItem value="item-1">
+      <AccordionTrigger>Is it accessible?</AccordionTrigger>
+      <AccordionContent> Yes. It adheres to the WAI-ARIA design pattern. </AccordionContent>
+    </AccordionItem>
+    <AccordionItem value="item-2">
+      <AccordionTrigger>Does it support long content?</AccordionTrigger>
+      <AccordionContent>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque exercitationem rem velit
+        error voluptate atque reprehenderit odio molestias dignissimos ullam quas, aliquam eligendi
+        vel quidem neque quod corporis dolorem quo. Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Iste harum qui sequi officiis sed officia pariatur a, labore eligendi quos
+        nisi voluptatem magni nesciunt beatae, possimus totam molestias architecto voluptatibus.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis ipsa eum debitis optio
+        tempora tempore provident nam harum cupiditate dolor quibusdam qui aliquid magni, facilis
+        nemo assumenda libero asperiores rerum. Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Corrupti ad hic, magnam nostrum doloribus, dicta impedit assumenda, voluptatibus
+        mollitia velit perspiciatis harum culpa eveniet eligendi. Recusandae provident sequi debitis
+        mollitia.</AccordionContent
+      >
+    </AccordionItem>
+  </Accordion>
   <div class="mx-auto max-w-2xl">
     <p class="text-yellow-primary text-3xl">test</p>
 

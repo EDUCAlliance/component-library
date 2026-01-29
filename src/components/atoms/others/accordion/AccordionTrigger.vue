@@ -38,6 +38,7 @@ const size = inject<"sm" | "md" | "lg">("accordionSize", "md")
               )
             "
           />
+
           <font-awesome-icon
             :icon="['fas', 'minus']"
             :class="
