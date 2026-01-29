@@ -27,10 +27,12 @@ export const DarkCtaWithMultipleButtons: Story = {
   <div class="bg-black-primary/30 absolute inset-0" />
   <div class="relative container mx-auto px-4">
     <div class="flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-12">
-      <h2 class="max-w-3xl text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-balance">
+      <h2
+        class="max-w-3xl text-center text-2xl font-bold text-balance sm:text-3xl md:text-4xl lg:text-5xl"
+      >
         Discover what EDUC offers! Tell us some more about yourself.
       </h2>
-      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-3 md:gap-4">
+      <div class="flex flex-col flex-wrap justify-center gap-3 sm:flex-row md:gap-4">
         <SoftButton color="violet">I am a Student</SoftButton>
         <SoftButton color="orange">I am a Researcher</SoftButton>
         <SoftButton color="pink">I am a Teacher</SoftButton>
@@ -53,10 +55,13 @@ export const GreenCtaWithSingleButton: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<div class="text-white-primary bg-green-primary relative py-12 md:py-16 lg:py-20">
+        code: `
+<div class="text-white-primary bg-green-primary relative py-12 md:py-16 lg:py-20">
   <div class="relative container mx-auto px-4">
-    <div class="flex flex-col lg:flex-row items-center lg:justify-between gap-6 md:gap-8">
-      <h2 class="max-w-3xl text-center lg:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-balance">
+    <div class="flex flex-col items-center gap-6 md:gap-8 lg:flex-row lg:justify-between">
+      <h2
+        class="max-w-3xl text-center text-2xl font-bold text-balance sm:text-3xl md:text-4xl lg:text-left lg:text-5xl"
+      >
         Contact us and meet the EDUC Team!
       </h2>
       <SoftButton color="violet" class="shrink-0">More information & EDUC Team</SoftButton>
@@ -78,11 +83,14 @@ export const YellowCtaWithBackground: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<div class="text-black-primary bg-yellow-primary relative py-12 md:py-16 lg:py-20">
+        code: `
+<div class="text-black-primary bg-yellow-primary relative py-12 md:py-16 lg:py-20">
   <BackgroundImage src="/assets/CTA-banner-2.svg" alt="Hero" />
   <div class="relative container mx-auto px-4">
-    <div class="flex flex-col items-center md:items-start gap-6 md:gap-8">
-      <h2 class="max-w-3xl text-center md:text-left text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-balance">
+    <div class="flex flex-col items-center gap-6 md:items-start md:gap-8">
+      <h2
+        class="max-w-3xl text-center text-2xl font-bold text-balance sm:text-3xl md:text-left md:text-4xl lg:text-5xl"
+      >
         Contact us and meet the EDUC Team!
       </h2>
       <SoftButton color="violet">More information & EDUC Team</SoftButton>
