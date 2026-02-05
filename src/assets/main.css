@@ -145,3 +145,7 @@
     }
   }
 }
+
+.link {
+  @apply text-black-primary hover:text-black-tertiary underline-offset-2 transition-colors hover:underline;
+}
