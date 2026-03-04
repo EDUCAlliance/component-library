@@ -1,5 +1,5 @@
 <template>
-  <Card class="w-[412px]">
+  <Card class="w-full">
     <BackgroundImage src="/assets/background/facilities/element.svg" alt="Project 1" />
     <CardHeader>
       <!-- <BackgroundImage src="/assets/example-image-card.jpg" alt="Project 1" /> -->
@@ -31,9 +31,8 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardHeader, CardBody, CardFooter } from "."
-import BackgroundImage from "../../content/BackgroundImage.vue"
-import CardDivider from "./CardDivider.vue"
-import { Avatar, AvatarImage, AvatarFallback } from "../avatar"
-import GhostButton from "../../../atoms/buttons/GhostButton.vue"
+import { Card, CardHeader, CardBody, CardFooter } from "../../atoms/data-display/card"
+import BackgroundImage from "../../atoms/content/BackgroundImage.vue"
+import CardDivider from "../../atoms/data-display/card/CardDivider.vue"
+import { GhostButton } from "../../atoms/buttons"
 </script>

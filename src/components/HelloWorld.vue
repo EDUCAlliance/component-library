@@ -467,11 +467,7 @@ import {
   ActionCardTitle,
   ActionCardDescription,
 } from "./atoms/actions/actions"
-import Card1 from "./Card1.vue"
-import Card2 from "./Card2.vue"
-import Card3 from "./Card3.vue"
-import Card4 from "./Card4.vue"
-import PodcastCard from "./PodcastCard.vue"
+import { ProjectCard as Card1, ProjectCardWithImage as Card2, FacilityCard as Card3, JobCard as Card4, PodcastCard } from "./molecules/cards"
 import { Features1, Features2, Features3, Features4 } from "./organisms/content/features"
 import { Toaster } from "./atoms/feedback/sonner"
 import "./atoms/feedback/sonner/sonner.css"

@@ -60,8 +60,8 @@ export const ProjectCard: Story = {
       GhostButton,
     },
     template: `
-      <Card class="w-[412px]">
-        <CardHeader class="h-[264px]">
+      <Card class="w-full max-w-[412px]">
+        <CardHeader class="aspect-[412/264]">
           <BackgroundImage src="/assets/background/project/1.svg" alt="Project 1" />
           <Badge size="sm" color="black">Project</Badge>
           <h4 class="relative text-2xl font-bold text-balance">
@@ -97,8 +97,8 @@ export const ProjectCard: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card class="w-[412px]">
-  <CardHeader class="h-[264px]">
+        code: `<Card class="w-full max-w-[412px]">
+  <CardHeader class="aspect-[412/264]">
     <BackgroundImage src="/assets/background/project/1.svg" alt="Project 1" />
     <Badge size="sm" color="black">Project</Badge>
     <h4 class="relative text-2xl font-bold text-balance">
@@ -150,8 +150,8 @@ export const ProjectCardWithImage: Story = {
       GhostButton,
     },
     template: `
-      <Card class="w-[412px]">
-        <CardHeader class="h-[264px]">
+      <Card class="w-full max-w-[412px]">
+        <CardHeader class="aspect-[412/264]">
           <BackgroundImage src="/assets/example-image-card.jpg" alt="Project 1" />
           <Badge size="sm" color="white">Project</Badge>
           <h4 class="relative text-2xl font-bold text-balance">
@@ -187,8 +187,8 @@ export const ProjectCardWithImage: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card class="w-[412px]">
-  <CardHeader class="h-[264px]">
+        code: `<Card class="w-full max-w-[412px]">
+  <CardHeader class="aspect-[412/264]">
     <BackgroundImage src="/assets/example-image-card.jpg" alt="Project 1" />
     <Badge size="sm" color="white">Project</Badge>
     <h4 class="relative text-2xl font-bold text-balance">
@@ -236,7 +236,7 @@ export const FacilityCard: Story = {
       GhostButton,
     },
     template: `
-      <Card class="w-[412px]">
+      <Card class="w-full max-w-[412px]">
         <BackgroundImage src="/assets/background/facilities/element.svg" alt="Project 1" />
         <CardHeader>
           <h4 class="relative text-3xl font-bold text-balance">
@@ -269,7 +269,7 @@ export const FacilityCard: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card class="w-[412px]">
+        code: `<Card class="w-full max-w-[412px]">
   <BackgroundImage src="/assets/background/facilities/element.svg" alt="Project 1" />
   <CardHeader>
     <h4 class="relative text-3xl font-bold text-balance">
@@ -313,7 +313,7 @@ export const JobCard: Story = {
       GhostButton,
     },
     template: `
-      <Card class="border-pink-primary max-w-[628px] border-2">
+      <Card class="border-pink-primary w-full max-w-[628px] border-2">
         <CardBody class="p-6">
           <p class="text-sm font-medium tracking-wider uppercase">
             The Department of microsystems at the University of South-eastern Norway
@@ -353,7 +353,7 @@ export const JobCard: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card class="border-pink-primary max-w-[628px] border-2">
+        code: `<Card class="border-pink-primary w-full max-w-[628px] border-2">
   <CardBody class="p-6">
     <p class="text-sm font-medium tracking-wider uppercase">
       The Department of microsystems at the University of South-eastern Norway
@@ -404,7 +404,7 @@ export const CourseCard: Story = {
       GhostButton,
     },
     template: `
-      <Card class="border-pink-primary max-w-[420px] border-2">
+      <Card class="border-pink-primary w-full max-w-[420px] border-2">
         <CardBody>
           <div class="flex flex-wrap items-center gap-2">
             <Badge color="pink" size="xs">Bachelors</Badge>
@@ -454,7 +454,7 @@ export const CourseCard: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card class="border-pink-primary max-w-[628px] border-2">
+        code: `<Card class="border-pink-primary w-full max-w-[628px] border-2">
   <CardBody class="p-6">
     <div class="mb-3 flex flex-wrap items-center gap-2">
       <Badge color="pink" size="sm">Bachelors</Badge>
@@ -566,8 +566,8 @@ export const PodcastCard: Story = {
       GhostButton,
     },
     template: `
-      <Card class="w-[412px]">
-    <CardHeader class="h-[412px]">
+      <Card class="w-full max-w-[412px]">
+    <CardHeader class="aspect-square">
       <BackgroundImage src="/assets/example-image-microphone.jpg" alt="Podcast Episode" />
       <BackgroundImage src="/assets/background/podcast/1-1.svg" alt="Podcast Episode" />
       <h4 class="relative text-3xl font-bold text-balance">
@@ -596,8 +596,8 @@ export const PodcastCard: Story = {
   parameters: {
     docs: {
       source: {
-        code: `<Card class="w-[412px]">
-  <CardHeader class="h-[412px]">
+        code: `<Card class="w-full max-w-[412px]">
+  <CardHeader class="aspect-square">
     <BackgroundImage src="/assets/background/podcast/episode-1.jpg" alt="Podcast Episode" />
     <h4 class="relative text-3xl font-bold text-balance">
       EDUCast: Five Years of EDUC: Milestones, Memories and the Road Ahead

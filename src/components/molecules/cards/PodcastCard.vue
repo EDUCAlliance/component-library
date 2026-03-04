@@ -1,6 +1,6 @@
 <template>
-  <Card class="w-[412px]">
-    <CardHeader class="h-[412px]">
+  <Card class="w-full">
+    <CardHeader class="aspect-square">
       <BackgroundImage src="/assets/example-image-microphone.jpg" alt="Podcast Episode" />
       <BackgroundImage src="/assets/background/podcast/1-1.svg" alt="Podcast Episode" />
       <h4 class="relative text-3xl font-bold text-balance">
@@ -27,8 +27,8 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardHeader, CardBody, CardFooter, CardDivider } from "./atoms/data-display/card"
-import BackgroundImage from "./atoms/content/BackgroundImage.vue"
-import { Badge } from "./atoms/feedback"
-import { GhostButton } from "./atoms/buttons"
+import { Card, CardHeader, CardBody, CardFooter, CardDivider } from "../../atoms/data-display/card"
+import BackgroundImage from "../../atoms/content/BackgroundImage.vue"
+import { Badge } from "../../atoms/feedback"
+import { GhostButton } from "../../atoms/buttons"
 </script>

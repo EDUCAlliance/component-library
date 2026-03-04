@@ -1,10 +1,10 @@
 <template>
-  <Card class="w-[412px]">
-    <CardHeader class="h-[264px]">
-      <BackgroundImage src="/assets/example-image-card.jpg" alt="Project 1" />
-      <Badge size="sm" color="white">Project</Badge>
+  <Card class="w-full">
+    <CardHeader class="aspect-[412/264]">
+      <BackgroundImage src="/assets/background/project/1.svg" alt="Project 1" />
+      <Badge size="sm" color="black">Project</Badge>
       <h4 class="relative text-2xl font-bold text-balance">
-        “Smart city app”: Circular Economy IoT framework
+        Method of plasma treatment of a surface of a hollow electrically non-conductive body
       </h4>
     </CardHeader>
     <CardBody>
@@ -34,10 +34,10 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardHeader, CardBody, CardFooter } from "."
-import BackgroundImage from "../../content/BackgroundImage.vue"
-import Badge from "../../../atoms/feedback/Badge.vue"
-import CardDivider from "./CardDivider.vue"
-import { Avatar, AvatarImage, AvatarFallback } from "../avatar"
-import GhostButton from "../../../atoms/buttons/GhostButton.vue"
+import { Card, CardHeader, CardBody, CardFooter } from "../../atoms/data-display/card"
+import BackgroundImage from "../../atoms/content/BackgroundImage.vue"
+import { Badge } from "../../atoms/feedback"
+import CardDivider from "../../atoms/data-display/card/CardDivider.vue"
+import { Avatar, AvatarImage, AvatarFallback } from "../../atoms/data-display/avatar"
+import { GhostButton } from "../../atoms/buttons"
 </script>

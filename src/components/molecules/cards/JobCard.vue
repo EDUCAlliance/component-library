@@ -1,5 +1,5 @@
 <template>
-  <Card class="border-pink-primary max-w-[628px] border-2">
+  <Card class="border-pink-primary w-full border-2">
     <CardBody class="p-6">
       <p class="text-sm font-medium tracking-wider uppercase">
         The Department of microsystems at the University of South-eastern Norway
@@ -37,10 +37,8 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardHeader, CardBody, CardFooter } from "."
-import BackgroundImage from "../../content/BackgroundImage.vue"
-import Badge from "../../../atoms/feedback/Badge.vue"
-import CardDivider from "./CardDivider.vue"
-import { Avatar, AvatarImage, AvatarFallback } from "../avatar"
-import GhostButton from "../../../atoms/buttons/GhostButton.vue"
+import { Card, CardBody, CardFooter } from "../../atoms/data-display/card"
+import { Badge } from "../../atoms/feedback"
+import CardDivider from "../../atoms/data-display/card/CardDivider.vue"
+import { GhostButton } from "../../atoms/buttons"
 </script>
