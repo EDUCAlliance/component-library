@@ -13,6 +13,7 @@ export * from "./atoms/others"
 // Molecules
 export * from "./molecules/navigation"
 export * from "./molecules/cards"
+export * from "./molecules/forms/multi-select"
 
 // Organisms
 export * from "./organisms/navigation"
