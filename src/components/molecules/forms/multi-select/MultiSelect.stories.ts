@@ -44,12 +44,10 @@ const meta: Meta<typeof MultiSelect> = {
         component: `
 **MultiSelect** is a multi-selection dropdown with an integrated text search and a confirmation button.
 
-Designed for filter-heavy UIs (such as course catalogues) where users need to select multiple options before applying. Unlike a basic \`<Select multiple>\`, this component:
+Designed for filter-heavy UIs (such as course catalogues) where users need to select multiple options before applying. Unlike a basic \`TagsInput\`, this component:
 
 - Keeps the dropdown **open** while the user selects
 - Allows **text search** when the option list is long (> 5 items)
-- Requires an explicit **Done** click to emit the new value — enabling "send all filters at once" UX
-- Stores a \`pendingValue\` internally so dismissing without confirming discards the edit
 
 ### Usage
 \`\`\`vue
