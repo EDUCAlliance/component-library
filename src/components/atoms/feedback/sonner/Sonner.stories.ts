@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/vue3-vite"
 import { Toaster } from "./index"
 import { toast } from "vue-sonner"
 import { ref } from "vue"
-import "./sonner.css"
 import PrimaryButton from "../../buttons/PrimaryButton.vue"
 
 const meta = {
@@ -21,6 +20,22 @@ Based on Sonner fork for Vue.
 - Different colors for indicating status messages
 - Custom duration
 - Customizable actions
+
+### Usage
+\`\`\`vue
+<script setup lang="ts">
+import { Toaster, toast } from "@EDUCAlliance/component-library"
+
+const showToast = () => {
+  toast.success("Event has been created")
+}
+</script>
+
+<template>
+  <Toaster position="top-right" />
+  <button @click="showToast">Show Toast</button>
+</template>
+\`\`\`
 
 <div style="display: flex; gap: 8px;">
   <a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=372-1554&t=bKPdiBs4wOFWHDaN-4" target="_blank">
