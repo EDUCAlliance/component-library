@@ -6,7 +6,17 @@
       <p class="text-sm">
         &copy; {{ new Date().getFullYear() }} All rights reserved by EDUC consortium.
       </p>
-      <img src="/assets/europe.svg" alt="European Union" class="h-8" />
+      <slot name="logo">
+        <EuropeLogo class="h-8" />
+      </slot>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { EuropeLogo } from "../../../atoms/content/logos"
+
+defineSlots<{
+  logo(props: Record<string, never>): import("vue").VNode[]
+}>()
+</script>

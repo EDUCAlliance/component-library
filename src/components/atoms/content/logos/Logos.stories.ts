@@ -4,6 +4,7 @@ import EDUCLearningLogo from "./EDUCLearningLogo.vue"
 import EDUCCatalogueLogo from "./EDUCCatalogueLogo.vue"
 import EDUCOpenupLogo from "./EDUCOpenupLogo.vue"
 import EDUCPortalLogo from "./EDUCPortalLogo.vue"
+import EuropeLogo from "./EuropeLogo.vue"
 
 const meta = {
   title: "Atoms/Content/Logos",
@@ -40,6 +41,7 @@ export const AllLogos: Story = {
       EDUCCatalogueLogo,
       EDUCOpenupLogo,
       EDUCPortalLogo,
+      EuropeLogo,
     },
     template: `
       <div class="p-4">
@@ -63,6 +65,10 @@ export const AllLogos: Story = {
           <div class="flex flex-col gap-2">
             <span class="text-xs text-muted-foreground">Portal</span>
             <EDUCPortalLogo class="w-48" />
+          </div>
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-muted-foreground">European Union</span>
+            <EuropeLogo class="w-24" />
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import FooterLink from "./FooterLink.vue"
 import FooterBottom from "./FooterBottom.vue"
 import FooterCopyright from "./FooterCopyright.vue"
 import FooterSocials from "./FooterSocials.vue"
+import { EDUCLogo } from "../../../atoms/content/logos"
 
 const meta = {
   title: "Organisms/Navigation/Footer",
@@ -50,11 +51,13 @@ export const Composed: Story = {
       FooterBottom,
       FooterCopyright,
       FooterSocials,
+      EDUCLogo,
     },
     template: `
       <footer>
         <FooterLinks>
           <template #logo>
+            <EDUCLogo class="mb-8 w-48" />
             <FooterCol title="Contact us">
               <FooterLink href="#">Our staff</FooterLink>
               <FooterLink href="tel:+49456789123">
@@ -118,6 +121,15 @@ export const Composed: Story = {
         code: `
 <footer>
   <FooterLinks>
+    <template #logo>
+      <EDUCLogo class="mb-8 w-48" />
+      <FooterCol title="Contact us">
+        <FooterLink href="#">Our staff</FooterLink>
+        <FooterLink href="tel:+49456789123"><Phone class="size-4" /> +49 456 789 123</FooterLink>
+        <FooterLink href="mailto:info@example.com"><Mail class="size-4" /> info@example.com</FooterLink>
+      </FooterCol>
+      <FooterSocials class="mt-5" />
+    </template>
     <FooterCol title="About us">
       <FooterLink href="#">Vision & Mission</FooterLink>
       <FooterLink href="#">EDUC Values & Goals</FooterLink>
@@ -165,9 +177,6 @@ export const FooterLinksComponent: Story = {
     components: { FooterLinks, FooterCol, FooterLink },
     template: `
       <FooterLinks>
-        <template #logo>
-
-        </template>
         <FooterCol title="Contact us">
           <FooterLink href="#">Our staff</FooterLink>
           <FooterLink href="tel:+49456789123"><font-awesome-icon :icon="['fas', 'phone']" class="text-[16px]" /> +49 456 789 123</FooterLink>
