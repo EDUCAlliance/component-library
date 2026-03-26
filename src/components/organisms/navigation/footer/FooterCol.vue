@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-w-0">
     <p class="text-black-sexternary mb-5 text-sm">{{ title }}</p>
     <div class="flex flex-col gap-3">
       <slot />

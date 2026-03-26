@@ -1,6 +1,9 @@
 <template>
   <footer>
     <FooterLinks>
+      <template v-if="$slots.logo" #logo>
+        <slot name="logo" />
+      </template>
       <FooterCol title="About us">
         <FooterLink href="#">Vision & Mission</FooterLink>
         <FooterLink href="#">EDUC Values & Goals</FooterLink>
@@ -31,7 +34,11 @@
         <FooterLink href="#">Partners</FooterLink>
       </FooterCol>
     </FooterLinks>
-    <FooterCopyright />
+    <FooterCopyright>
+      <template v-if="$slots['copyright-logo']" #logo>
+        <slot name="copyright-logo" />
+      </template>
+    </FooterCopyright>
     <FooterBottom>
       <a href="#"
         ><font-awesome-icon :icon="['fas', 'cookie']" class="text-[16px]" />Cookies Note</a
@@ -53,4 +60,9 @@ import {
   FooterBottom,
   FooterCopyright,
 } from "./organisms/navigation/footer"
+
+defineSlots<{
+  logo(props: Record<string, never>): import("vue").VNode[]
+  "copyright-logo"(props: Record<string, never>): import("vue").VNode[]
+}>()
 </script>

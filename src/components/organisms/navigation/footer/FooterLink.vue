@@ -1,6 +1,9 @@
 <template>
-  <p>
-    <a :href="props.href" class="text-black-primary flex items-center gap-2 hover:underline">
+  <p class="min-w-0">
+    <a
+      :href="props.href"
+      class="text-black-primary flex min-w-0 items-center gap-2 break-words hover:underline"
+    >
       <slot />
     </a>
   </p>

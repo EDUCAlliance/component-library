@@ -1,13 +1,15 @@
 <template>
   <div v-bind="$attrs" class="border-white-quaternary border-t px-4 py-12">
     <div class="container mx-auto">
-      <div class="flex flex-col gap-8 md:flex-row md:justify-between md:gap-6">
-        <div class="w-full shrink-0 md:w-[300px]">
+      <div class="grid gap-8 md:grid-cols-[minmax(240px,300px)_minmax(0,1fr)] md:items-start md:gap-6">
+        <div class="w-full md:max-w-[300px]">
           <slot name="logo">
             <EDUCLogo class="mb-8 h-20" />
           </slot>
         </div>
-        <div class="flex flex-1 flex-wrap gap-6 md:justify-between md:gap-12 md:pl-10">
+        <div
+          class="grid min-w-0 grid-cols-1 gap-x-12 gap-y-8 sm:grid-cols-2 md:pl-10 xl:grid-cols-4"
+        >
           <slot />
         </div>
       </div>
