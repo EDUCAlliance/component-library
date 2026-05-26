@@ -413,6 +413,45 @@
 
   <Cta />
   <Footer class="mt-32" />
+  <footer>
+    <FooterLinks>
+      <FooterCol title="About us">
+        <FooterLink href="https://www.educalliance.eu/about-us">Vision & Mission</FooterLink>
+        <FooterLink href="https://www.educalliance.eu/about-us/educ-values"
+          >EDUC Values & Goals</FooterLink
+        >
+        <FooterLink href="https://www.educalliance.eu/news">News</FooterLink>
+        <FooterLink href="https://www.educalliance.eu/calls">Calls</FooterLink>
+        <FooterLink href="https://www.educalliance.eu/events">Events</FooterLink>
+      </FooterCol>
+      <FooterCol title="Catalogue links">
+        <FooterLink href="/">Home page</FooterLink>
+        <FooterLink href="/Opportunities">Opportunities page</FooterLink>
+        <FooterLink href="/Past-opportunities">Past Opportunities page</FooterLink>
+        <FooterLink href="https://support.educalliance.eu/hc/catalogue/en">Support</FooterLink>
+      </FooterCol>
+      <FooterCol title="EDUC Services">
+        <FooterLink href="https://learning.educalliance.eu/">Learning platform</FooterLink>
+        <FooterLink href="https://portal.educalliance.eu/">Portal</FooterLink>
+        <FooterLink href="https://openup.educalliance.eu/">Networking with OpenUp</FooterLink>
+      </FooterCol>
+      <FooterCol title="Data protection">
+        <FooterLink
+          href="https://courses.educalliance.eu/assets/files/EDUC%20Course%20Catalogue%20Cookies%20Policy.pdf"
+        >
+          <FontAwesomeIcon icon="fa-solid fa-cookie" class="size-4" />
+          <span>Cookie policy</span>
+        </FooterLink>
+        <FooterLink
+          href="https://courses.educalliance.eu/assets/files/EDUC%20Course%20Catalogue%20Legal%20Notice%20Privacy%20Policy.pdf"
+        >
+          <FontAwesomeIcon icon="fa-solid fa-user-shield" class="size-4" />
+          <span>Privacy policy</span>
+        </FooterLink>
+      </FooterCol>
+    </FooterLinks>
+    <FooterCopyright />
+  </footer>
 </template>
 
 <script setup lang="ts">
@@ -467,7 +506,13 @@ import {
   ActionCardTitle,
   ActionCardDescription,
 } from "./atoms/actions/actions"
-import { ProjectCard as Card1, ProjectCardWithImage as Card2, FacilityCard as Card3, JobCard as Card4, PodcastCard } from "./molecules/cards"
+import {
+  ProjectCard as Card1,
+  ProjectCardWithImage as Card2,
+  FacilityCard as Card3,
+  JobCard as Card4,
+  PodcastCard,
+} from "./molecules/cards"
 import { Features1, Features2, Features3, Features4 } from "./organisms/content/features"
 import { Toaster } from "./atoms/feedback/sonner"
 import "./atoms/feedback/sonner/sonner.css"
@@ -487,6 +532,10 @@ import {
   RichTableActions,
 } from "./organisms/data/rich-table"
 import { SoftButton } from "./atoms/buttons"
+import FooterLinks from "./organisms/navigation/footer/FooterLinks.vue"
+import FooterCol from "./organisms/navigation/footer/FooterCol.vue"
+import FooterLink from "./organisms/navigation/footer/FooterLink.vue"
+import FooterCopyright from "./organisms/navigation/footer/FooterCopyright.vue"
 
 defineProps<{
   msg: string
