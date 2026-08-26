@@ -9,7 +9,6 @@ import {
   DialogFooter,
   DialogClose,
   DialogScrollContent,
-  DialogOverlay,
 } from "."
 import { PrimaryButton } from "@/components/atoms/buttons"
 import { Input } from "@/components/atoms/forms"
@@ -287,7 +286,6 @@ export const WithScrollContent: Story = {
       DialogDescription,
       DialogFooter,
       DialogClose,
-      DialogOverlay,
       PrimaryButton,
     },
     template: `
@@ -295,7 +293,6 @@ export const WithScrollContent: Story = {
         <DialogTrigger as-child>
           <PrimaryButton>Edit Profile</PrimaryButton>
         </DialogTrigger>
-        <DialogOverlay />
         <DialogScrollContent class="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>Modal title</DialogTitle>
@@ -324,7 +321,6 @@ export const WithScrollContent: Story = {
   <DialogTrigger as-child>
     <PrimaryButton>Edit Profile</PrimaryButton>
   </DialogTrigger>
-  <DialogOverlay />
   <DialogScrollContent class="sm:max-w-[425px]">
     <DialogHeader>
       <DialogTitle>Modal title</DialogTitle>
@@ -360,7 +356,6 @@ export const LoginForm: Story = {
       DialogDescription,
       DialogFooter,
       DialogClose,
-      DialogOverlay,
       PrimaryButton,
       DialogContent,
       Input,

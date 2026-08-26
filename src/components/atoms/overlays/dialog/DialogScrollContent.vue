@@ -6,11 +6,11 @@ import {
   DialogContent,
   type DialogContentEmits,
   type DialogContentProps,
-  DialogOverlay,
   DialogPortal,
   useForwardPropsEmits,
 } from "reka-ui"
 import { cn } from "@/lib/utils"
+import DialogOverlay from "./DialogOverlay.vue"
 import { dialogScrollContentSizeClasses, type DialogSize } from "./types"
 
 const props = withDefaults(
@@ -33,9 +33,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
 
 <template>
   <DialogPortal>
-    <DialogOverlay
-      class="data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-black/80"
-    >
+    <DialogOverlay class="grid place-items-center overflow-y-auto">
       <DialogContent
         :class="
           cn(
