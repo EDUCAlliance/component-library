@@ -113,6 +113,78 @@ type Story = StoryObj<typeof meta>
 
 export const Base: Story = {}
 
+export const CustomSize: Story = {
+  render: () => ({
+    components: {
+      Dialog,
+      DialogTrigger,
+      DialogContent,
+      DialogHeader,
+      DialogTitle,
+      DialogDescription,
+      DialogFooter,
+      DialogClose,
+      PrimaryButton,
+    },
+    template: `
+      <Dialog>
+        <DialogTrigger>
+          <PrimaryButton>Open large dialog</PrimaryButton>
+        </DialogTrigger>
+        <DialogContent size="5xl">
+          <DialogHeader>
+            <DialogTitle>Large dialog</DialogTitle>
+            <DialogDescription>
+              Use the size prop when the dialog needs more room for its content.
+            </DialogDescription>
+          </DialogHeader>
+          <div class="grid gap-4 py-4 md:grid-cols-2">
+            <div class="bg-black-senary rounded-lg p-6">First content column</div>
+            <div class="bg-black-senary rounded-lg p-6">Second content column</div>
+          </div>
+          <DialogFooter>
+            <DialogClose>
+              <PrimaryButton>Close</PrimaryButton>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Set `size` on `DialogContent` or `DialogScrollContent` to change the maximum width. Available sizes are `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl`, and `5xl`.",
+      },
+      source: {
+        code: `<Dialog>
+  <DialogTrigger>
+    <PrimaryButton>Open large dialog</PrimaryButton>
+  </DialogTrigger>
+  <DialogContent size="5xl">
+    <DialogHeader>
+      <DialogTitle>Large dialog</DialogTitle>
+      <DialogDescription>
+        Use the size prop when the dialog needs more room for its content.
+      </DialogDescription>
+    </DialogHeader>
+    <div class="grid gap-4 py-4 md:grid-cols-2">
+      <div>First content column</div>
+      <div>Second content column</div>
+    </div>
+    <DialogFooter>
+      <DialogClose>
+        <PrimaryButton>Close</PrimaryButton>
+      </DialogClose>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>`,
+      },
+    },
+  },
+}
+
 export const WithForm: Story = {
   render: () => ({
     components: {

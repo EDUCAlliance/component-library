@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
-import { X } from "lucide-vue-next"
 import {
   DialogClose,
   DialogContent,
@@ -12,11 +11,22 @@ import {
   useForwardPropsEmits,
 } from "reka-ui"
 import { cn } from "@/lib/utils"
+import { dialogScrollContentSizeClasses, type DialogSize } from "./types"
 
-const props = defineProps<DialogContentProps & { class?: HTMLAttributes["class"] }>()
+const props = withDefaults(
+  defineProps<
+    DialogContentProps & {
+      class?: HTMLAttributes["class"]
+      size?: DialogSize
+    }
+  >(),
+  {
+    size: "lg",
+  },
+)
 const emits = defineEmits<DialogContentEmits>()
 
-const delegatedProps = reactiveOmit(props, "class")
+const delegatedProps = reactiveOmit(props, "class", "size")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
@@ -29,7 +39,8 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
       <DialogContent
         :class="
           cn(
-            'border-border bg-background relative z-50 my-8 grid w-full max-w-lg gap-4 border p-6 shadow-lg duration-200 sm:rounded-lg md:w-full',
+            'border-border bg-background relative z-50 my-8 grid w-full gap-4 border p-6 shadow-lg duration-200 sm:rounded-lg md:w-full',
+            dialogScrollContentSizeClasses[props.size],
             props.class,
           )
         "
