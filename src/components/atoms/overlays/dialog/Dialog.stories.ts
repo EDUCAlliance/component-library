@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite"
+import { ref } from "vue"
 import {
   Dialog,
   DialogTrigger,
@@ -17,9 +18,17 @@ const meta = {
   title: "Atoms/Overlays/Dialog",
   component: Dialog,
   argTypes: {
-    class: {
-      control: "text",
-      description: "Additional classes for the dialog root.",
+    open: {
+      control: "boolean",
+      description: "Controlled open state. Prefer `v-model:open` in application code.",
+    },
+    defaultOpen: {
+      control: "boolean",
+      description: "Initial open state for an uncontrolled dialog.",
+    },
+    modal: {
+      control: "boolean",
+      description: "Disables interaction outside the dialog when enabled.",
     },
   },
   render: (args) => ({
@@ -31,14 +40,15 @@ const meta = {
       DialogTitle,
       DialogDescription,
       DialogFooter,
+      DialogClose,
       PrimaryButton,
     },
     setup() {
       return { args }
     },
     template: `
-      <Dialog :class="args.class">
-        <DialogTrigger>
+      <Dialog v-bind="args">
+        <DialogTrigger as-child>
           <PrimaryButton>Open Dialog</PrimaryButton>
         </DialogTrigger>
         <DialogContent>
@@ -49,7 +59,7 @@ const meta = {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <DialogClose>
+            <DialogClose as-child>
               <PrimaryButton>Close</PrimaryButton>
             </DialogClose>
           </DialogFooter>
@@ -65,6 +75,26 @@ const meta = {
 **Dialog** is a window overlaid on either the primary window or another dialog window.
 
 Component is based on Reka UI.
+
+The close button is included automatically by
+\`DialogContent\` and \`DialogScrollContent\`. Use \`DialogClose as-child\`
+when an additional custom close action is needed in the dialog body or footer.
+
+### Component props
+
+| Component | Main props | Usage |
+| --- | --- | --- |
+| \`Dialog\` | \`v-model:open\`, \`default-open\`, \`modal\` | Controls the dialog state and modality. |
+| \`DialogTrigger\` | \`as\`, \`as-child\` | Opens the dialog. Use \`as-child\` with a custom button. |
+| \`DialogContent\` | \`size\`, \`force-mount\`, \`trap-focus\`, \`disable-outside-pointer-events\`, \`class\` | Standard centered content with a built-in top close button. |
+| \`DialogScrollContent\` | Same as \`DialogContent\` | Content that scrolls with the overlay. |
+| \`DialogTitle\`, \`DialogDescription\` | \`as\`, \`as-child\`, \`class\` | Accessible title and description. |
+| \`DialogClose\` | \`as\`, \`as-child\` | Adds another close action anywhere inside the dialog. |
+| \`DialogHeader\`, \`DialogFooter\` | \`class\` | Layout helpers for dialog content. |
+
+Content also forwards Reka UI interaction events such as
+\`escape-key-down\`, \`pointer-down-outside\`, \`interact-outside\`,
+\`open-auto-focus\`, and \`close-auto-focus\`.
 
 - Fully accessible and keyboard-navigable
 - Focus is trapped within the dialog when open
@@ -85,7 +115,7 @@ Component is based on Reka UI.
       },
       source: {
         code: `<Dialog>
-  <DialogTrigger>
+  <DialogTrigger as-child>
     <PrimaryButton>Open Dialog</PrimaryButton>
   </DialogTrigger>
   <DialogContent>
@@ -96,7 +126,7 @@ Component is based on Reka UI.
       </DialogDescription>
     </DialogHeader>
     <DialogFooter>
-      <DialogClose>
+      <DialogClose as-child>
         <PrimaryButton>Close</PrimaryButton>
       </DialogClose>
     </DialogFooter>
@@ -111,6 +141,87 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Base: Story = {}
+
+export const Controlled: Story = {
+  render: () => ({
+    components: {
+      Dialog,
+      DialogTrigger,
+      DialogContent,
+      DialogHeader,
+      DialogTitle,
+      DialogDescription,
+      DialogFooter,
+      DialogClose,
+      PrimaryButton,
+    },
+    setup() {
+      const open = ref(false)
+
+      return { open }
+    },
+    template: `
+      <div class="flex flex-col items-start gap-4">
+        <p>Dialog is {{ open ? "open" : "closed" }}.</p>
+        <Dialog v-model:open="open" :modal="true">
+          <DialogTrigger as-child>
+            <PrimaryButton>Open controlled dialog</PrimaryButton>
+          </DialogTrigger>
+          <DialogContent size="2xl">
+            <DialogHeader>
+              <DialogTitle as="h2">Controlled dialog</DialogTitle>
+              <DialogDescription as="p">
+                Its open state is managed with v-model:open. The close icon in the top-right is
+                included by DialogContent automatically.
+              </DialogDescription>
+            </DialogHeader>
+            <DialogFooter>
+              <DialogClose as-child>
+                <PrimaryButton>Close from footer</PrimaryButton>
+              </DialogClose>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Use `v-model:open` for controlled state. For an uncontrolled dialog that starts open, use `default-open`. The `modal` prop controls whether interaction outside is disabled.",
+      },
+      source: {
+        code: `<script setup lang="ts">
+import { ref } from "vue"
+
+const open = ref(false)
+</script>
+
+<template>
+  <Dialog v-model:open="open" :modal="true">
+    <DialogTrigger as-child>
+      <PrimaryButton>Open controlled dialog</PrimaryButton>
+    </DialogTrigger>
+    <DialogContent size="2xl">
+      <DialogHeader>
+        <DialogTitle as="h2">Controlled dialog</DialogTitle>
+        <DialogDescription as="p">
+          The top-right close button is included automatically.
+        </DialogDescription>
+      </DialogHeader>
+      <DialogFooter>
+        <DialogClose as-child>
+          <PrimaryButton>Close from footer</PrimaryButton>
+        </DialogClose>
+      </DialogFooter>
+    </DialogContent>
+  </Dialog>
+</template>`,
+      },
+    },
+  },
+}
 
 export const CustomSize: Story = {
   render: () => ({
@@ -127,7 +238,7 @@ export const CustomSize: Story = {
     },
     template: `
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger as-child>
           <PrimaryButton>Open large dialog</PrimaryButton>
         </DialogTrigger>
         <DialogContent size="5xl">
@@ -142,7 +253,7 @@ export const CustomSize: Story = {
             <div class="bg-black-senary rounded-lg p-6">Second content column</div>
           </div>
           <DialogFooter>
-            <DialogClose>
+            <DialogClose as-child>
               <PrimaryButton>Close</PrimaryButton>
             </DialogClose>
           </DialogFooter>
@@ -158,7 +269,7 @@ export const CustomSize: Story = {
       },
       source: {
         code: `<Dialog>
-  <DialogTrigger>
+  <DialogTrigger as-child>
     <PrimaryButton>Open large dialog</PrimaryButton>
   </DialogTrigger>
   <DialogContent size="5xl">
@@ -173,7 +284,7 @@ export const CustomSize: Story = {
       <div>Second content column</div>
     </div>
     <DialogFooter>
-      <DialogClose>
+      <DialogClose as-child>
         <PrimaryButton>Close</PrimaryButton>
       </DialogClose>
     </DialogFooter>
@@ -200,7 +311,7 @@ export const WithForm: Story = {
     },
     template: `
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger as-child>
           <PrimaryButton>Edit Profile</PrimaryButton>
         </DialogTrigger>
         <DialogContent>
@@ -226,7 +337,7 @@ export const WithForm: Story = {
             </Input>
           </div>
           <DialogFooter>
-            <DialogClose>
+            <DialogClose as-child>
               <PrimaryButton type="submit">Save changes</PrimaryButton>
             </DialogClose>
           </DialogFooter>
@@ -238,7 +349,7 @@ export const WithForm: Story = {
     docs: {
       source: {
         code: `<Dialog>
-  <DialogTrigger>
+  <DialogTrigger as-child>
     <PrimaryButton>Edit Profile</PrimaryButton>
   </DialogTrigger>
   <DialogContent>
@@ -264,7 +375,7 @@ export const WithForm: Story = {
       </Input>
     </div>
     <DialogFooter>
-      <DialogClose>
+      <DialogClose as-child>
         <PrimaryButton type="submit">Save changes</PrimaryButton>
       </DialogClose>
     </DialogFooter>
@@ -306,7 +417,7 @@ export const WithScrollContent: Story = {
             </p>
           </div>
           <DialogFooter>
-            <DialogClose>
+            <DialogClose as-child>
               <PrimaryButton type="submit">Save changes</PrimaryButton>
             </DialogClose>
           </DialogFooter>
@@ -334,7 +445,7 @@ export const WithScrollContent: Story = {
       </p>
     </div>
     <DialogFooter>
-      <DialogClose>
+      <DialogClose as-child>
         <PrimaryButton type="submit">Save changes</PrimaryButton>
       </DialogClose>
     </DialogFooter>
@@ -362,7 +473,7 @@ export const LoginForm: Story = {
     },
     template: `
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger as-child>
         <PrimaryButton>Login form</PrimaryButton>
       </DialogTrigger>
       <DialogContent>
@@ -440,7 +551,7 @@ export const LoginForm: Story = {
     docs: {
       source: {
         code: `<Dialog>
-  <DialogTrigger>
+  <DialogTrigger as-child>
     <PrimaryButton>Login form</PrimaryButton>
   </DialogTrigger>
   <DialogContent>
