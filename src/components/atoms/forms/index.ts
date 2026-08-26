@@ -1,5 +1,5 @@
 export { default as Input } from "./input/Input.vue"
-export { default as Select } from "./select/Select.vue"
+export * from "./select"
 export { default as Checkbox } from "./Checkbox.vue"
 export { default as Radio } from "./Radio.vue"
 export { default as Slider } from "./Slider.vue"
