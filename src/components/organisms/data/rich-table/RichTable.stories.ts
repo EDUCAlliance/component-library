@@ -8,6 +8,7 @@ import {
   RichTableRow,
   RichTableCell,
   RichTableActions,
+  type RichTableSortDirection,
 } from "./index"
 import { PrimaryButton, SecondaryButton } from "../../../atoms/buttons"
 import { Badge } from "../../../atoms/feedback"
@@ -27,7 +28,7 @@ The component system includes:
 - **RichTable**: The main grid container - use the \`columns\` prop to define column widths
 - **RichTableHeader**: Optional full-width header section for title, description, and action buttons
 - **RichTableHead**: Header row container with column labels
-- **RichTableColumn**: Individual column headers with optional sorting
+- **RichTableColumn**: Individual column headers with optional controlled sorting via \`sort-direction\` and \`@sort="(key, direction) => ..."\`
 - **RichTableRow**: Data row container with hover effects
 - **RichTableCell**: Individual data cells
 - **RichTableActions**: Action buttons column (e.g., three dots menu)
@@ -345,22 +346,15 @@ export const WithSorting: Story = {
       ])
 
       const sortColumn = ref("")
-      const sortDirection = ref("asc")
+      const sortDirection = ref<RichTableSortDirection>()
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const handleSort = (columnKey: any) => {
-        // If clicking the same column, toggle direction
-        if (sortColumn.value === columnKey) {
-          sortDirection.value = sortDirection.value === "asc" ? "desc" : "asc"
-        } else {
-          // New column, start with ascending
-          sortColumn.value = columnKey
-          sortDirection.value = "asc"
-        }
+      const handleSort = (columnKey: string, direction: RichTableSortDirection) => {
+        sortColumn.value = columnKey
+        sortDirection.value = direction
       }
 
       const sortedData = computed(() => {
-        if (!sortColumn.value) return tableData.value
+        if (!sortColumn.value || !sortDirection.value) return tableData.value
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return [...tableData.value].sort((a: any, b: any) => {
@@ -392,29 +386,29 @@ export const WithSorting: Story = {
                 column-key="name"
                 label="Name"
                 :sortable="true"
+                :sort-direction="sortColumn === 'name' ? sortDirection : undefined"
                 @sort="handleSort"
-                :class="sortColumn === 'name' ? 'text-blue-600' : ''"
               />
               <RichTableColumn
                 column-key="role"
                 label="Role"
                 :sortable="true"
+                :sort-direction="sortColumn === 'role' ? sortDirection : undefined"
                 @sort="handleSort"
-                :class="sortColumn === 'role' ? 'text-blue-600' : ''"
               />
               <RichTableColumn
                 column-key="status"
                 label="Status"
                 :sortable="true"
+                :sort-direction="sortColumn === 'status' ? sortDirection : undefined"
                 @sort="handleSort"
-                :class="sortColumn === 'status' ? 'text-blue-600' : ''"
               />
               <RichTableColumn
                 column-key="age"
                 label="Age"
                 :sortable="true"
+                :sort-direction="sortColumn === 'age' ? sortDirection : undefined"
                 @sort="handleSort"
-                :class="sortColumn === 'age' ? 'text-blue-600' : ''"
               />
             </RichTableHead>
 
@@ -446,7 +440,7 @@ export const WithSorting: Story = {
               Column: <span class="font-mono">{{ sortColumn || 'none' }}</span>
             </p>
             <p class="text-sm text-black-sexternary">
-              Direction: <span class="font-mono">{{ sortDirection }}</span>
+              Direction: <span class="font-mono">{{ sortDirection || 'none' }}</span>
             </p>
           </div>
         </div>
@@ -461,46 +455,51 @@ export const WithSorting: Story = {
 
 This example demonstrates how to implement sorting with the RichTable component:
 
-1. **Listen to the sort event**: Each \`RichTableColumn\` with \`:sortable="true"\` emits a \`sort\` event when clicked
-2. **Track sort state**: Use reactive refs to track which column is sorted and the direction
-3. **Compute sorted data**: Use a computed property to sort your data based on the current state
-4. **Visual feedback**: The currently sorted column is highlighted in blue
+1. **Listen to the sort event**: Each \`RichTableColumn\` emits the column key and requested direction
+2. **Pass the state back**: Set \`sort-direction\` on the active column to update its arrow
+3. **Compute sorted data**: Sort your data using the emitted column and direction
+4. **Visual feedback**: Unsorted columns show both arrows, ascending shows the bottom arrow, and descending shows the top arrow
 
-\`\`\`vue
-<script setup>
-import { ref, computed } from 'vue'
+The sorting logic stays in the parent component, so it can use local data, custom comparison functions, or a backend API.
+        `,
+      },
+      source: {
+        code: `<script setup>
+import { computed, ref } from "vue"
 
-const sortColumn = ref(null)
-const sortDirection = ref('asc')
+const tableData = ref([
+  { id: 1, name: "Alice" },
+  { id: 2, name: "Bob" },
+])
 
-const handleSort = (columnKey) => {
-  if (sortColumn.value === columnKey) {
-    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
-  } else {
-    sortColumn.value = columnKey
-    sortDirection.value = 'asc'
-  }
+const sortColumn = ref()
+const sortDirection = ref()
+
+const handleSort = (columnKey, direction) => {
+  sortColumn.value = columnKey
+  sortDirection.value = direction
 }
 
 const sortedData = computed(() => {
-  if (!sortColumn.value) return tableData.value
+  if (!sortColumn.value || !sortDirection.value) return tableData.value
 
   return [...tableData.value].sort((a, b) => {
     const aValue = a[sortColumn.value]
     const bValue = b[sortColumn.value]
     const compare = aValue < bValue ? -1 : aValue > bValue ? 1 : 0
-    return sortDirection.value === 'asc' ? compare : -compare
+    return sortDirection.value === "asc" ? compare : -compare
   })
 })
 </script>
 
 <template>
-  <RichTable>
+  <RichTable columns="1fr">
     <RichTableHead>
       <RichTableColumn
         column-key="name"
         label="Name"
-        :sortable="true"
+        sortable
+        :sort-direction="sortColumn === 'name' ? sortDirection : undefined"
         @sort="handleSort"
       />
     </RichTableHead>
@@ -509,11 +508,7 @@ const sortedData = computed(() => {
       <RichTableCell>{{ item.name }}</RichTableCell>
     </RichTableRow>
   </RichTable>
-</template>
-\`\`\`
-
-**Note**: The sorting logic lives in your component, giving you full control over how data is sorted. You can implement custom sort functions, multi-column sorting, or integrate with backend APIs.
-        `,
+</template>`,
       },
     },
   },

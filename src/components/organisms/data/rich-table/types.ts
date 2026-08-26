@@ -9,10 +9,13 @@ export interface RichTableHeaderProps {
   class?: string
 }
 
+export type RichTableSortDirection = "asc" | "desc"
+
 export interface RichTableColumnProps {
   columnKey: string
   label: string
   sortable?: boolean
+  sortDirection?: RichTableSortDirection
   class?: string
 }
 
