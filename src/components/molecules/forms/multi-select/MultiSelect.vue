@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue"
-import {
-  PopoverRoot,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverPortal,
-} from "reka-ui"
+import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverPortal } from "reka-ui"
 import { Checkbox } from "@/components/atoms/forms"
 import PrimaryButton from "@/components/atoms/buttons/PrimaryButton.vue"
 import { cn } from "@/lib/utils"
@@ -73,8 +68,6 @@ const triggerLabel = computed(() => {
   }
   return `${selected.length} selected`
 })
-
-
 </script>
 
 <template>
@@ -90,7 +83,7 @@ const triggerLabel = computed(() => {
           :class="
             cn(
               'border-black-quinternary focus-visible:border-ring group flex h-11 w-fit min-w-[160px] items-center justify-between gap-2 rounded-md border bg-transparent py-3 pr-3 pl-4 text-sm whitespace-nowrap shadow-xs transition-[color,border-radius] duration-150 outline-none',
-              'hover:rounded-none focus:ring-2 focus:ring-offset-2 focus:ring-black-secondary',
+              'focus:ring-black-secondary hover:rounded-none focus:ring-2 focus:ring-offset-2',
               'disabled:cursor-not-allowed disabled:opacity-50',
               'data-[state=open]:border-black-primary data-[state=open]:rounded-none',
             )
@@ -136,10 +129,7 @@ const triggerLabel = computed(() => {
           </div>
 
           <div class="max-h-[240px] overflow-y-auto py-1">
-            <p
-              v-if="!filteredOptions.length"
-              class="text-black-tertiary px-4 py-2 text-sm"
-            >
+            <p v-if="!filteredOptions.length" class="text-black-tertiary px-4 py-2 text-sm">
               No options found.
             </p>
             <button
@@ -155,10 +145,8 @@ const triggerLabel = computed(() => {
             </button>
           </div>
 
-          <div class="border-black-quinternary border-t p-2 flex justify-end">
-            <PrimaryButton size="sm" class="w-fit" @click="close">
-              Done
-            </PrimaryButton>
+          <div class="border-black-quinternary flex justify-end border-t p-2">
+            <PrimaryButton size="sm" class="w-fit" @click="close"> Done </PrimaryButton>
           </div>
         </PopoverContent>
       </PopoverPortal>

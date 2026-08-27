@@ -60,7 +60,7 @@ const options = [
   { value: "cs", label: "Computer Science" },
   { value: "math", label: "Mathematics" },
 ]
-<\/script>
+</script>
 
 <template>
   <MultiSelect
