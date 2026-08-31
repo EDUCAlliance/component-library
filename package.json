@@ -1,6 +1,6 @@
 {
   "name": "@EDUCAlliance/component-library",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Vue 3 component library made for EDUC Alliance applications.",
   "type": "module",
   "main": "./dist/educ-component-library.cjs.js",
