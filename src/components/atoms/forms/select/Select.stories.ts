@@ -445,6 +445,58 @@ const value = ref(users[1])
   },
 }
 
+export const BooleanValues: Story = {
+  render: (args) => ({
+    components: { Select, SelectTrigger, SelectContent, SelectItem, SelectValue },
+    setup() {
+      const value = ref(false)
+
+      return { args, value }
+    },
+    template: `
+      <div class="flex flex-col gap-4">
+        <Select v-bind="args" v-model="value">
+          <SelectTrigger class="w-[300px]">
+            <SelectValue placeholder="Subscribe to newsletter?" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem :value="true">Yes</SelectItem>
+            <SelectItem :value="false">No</SelectItem>
+          </SelectContent>
+        </Select>
+
+        <p class="text-black-tertiary text-sm">value: {{ value }}</p>
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: "Options can carry boolean values, so `v-model` can bind directly to a `boolean`.",
+      },
+      source: {
+        code: `<script setup lang="ts">
+import { ref } from "vue"
+
+const value = ref(false)
+</script>
+
+<template>
+  <Select v-model="value">
+    <SelectTrigger class="w-[300px]">
+      <SelectValue placeholder="Subscribe to newsletter?" />
+    </SelectTrigger>
+    <SelectContent>
+      <SelectItem :value="true">Yes</SelectItem>
+      <SelectItem :value="false">No</SelectItem>
+    </SelectContent>
+  </Select>
+</template>`,
+      },
+    },
+  },
+}
+
 export const RightToLeft: Story = {
   args: {
     dir: "rtl",

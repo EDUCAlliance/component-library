@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils"
 import {
+  type AcceptableValue,
   SelectItem,
   SelectItemIndicator,
   type SelectItemProps,
@@ -9,7 +10,9 @@ import {
 } from "reka-ui"
 import { computed, type HTMLAttributes } from "vue"
 
-const props = defineProps<SelectItemProps & { class?: HTMLAttributes["class"] }>()
+const props = defineProps<
+  SelectItemProps<AcceptableValue | boolean> & { class?: HTMLAttributes["class"] }
+>()
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
