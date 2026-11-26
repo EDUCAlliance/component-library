@@ -26,7 +26,7 @@ const forwardedProps = useForwardProps(delegatedProps)
         'hover:bg-white-quaternary h-9 w-8 cursor-pointer rounded-full p-0 font-normal aria-selected:opacity-100',
         '[&[data-today]:not([data-selected])]:bg-white-quinternary [&[data-today]:not([data-selected])]:text-black-secondary [&[data-today]:not([data-selected])]:hover:bg-black-quaternary',
         // Selected
-        'data-[selected]:bg-black-primary data-[selected]:text-primary-foreground data-[selected]:hover:bg-black-secondary data-[selected]:hover:text-primary-foreground data-[selected]:focus:bg-black-primary data-[selected]:focus:text-primary-foreground data-[selected]:opacity-100',
+        'data-[selected]:bg-(--calendar-accent) data-[selected]:text-(--calendar-accent-foreground) data-[selected]:opacity-100 data-[selected]:hover:bg-(--calendar-accent) data-[selected]:hover:text-(--calendar-accent-foreground) data-[selected]:focus:bg-(--calendar-accent) data-[selected]:focus:text-(--calendar-accent-foreground)',
         // Disabled
         'data-[disabled]:text-black-quinternary data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50',
         // Unavailable

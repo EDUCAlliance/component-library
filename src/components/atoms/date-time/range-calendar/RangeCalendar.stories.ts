@@ -1,10 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite"
+import { CalendarDate } from "@internationalized/date"
 import RangeCalendar from "./RangeCalendar.vue"
 
 const meta = {
   title: "Atoms/DateTime/RangeCalendar",
   component: RangeCalendar,
   argTypes: {
+    color: {
+      control: "select",
+      options: ["black", "yellow", "pink", "green", "orange", "violet"],
+      description: "Accent color of the selected range.",
+    },
     class: {
       control: "text",
       description: "Additional classes for the calendar root.",
@@ -147,6 +153,34 @@ export const Disabled: Story = {
     docs: {
       description: {
         story: "Calendar in a disabled state.",
+      },
+    },
+  },
+}
+
+export const Colors: Story = {
+  render: () => ({
+    components: { RangeCalendar },
+    setup() {
+      const colors = ["black", "yellow", "pink", "green", "orange", "violet"] as const
+      const value = { start: new CalendarDate(2025, 1, 8), end: new CalendarDate(2025, 1, 21) }
+
+      return { colors, value }
+    },
+    template: `
+      <div class="flex flex-wrap gap-4">
+        <RangeCalendar v-for="color in colors" :key="color" :color="color" :default-value="value" />
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "`color` sets the accent of the selected range, matching the other color-aware components.",
+      },
+      source: {
+        code: `<RangeCalendar color="yellow" />`,
       },
     },
   },

@@ -8,6 +8,7 @@ import {
   useForwardPropsEmits,
 } from "reka-ui"
 import { cn } from "@/lib/utils"
+import { type CalendarColor, calendarColorClasses } from "../colors"
 import {
   RangeCalendarCell,
   RangeCalendarCellTrigger,
@@ -22,11 +23,18 @@ import {
   RangeCalendarPrevButton,
 } from "."
 
-const props = defineProps<RangeCalendarRootProps & { class?: HTMLAttributes["class"] }>()
+const props = withDefaults(
+  defineProps<
+    RangeCalendarRootProps & { class?: HTMLAttributes["class"]; color?: CalendarColor }
+  >(),
+  {
+    color: "black",
+  },
+)
 
 const emits = defineEmits<RangeCalendarRootEmits>()
 
-const delegatedProps = reactiveOmit(props, "class")
+const delegatedProps = reactiveOmit(props, "class", "color")
 
 const forwarded = useForwardPropsEmits(delegatedProps, emits)
 </script>
@@ -35,7 +43,13 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
   <RangeCalendarRoot
     v-slot="{ grid, weekDays }"
     data-slot="range-calendar"
-    :class="cn('border-black-quaternary w-fit rounded-lg border p-2', props.class)"
+    :class="
+      cn(
+        'border-black-quaternary w-fit rounded-lg border p-2',
+        calendarColorClasses[props.color],
+        props.class,
+      )
+    "
     v-bind="forwarded"
     :week-starts-on="1"
   >

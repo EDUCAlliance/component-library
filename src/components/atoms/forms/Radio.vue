@@ -1,29 +1,48 @@
 <template>
-  <div class="group grid size-5 grid-cols-1">
-    <input
-      id="comments"
-      :name="props.name"
-      type="radio"
-      :value="props.value"
-      :checked="props.checked"
-      :class="classes"
-      @change="handleChange"
-    />
-    <div
-      :class="[
-        'pointer-events-none col-start-1 row-start-1 size-2 self-center justify-self-center rounded-full opacity-0 duration-200 group-has-checked:opacity-100',
-        dotColorClass,
-      ]"
-    ></div>
+  <div class="flex items-start gap-3">
+    <div class="group grid size-5 shrink-0 grid-cols-1">
+      <input
+        :id="inputId"
+        :name="props.name"
+        type="radio"
+        :value="props.value"
+        :checked="isChecked"
+        :disabled="props.disabled"
+        :aria-describedby="$slots.helper ? helperId : undefined"
+        :class="classes"
+        @change="handleChange"
+      />
+      <div
+        :class="[
+          'pointer-events-none col-start-1 row-start-1 size-2 self-center justify-self-center rounded-full opacity-0 duration-200 group-has-checked:opacity-100',
+          dotColorClass,
+        ]"
+      ></div>
+    </div>
+    <div v-if="$slots.label || $slots.helper" class="flex flex-col gap-0.5 text-sm">
+      <label
+        v-if="$slots.label"
+        :for="inputId"
+        :class="[
+          'leading-5 font-bold',
+          props.disabled ? 'text-black-quinternary cursor-not-allowed' : 'cursor-pointer',
+        ]"
+      >
+        <slot name="label" />
+      </label>
+      <p v-if="$slots.helper" :id="helperId" class="text-black-tertiary">
+        <slot name="helper" />
+      </p>
+    </div>
   </div>
 </template>
 
-// TODO: Fix value and onChange
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed, useId } from "vue"
 
 const emit = defineEmits<{
   change: [value: string | boolean]
+  "update:modelValue": [value: string | boolean]
 }>()
 
 const props = withDefaults(
@@ -31,6 +50,8 @@ const props = withDefaults(
     disabled?: boolean
     value?: string | boolean // Radio value
     checked?: boolean // Is this radio selected
+    modelValue?: string | boolean // Selected value of the group, use with v-model
+    id?: string
     color?: "black" | "yellow" | "pink" | "green" | "orange" | "violet"
     name?: string
     onChange?: (value: string | boolean) => void
@@ -38,19 +59,25 @@ const props = withDefaults(
   {
     disabled: false,
     checked: false,
+    value: undefined,
+    modelValue: undefined,
     color: "black",
   },
 )
 
-function handleChange(event: Event) {
-  const target = event.target as HTMLInputElement
-  if (props.onChange && props.value) {
-    props.onChange(props.value)
-  }
-  if (!props.value) {
-    return
-  }
+const generatedId = useId()
+const inputId = computed(() => props.id ?? generatedId)
+const helperId = computed(() => `${inputId.value}-helper`)
+
+const isChecked = computed(() =>
+  props.modelValue !== undefined ? props.modelValue === props.value : props.checked,
+)
+
+function handleChange() {
+  if (props.value === undefined) return
+  props.onChange?.(props.value)
   emit("change", props.value)
+  emit("update:modelValue", props.value)
 }
 
 const dotColorClass = computed(() => {

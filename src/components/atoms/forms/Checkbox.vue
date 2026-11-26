@@ -1,32 +1,52 @@
 <template>
-  <div class="group grid size-5 grid-cols-1">
-    <input
-      id="comments"
-      :name="props.name"
-      type="checkbox"
-      :checked="isChecked"
-      :class="classes"
-      @change="onInputChange"
-    />
-    <font-awesome-icon
-      :icon="['fas', 'check']"
-      :class="[
-        'pointer-events-none col-start-1 row-start-1 size-3 self-center justify-self-center stroke-3 text-[12px] opacity-0 duration-200 group-has-checked:opacity-100',
-        iconColorClass,
-      ]"
-    />
-    <font-awesome-icon
-      :icon="['fas', 'minus']"
-      :class="[
-        'pointer-events-none col-start-1 row-start-1 self-center justify-self-center stroke-3 text-[12px] opacity-0 duration-200 group-indeterminate:opacity-100',
-        iconColorClass,
-      ]"
-    />
+  <div class="flex items-start gap-3">
+    <div class="group grid size-5 shrink-0 grid-cols-1">
+      <input
+        :id="inputId"
+        :name="props.name"
+        :value="props.inputValue"
+        type="checkbox"
+        :checked="isChecked"
+        :disabled="props.disabled"
+        :aria-describedby="$slots.helper ? helperId : undefined"
+        :class="classes"
+        @change="onInputChange"
+      />
+      <font-awesome-icon
+        :icon="['fas', 'check']"
+        :class="[
+          'pointer-events-none col-start-1 row-start-1 size-3 self-center justify-self-center stroke-3 text-[12px] opacity-0 duration-200 group-has-checked:opacity-100',
+          iconColorClass,
+        ]"
+      />
+      <font-awesome-icon
+        :icon="['fas', 'minus']"
+        :class="[
+          'pointer-events-none col-start-1 row-start-1 self-center justify-self-center stroke-3 text-[12px] opacity-0 duration-200 group-indeterminate:opacity-100',
+          iconColorClass,
+        ]"
+      />
+    </div>
+    <div v-if="$slots.label || $slots.helper" class="flex flex-col gap-0.5 text-sm">
+      <label
+        v-if="$slots.label"
+        :for="inputId"
+        :class="[
+          'leading-5 font-bold',
+          props.disabled ? 'text-black-quinternary cursor-not-allowed' : 'cursor-pointer',
+        ]"
+      >
+        <slot name="label" />
+      </label>
+      <p v-if="$slots.helper" :id="helperId" class="text-black-tertiary">
+        <slot name="helper" />
+      </p>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from "vue"
+import { computed, ref, useId } from "vue"
 
 // import { ref } from "vue"
 // import { Switch } from "@headlessui/vue"
@@ -59,10 +79,14 @@ const props = withDefaults(
     color?: "black" | "yellow" | "pink" | "green" | "orange" | "violet"
     onChange?: (value: boolean) => void
     name?: string
+    id?: string
+    inputValue?: string
   }>(),
   {
     disabled: false,
     value: false,
+    modelValue: undefined,
+    checked: undefined,
     color: "black",
   },
 )
@@ -71,6 +95,10 @@ const emit = defineEmits<{
   (e: "update:modelValue", value: boolean): void
   (e: "update:checked", value: boolean): void
 }>()
+
+const generatedId = useId()
+const inputId = computed(() => props.id ?? generatedId)
+const helperId = computed(() => `${inputId.value}-helper`)
 
 const uncontrolled = ref<boolean>(!!props.value)
 

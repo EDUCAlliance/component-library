@@ -1,10 +1,16 @@
 import type { Meta, StoryObj } from "@storybook/vue3-vite"
+import { CalendarDate } from "@internationalized/date"
 import Calendar from "./Calendar.vue"
 
 const meta = {
   title: "Atoms/DateTime/Calendar",
   component: Calendar,
   argTypes: {
+    color: {
+      control: "select",
+      options: ["black", "yellow", "pink", "green", "orange", "violet"],
+      description: "Accent color of the selected date.",
+    },
     class: {
       control: "text",
       description: "Additional classes for the calendar root.",
@@ -120,6 +126,34 @@ export const Disabled: Story = {
     docs: {
       description: {
         story: "Calendar in a disabled state.",
+      },
+    },
+  },
+}
+
+export const Colors: Story = {
+  render: () => ({
+    components: { Calendar },
+    setup() {
+      const colors = ["black", "yellow", "pink", "green", "orange", "violet"] as const
+      const value = new CalendarDate(2025, 1, 8)
+
+      return { colors, value }
+    },
+    template: `
+      <div class="flex flex-wrap gap-4">
+        <Calendar v-for="color in colors" :key="color" :color="color" :default-value="value" />
+      </div>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "`color` sets the accent of the selected date, matching the other color-aware components.",
+      },
+      source: {
+        code: `<Calendar color="yellow" />`,
       },
     },
   },

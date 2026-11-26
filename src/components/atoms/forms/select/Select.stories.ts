@@ -50,6 +50,11 @@ const meta = {
       description:
         "Field name or comparator function used to compare object values against each other.",
     },
+    clearable: {
+      control: "boolean",
+      description:
+        "Shows a clear button in the trigger while a value is selected. Clicking it (or pressing Backspace/Delete on the trigger) resets the value and emits `clear`.",
+    },
     class: {
       control: "text",
       description: "Additional classes for the select root.",
@@ -78,7 +83,7 @@ const meta = {
     docs: {
       description: {
         component: `
-**Select** is a dropdown component for choosing a single option from a list.\n\nCustom made for this library.\n\n- Fully accessible and keyboard-navigable.\n- Custom content and option rendering.\n- \`label\` and \`helper\` slots, same as \`Input\`.\n\n### Anatomy\n\n\`\`\`vue\n<Select>\n  <template #label>Label</template>\n  <SelectTrigger>\n    <SelectValue placeholder="…" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectGroup>\n      <SelectLabel>Group heading</SelectLabel>\n      <SelectItem value="a">A</SelectItem>\n    </SelectGroup>\n    <SelectSeparator />\n  </SelectContent>\n  <template #helper>Helper text</template>\n</Select>\n\`\`\`\n\n### Sub-component props\n\n| Component | Prop | Description |\n| --- | --- | --- |\n| \`SelectTrigger\` | \`disabled\` | Disables only the trigger, the value stays submitted. |\n| \`SelectTrigger\` | \`class\` | Extra classes, typically the width. |\n| \`SelectContent\` | \`position\` | \`popper\` (default) or \`item-aligned\`. |\n| \`SelectContent\` | \`side\`, \`sideOffset\`, \`align\`, \`alignOffset\` | Placement of the dropdown against the trigger (\`popper\` only). |\n| \`SelectContent\` | \`avoidCollisions\` | Flip the dropdown when it would overflow the viewport. |\n| \`SelectContent\` | \`bodyLock\` | Lock body scroll while open, defaults to \`true\`. |\n| \`SelectContent\` | \`forceMount\` | Keep the content mounted while closed, for custom animations. |\n| \`SelectItem\` | \`value\` | Value written to the model, required. |\n| \`SelectItem\` | \`disabled\` | Makes the option unselectable. |\n| \`SelectItem\` | \`textValue\` | Typeahead text, needed when the option renders non-text content. |\n| \`SelectValue\` | \`placeholder\` | Shown while nothing is selected. |\n| \`SelectValue\` | default slot | Custom rendering of the selected value. |\n\n<div style="display: flex; gap: 8px;">\n\n<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=180-3086&t=Mkp3c5SrIIlNDlq2-4" target="_blank">\n  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />\n</a>\n\n</div>\n        `,
+**Select** is a dropdown component for choosing a single option from a list.\n\nCustom made for this library.\n\n- Fully accessible and keyboard-navigable.\n- Custom content and option rendering.\n- \`label\` and \`helper\` slots, same as \`Input\`.\n- Optional \`clearable\` prop with a \`clear\` event, same as \`Input\`.\n\n### Anatomy\n\n\`\`\`vue\n<Select>\n  <template #label>Label</template>\n  <SelectTrigger>\n    <SelectValue placeholder="…" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectGroup>\n      <SelectLabel>Group heading</SelectLabel>\n      <SelectItem value="a">A</SelectItem>\n    </SelectGroup>\n    <SelectSeparator />\n  </SelectContent>\n  <template #helper>Helper text</template>\n</Select>\n\`\`\`\n\n### Sub-component props\n\n| Component | Prop | Description |\n| --- | --- | --- |\n| \`SelectTrigger\` | \`disabled\` | Disables only the trigger, the value stays submitted. |\n| \`SelectTrigger\` | \`class\` | Extra classes, typically the width. |\n| \`SelectContent\` | \`position\` | \`popper\` (default) or \`item-aligned\`. |\n| \`SelectContent\` | \`side\`, \`sideOffset\`, \`align\`, \`alignOffset\` | Placement of the dropdown against the trigger (\`popper\` only). |\n| \`SelectContent\` | \`avoidCollisions\` | Flip the dropdown when it would overflow the viewport. |\n| \`SelectContent\` | \`bodyLock\` | Lock body scroll while open, defaults to \`true\`. |\n| \`SelectContent\` | \`forceMount\` | Keep the content mounted while closed, for custom animations. |\n| \`SelectItem\` | \`value\` | Value written to the model, required. |\n| \`SelectItem\` | \`disabled\` | Makes the option unselectable. |\n| \`SelectItem\` | \`textValue\` | Typeahead text, needed when the option renders non-text content. |\n| \`SelectValue\` | \`placeholder\` | Shown while nothing is selected. |\n| \`SelectValue\` | \`maxDisplayed\` | With \`multiple\`, how many labels are listed before switching to a count. Defaults to \`2\`. |\n| \`SelectValue\` | \`formatSelected\` | Receives the count and returns the text, defaults to \`"3 selected"\` style. |\n| \`SelectValue\` | default slot | Custom rendering of the selected value, receives \`selectedLabel\` and \`modelValue\`. |\n\n<div style="display: flex; gap: 8px;">\n\n<a href="https://www.figma.com/design/kZqaOmwkPp8sjQpMeHR4nS/EDUC-UI-components?node-id=180-3086&t=Mkp3c5SrIIlNDlq2-4" target="_blank">\n  <img src="http://localhost:6006/src/stories/assets/buttons/figma-reference.png" alt="Figma reference" />\n</a>\n\n</div>\n        `,
       },
       source: {
         code: `<Select>
@@ -751,39 +756,21 @@ export const WithAvatars: Story = {
 
 export const Multiple: Story = {
   render: (args) => ({
-    components: {
-      Select,
-      SelectTrigger,
-      SelectContent,
-      SelectItem,
-      SelectValue,
-    },
+    components: { Select, SelectTrigger, SelectContent, SelectItem, SelectValue },
     setup() {
-      const value = ref<string[]>([])
+      const value = ref<string[]>(["apple", "banana", "cherry"])
       const options = [
         { value: "apple", label: "Apple" },
         { value: "banana", label: "Banana" },
         { value: "cherry", label: "Cherry" },
         { value: "date", label: "Date" },
       ]
-      const labels: Record<string, string> = options.reduce(
-        (acc, o) => {
-          acc[o.value] = o.label
-          return acc
-        },
-        {} as Record<string, string>,
-      )
-
-      return { args, value, options, labels }
+      return { args, value, options }
     },
     template: `
       <Select v-bind="args" v-model="value" multiple>
         <SelectTrigger class="w-[300px]">
-          <SelectValue :aria-label="value.join(', ')" placeholder="Select fruits">
-            <template v-if="value.length">
-              {{ value.map(v => labels[v]).join(', ') }}
-            </template>
-          </SelectValue>
+          <SelectValue placeholder="Select fruits" />
         </SelectTrigger>
         <SelectContent>
           <SelectItem v-for="opt in options" :key="opt.value" :value="opt.value">
@@ -797,30 +784,25 @@ export const Multiple: Story = {
     docs: {
       description: {
         story:
-          "Demonstrates multi-select using the `multiple` prop and `v-model` as an array, per Reka UI's Select API.",
+          'Multi-select using the `multiple` prop and `v-model` as an array. Up to `maxDisplayed` (default `2`) labels are listed, above that `SelectValue` shows a count such as "3 selected". Pass `formatSelected` to translate the text, or use the default slot for fully custom rendering.',
       },
       source: {
         code: `<script setup lang="ts">
 import { ref } from "vue"
 
-const value = ref<string[]>([])
+const value = ref<string[]>(["apple", "banana", "cherry"])
 const options = [
   { value: "apple", label: "Apple" },
   { value: "banana", label: "Banana" },
   { value: "cherry", label: "Cherry" },
   { value: "date", label: "Date" },
 ]
-const labels = Object.fromEntries(options.map((option) => [option.value, option.label]))
 </script>
 
 <template>
   <Select v-model="value" multiple>
     <SelectTrigger class="w-[300px]">
-      <SelectValue :aria-label="value.join(', ')" placeholder="Select fruits">
-        <template v-if="value.length">
-          {{ value.map((item) => labels[item]).join(", ") }}
-        </template>
-      </SelectValue>
+      <SelectValue placeholder="Select fruits" />
     </SelectTrigger>
     <SelectContent>
       <SelectItem v-for="option in options" :key="option.value" :value="option.value">
@@ -829,6 +811,49 @@ const labels = Object.fromEntries(options.map((option) => [option.value, option.
     </SelectContent>
   </Select>
 </template>`,
+      },
+    },
+  },
+}
+
+export const MultipleCustomCount: Story = {
+  render: (args) => ({
+    components: { Select, SelectTrigger, SelectContent, SelectItem, SelectValue },
+    setup() {
+      const value = ref<string[]>(["apple", "banana"])
+      const options = [
+        { value: "apple", label: "Apple" },
+        { value: "banana", label: "Banana" },
+        { value: "cherry", label: "Cherry" },
+        { value: "date", label: "Date" },
+      ]
+      const formatSelected = (count: number) => `${count} fruits chosen`
+      return { args, value, options, formatSelected }
+    },
+    template: `
+      <Select v-bind="args" v-model="value" multiple>
+        <SelectTrigger class="w-[300px]">
+          <SelectValue placeholder="Select fruits" :max-displayed="1" :format-selected="formatSelected" />
+        </SelectTrigger>
+        <SelectContent>
+          <SelectItem v-for="opt in options" :key="opt.value" :value="opt.value">
+            {{ opt.label }}
+          </SelectItem>
+        </SelectContent>
+      </Select>
+    `,
+  }),
+  parameters: {
+    docs: {
+      description: {
+        story: "`maxDisplayed` and `formatSelected` customise when and how the count is shown.",
+      },
+      source: {
+        code: `<SelectValue
+  placeholder="Select fruits"
+  :max-displayed="1"
+  :format-selected="(count) => \`\${count} fruits chosen\`"
+/>`,
       },
     },
   },
@@ -866,6 +891,29 @@ export const LongList: Story = {
   </SelectTrigger>
   <SelectContent class="max-h-64">
     <SelectItem v-for="year in years" :key="year" :value="year">{{ year }}</SelectItem>
+  </SelectContent>
+</Select>`,
+      },
+    },
+  },
+}
+
+export const Clearable: Story = {
+  args: {
+    clearable: true,
+    defaultValue: "banana",
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `<Select v-model="fruit" clearable @clear="onClear">
+  <SelectTrigger class="w-[300px]">
+    <SelectValue placeholder="Select a fruit" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana</SelectItem>
+    <SelectItem value="cherry">Cherry</SelectItem>
   </SelectContent>
 </Select>`,
       },

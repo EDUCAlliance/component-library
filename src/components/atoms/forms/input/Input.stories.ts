@@ -15,6 +15,11 @@ const meta = {
     },
     disabled: { control: "boolean", description: "Disabled state" },
     readonly: { control: "boolean", description: "Readonly state" },
+    clearable: {
+      control: "boolean",
+      description:
+        "Shows a clear button while the input has a value. Clicking it empties the value and emits `clear`.",
+    },
     class: { control: "text", description: "Additional classes for the input wrapper" },
   },
   render: (args) => ({
@@ -34,6 +39,7 @@ const meta = {
 Custom made for this library.
 
 - Supports prefix/suffix slots, label, helper, and all states.
+- Optional \`clearable\` prop with a \`clear\` event.
 - Fully accessible and keyboard-navigable.
 
 <div style="display: flex; gap: 8px;">
@@ -193,6 +199,28 @@ export const WithLabelAndHelper: Story = {
     Helper or error message here
   </template>
 </Input>`,
+      },
+    },
+  },
+}
+
+export const Clearable: Story = {
+  args: {
+    modelValue: "Clear me",
+    placeholder: "Type something",
+    clearable: true,
+  },
+  render: (args) => ({
+    components: { Input },
+    setup() {
+      return { args }
+    },
+    template: `<Input v-bind="args" class="w-[300px]" @clear="console.log('cleared')" />`,
+  }),
+  parameters: {
+    docs: {
+      source: {
+        code: `<Input v-model="value" clearable @clear="onClear" />`,
       },
     },
   },

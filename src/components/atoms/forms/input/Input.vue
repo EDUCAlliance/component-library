@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from "vue"
+import { computed, type HTMLAttributes } from "vue"
 import { cn } from "@/lib/utils"
 import { useVModel } from "@vueuse/core"
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome"
@@ -12,16 +12,32 @@ const props = defineProps<{
   disabled?: boolean
   readonly?: boolean
   placeholder?: string
+  clearable?: boolean
 }>()
 
 const emits = defineEmits<{
   (e: "update:modelValue", payload: string | number): void
+  (e: "clear"): void
 }>()
 
 const modelValue = useVModel(props, "modelValue", emits, {
   passive: true,
   defaultValue: props.defaultValue,
 })
+
+const showClear = computed(
+  () =>
+    props.clearable &&
+    !props.disabled &&
+    !props.readonly &&
+    modelValue.value !== undefined &&
+    modelValue.value !== "",
+)
+
+function clear() {
+  modelValue.value = ""
+  emits("clear")
+}
 
 const stateClasses = {
   default: "border-black-quinternary focus-within:border-black-primary",
@@ -79,7 +95,7 @@ const iconMap = {
           cn(
             'placeholder:text-black-sexternary h-10.5 flex-1 border-none bg-transparent px-0 py-3 text-sm shadow-none outline-none',
             $slots.prefix ? 'pl-2' : 'pl-4',
-            $slots.suffix || props.state !== 'default' ? 'pr-2' : 'pr-4',
+            $slots.suffix || showClear || props.state !== 'default' ? 'pr-2' : 'pr-4',
             props.disabled && 'text-black-quinternary cursor-not-allowed',
             props.readonly && 'cursor-default',
           )
@@ -88,6 +104,22 @@ const iconMap = {
         :aria-disabled="props.disabled ? 'true' : undefined"
         :aria-readonly="props.readonly ? 'true' : undefined"
       />
+
+      <button
+        v-if="showClear"
+        type="button"
+        aria-label="Clear"
+        :class="
+          cn(
+            'text-black-tertiary hover:text-black-primary flex cursor-pointer items-center pl-1',
+            $slots.suffix ? 'pr-1' : 'pr-3',
+            !$slots.suffix && props.state && props.state !== 'default' && 'mr-7',
+          )
+        "
+        @click="clear"
+      >
+        <FontAwesomeIcon :icon="['fas', 'xmark']" class="text-[14px]" />
+      </button>
 
       <!-- Suffix Slot -->
       <span
